@@ -1,0 +1,302 @@
+<section 
+
+  class="clean-text-section"
+
+  style="background-color: {{ section.settings.bg_color }};"
+>
+<div class="cts-container">
+ 
+    <!-- LEFT HEADING -->
+<div class="cts-left">
+<h2 style="color: {{ section.settings.heading_color }};">
+
+        {{ section.settings.heading }}
+</h2>
+</div>
+ 
+    <!-- RIGHT TEXT -->
+<div class="cts-right">
+<div class="cts-text" style="color: {{ section.settings.text_color }};">
+
+        {{ section.settings.text }}
+</div>
+</div>
+ 
+  </div>
+ 
+  <style>
+
+    .clean-text-section {
+
+      padding-left: 35px;
+
+      padding-right: 35px;
+ 
+      /* MOBILE DEFAULT */
+
+      padding-top: {{ section.settings.padding_top_mobile }}px;
+
+      padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+
+    }
+ 
+    .cts-container {
+
+      max-width: 1200px;
+
+      margin: auto;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: space-between;
+
+      gap: 40px;
+
+    }
+ 
+    .cts-left,
+
+    .cts-right {
+
+      width: 50%;
+
+    }
+ 
+    .cts-left h2 {
+
+      font-size: 52px;
+
+      text-transform: none;
+
+      font-weight: 900;
+
+      line-height: 1.2;
+
+      margin: 0;
+
+    }
+ 
+    .cts-text {
+
+      font-size: 24px;
+
+      line-height: 1.6;
+
+    }
+ 
+    /* MOBILE */
+
+    @media(max-width: 768px){
+
+      .cts-container {
+
+        flex-direction: column;
+
+        text-align: center;
+
+      }
+
+.cts-text {
+
+      font-size: 20px;
+
+      text-align:left;
+
+      line-height: 1.6;
+
+    }
+
+      .cts-left,
+
+      .cts-right {
+
+        width: 100%;
+
+      }
+ 
+      .cts-left h2 {
+
+        font-size: 28px;
+
+        text-align:left;
+
+      }
+
+    }
+ 
+    /* DESKTOP PADDING (NOW WORKS ✅) */
+
+    @media(min-width: 1000px){
+
+      .clean-text-section {
+
+        padding-top: {{ section.settings.padding_top_desktop }}px;
+
+        padding-bottom: {{ section.settings.padding_bottom_desktop }}px;
+
+      }
+
+    }
+</style>
+</section>
+ 
+{% schema %}
+
+{
+
+  "name": "Clean Text Split",
+
+  "settings": [
+
+    {
+
+      "type": "text",
+
+      "id": "heading",
+
+      "label": "Heading",
+
+      "default": "Clean Ingredients. Real Results."
+
+    },
+
+    {
+
+      "type": "richtext",
+
+      "id": "text",
+
+      "label": "Right Text",
+
+      "default": "<p>We use purposeful, skin-supporting ingredients...</p>"
+
+    },
+ 
+    {
+
+      "type": "color",
+
+      "id": "bg_color",
+
+      "label": "Background Color",
+
+      "default": "#0b3d1c"
+
+    },
+
+    {
+
+      "type": "color",
+
+      "id": "heading_color",
+
+      "label": "Heading Color",
+
+      "default": "#6EEB83"
+
+    },
+
+    {
+
+      "type": "color",
+
+      "id": "text_color",
+
+      "label": "Text Color",
+
+      "default": "#ffffff"
+
+    },
+ 
+    /* PADDING */
+
+    {
+
+      "type": "range",
+
+      "id": "padding_top_mobile",
+
+      "label": "Padding Top (Mobile)",
+
+      "min": 0,
+
+      "max": 120,
+
+      "step": 4,
+
+      "default": 40
+
+    },
+
+    {
+
+      "type": "range",
+
+      "id": "padding_bottom_mobile",
+
+      "label": "Padding Bottom (Mobile)",
+
+      "min": 0,
+
+      "max": 120,
+
+      "step": 4,
+
+      "default": 40
+
+    },
+
+    {
+
+      "type": "range",
+
+      "id": "padding_top_desktop",
+
+      "label": "Padding Top (Desktop)",
+
+      "min": 0,
+
+      "max": 200,
+
+      "step": 4,
+
+      "default": 80
+
+    },
+
+    {
+
+      "type": "range",
+
+      "id": "padding_bottom_desktop",
+
+      "label": "Padding Bottom (Desktop)",
+
+      "min": 0,
+
+      "max": 200,
+
+      "step": 4,
+
+      "default": 80
+
+    }
+
+  ],
+
+  "presets": [
+
+    {
+
+      "name": "Clean Text Split"
+
+    }
+
+  ]
+
+}
+
+{% endschema %}
+ 

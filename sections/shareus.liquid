@@ -1,0 +1,225 @@
+<section
+  class="benefits-section"
+  style="
+    padding-top: {{ section.settings.padding_top_mobile }}px;
+    padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+  "
+>
+<div class="bs-container">
+<div class="bs-left">
+      {% if section.settings.image != blank %}
+<img
+          src="{{ section.settings.image | img_url: 'master' }}"
+          alt="dog image"
+>
+      {% endif %}
+</div>
+<div class="bs-right">
+<h2>{{ section.settings.heading }}</h2>
+<div class="bs-list">
+        {{ section.settings.text }}
+</div>
+      {% if section.settings.button_text != blank %}
+<a href="{{ section.settings.button_link }}" class="bs-btn">
+          {{ section.settings.button_text }}
+</a>
+      {% endif %}
+</div>
+</div>
+<style>
+    .benefits-section {
+      padding-left: 16px;
+      padding-right: 16px;
+    }
+    .bs-container {
+      max-width: 1355px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      gap: 60px;
+    }
+    .bs-left,
+    .bs-right {
+      width: 50%;
+    }
+    .bs-left img {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 1 / 1; /* Ensures image stays a perfect circle when resizing */
+      border-radius: 279px;
+      object-fit: cover;
+    }
+    .bs-right h2 {
+      font-size: 52px;
+      font-weight: 900;
+      text-transform: none;
+      color: #155925;
+          margin-top: 0;
+      margin-bottom: 20px;
+      line-height: 1.2;
+    }
+    .bs-list {
+      font-size: 24px;
+      color: #092D12;
+      font-weight: 700;
+      margin-bottom: 25px;
+    }
+    .bs-list ul {
+      padding-left: 0;
+      list-style: none;
+    }
+    .bs-list li {
+      margin-bottom: 8px;
+      position: relative;
+      padding-left: 28px;
+    }
+    .bs-list li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: #79D052;
+      font-weight: bold;
+    }
+    .bs-btn {
+      display: inline-block;
+      padding: 9px 24px;
+      background: #155925;
+      color: #fff !important;
+      border-radius: 10px;
+      font-size: 20px;
+      text-decoration: none;
+      font-weight: 900;
+      max-width: 337px;
+      width: 100%;
+      text-align: center;
+    }
+   .bs-btn:hover {
+  background: #0f441c; 
+}
+    /* TABLET (1024px down to 769px) - Kept side-by-side! */
+    @media(max-width: 1024px){
+      .bs-container {
+        gap: 30px; /* Reduced gap so it fits nicely */
+      }
+      .bs-right h2 {
+        font-size: 36px; /* Scaled down slightly */
+        margin-bottom: 15px;
+      }
+      .bs-list {
+        font-size: 18px; /* Scaled down slightly */
+        margin-bottom: 20px;
+      }
+      .bs-btn {
+        font-size: 18px;
+        padding: 8px 20px;
+      }
+    }
+    /* MOBILE (768px and below) - Stacks vertically */
+    @media(max-width: 768px){
+      .bs-container {
+        flex-direction: column; /* Stack happens here now */
+        gap: 30px;
+      }
+      .bs-left {
+        width: 100%;
+      }
+      /* THE FIX: Limits the width and centers the text block under the image */
+      .bs-right {
+        width: 100%;
+        margin: 0 auto;
+      }
+      .bs-left img {
+        margin: 0 auto;
+        display: block;
+      }
+      .bs-right h2 {
+        font-size: 28px;
+        text-align: left;
+      }
+      .bs-list {
+        font-size: 20px;
+      }
+      .bs-list li {
+        text-align: left;
+        padding-left: 0;
+      }
+      .bs-list li::before {
+        position: static;
+        margin-right: 6px;
+      }
+      .bs-btn {
+        font-size: 16px;
+        padding: 12px 20px;
+        width: 100%;
+        text-align: center;
+      }
+    }
+    /* DESKTOP PADDING */
+    @media(min-width: 1000px){
+      .benefits-section {
+        padding-top: {{ section.settings.padding_top_desktop }}px;
+        padding-bottom: {{ section.settings.padding_bottom_desktop }}px;
+      }
+       .bs-left img {
+      max-height: 558px;
+    }
+    }
+</style>
+</section>
+{% schema %}
+{
+  "name": "Benefits Section",
+  "settings": [
+    { "type": "image_picker", "id": "image", "label": "Left Image" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "What You’ll Notice Right Away" },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "List Content",
+      "default": "<ul><li>Easier grooming = Less stress</li><li>Less itching and discomfort</li><li>Visible comfort after every use</li><li>Softer, shinier coat</li></ul>"
+    },
+    { "type": "text", "id": "button_text", "label": "Button Text", "default": "BUILD YOUR ROUTINE →" },
+    { "type": "url", "id": "button_link", "label": "Button Link" },
+    /* DYNAMIC PADDING */
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "label": "Padding Top (Mobile)",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "label": "Padding Bottom (Mobile)",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_top_desktop",
+      "label": "Padding Top (Desktop)",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "default": 100
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_desktop",
+      "label": "Padding Bottom (Desktop)",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "default": 100
+    }
+  ],
+  "presets": [
+    { "name": "Benefits Section" }
+  ]
+}
+{% endschema %}
