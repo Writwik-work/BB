@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "nx_bb_header": {
@@ -7,7 +16,6 @@
     "nx_bb_shop_hero": {
       "type": "nx-bb-shop-hero",
       "settings": {
-        "hero_image": null,
         "hero_kicker": "HOME / SHOP",
         "hero_heading": "SHOP ALL",
         "hero_subcopy": "From premium seasonings to expert tools, explore everything you need to butcher, grill, and cook like a pro."
@@ -15,11 +23,6 @@
     },
     "nx_bb_shop_grid": {
       "type": "nx-bb-shop-grid-v2",
-      "settings": {
-        "email_when_available_link": "",
-        "initial_count": 9,
-        "load_more_count": 6
-      },
       "blocks": {
         "filter_1": {
           "type": "filter_chip",
@@ -35,7 +38,6 @@
             "filter_value": "diy"
           }
         },
-
         "product_1": {
           "type": "product_card",
           "settings": {
@@ -94,7 +96,6 @@
             "tags": "seasonings,diy"
           }
         },
-
         "product_4": {
           "type": "product_card",
           "settings": {
@@ -227,12 +228,16 @@
         "product_7",
         "product_8",
         "product_9"
-      ]
+      ],
+      "settings": {
+        "email_when_available_link": "",
+        "initial_count": 9,
+        "load_more_count": 6
+      }
     },
     "nx_bb_guides_cta": {
       "type": "nx-bb-guides-cta",
       "settings": {
-        "background_image": null,
         "heading": "NEW TO BUTCHERING? CHECK OUT OUR GUIDES",
         "button_label": "LEARN MORE",
         "button_link": ""

@@ -1,10 +1,18 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "nx_bb_header": {
       "type": "nx-bb-header",
       "settings": {}
     },
-
     "nx_bb_shop_hero": {
       "type": "nx-bb-shop-hero",
       "settings": {
@@ -14,9 +22,75 @@
         "hero_subcopy": "Build your perfect snack bundle with our most popular snacks."
       }
     },
-
     "nx_bb_bundle_builder": {
       "type": "nx-bb-bundle-builder",
+      "blocks": {
+        "product_1": {
+          "type": "product",
+          "settings": {
+            "product": ""
+          }
+        },
+        "product_2": {
+          "type": "product",
+          "settings": {
+            "product": ""
+          }
+        },
+        "product_3": {
+          "type": "product",
+          "settings": {
+            "product": ""
+          }
+        },
+        "product_4": {
+          "type": "product",
+          "settings": {
+            "product": ""
+          }
+        },
+        "product_5": {
+          "type": "product",
+          "settings": {
+            "product": ""
+          }
+        },
+        "product_6": {
+          "type": "product",
+          "settings": {
+            "product": ""
+          }
+        },
+        "product_7": {
+          "type": "product",
+          "settings": {
+            "product": ""
+          }
+        },
+        "product_8": {
+          "type": "product",
+          "settings": {
+            "product": ""
+          }
+        },
+        "product_9": {
+          "type": "product",
+          "settings": {
+            "product": ""
+          }
+        }
+      },
+      "block_order": [
+        "product_1",
+        "product_2",
+        "product_3",
+        "product_4",
+        "product_5",
+        "product_6",
+        "product_7",
+        "product_8",
+        "product_9"
+      ],
       "settings": {
         "heading": "",
         "subheading": "",
@@ -29,57 +103,29 @@
         "padding_bottom_desktop": 40,
         "padding_top_mobile": 20,
         "padding_bottom_mobile": 28
-      },
-      "blocks": {
-        "product_1": { "type": "product", "settings": { "product": "" } },
-        "product_2": { "type": "product", "settings": { "product": "" } },
-        "product_3": { "type": "product", "settings": { "product": "" } },
-        "product_4": { "type": "product", "settings": { "product": "" } },
-        "product_5": { "type": "product", "settings": { "product": "" } },
-        "product_6": { "type": "product", "settings": { "product": "" } },
-        "product_7": { "type": "product", "settings": { "product": "" } },
-        "product_8": { "type": "product", "settings": { "product": "" } },
-        "product_9": { "type": "product", "settings": { "product": "" } }
-      },
-      "block_order": [
-        "product_1",
-        "product_2",
-        "product_3",
-        "product_4",
-        "product_5",
-        "product_6",
-        "product_7",
-        "product_8",
-        "product_9"
-      ]
+      }
     },
-
     "nx_bb_guides_cta": {
       "type": "nx-bb-guides-cta",
       "settings": {
-        "background_image": null,
         "heading": "MASTER THE ART OF SNACKING",
         "button_label": "LEARN MORE",
         "button_link": ""
       }
     },
-
     "nx_best_sellers": {
       "type": "nx-best-sellers",
       "settings": {}
     },
-
     "nx_bb_trust": {
       "type": "nx-bb-trust",
       "settings": {}
     },
-
     "nx_footer": {
       "type": "nx-bb-footer",
       "settings": {}
     }
   },
-
   "order": [
     "nx_bb_header",
     "nx_bb_shop_hero",

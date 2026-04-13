@@ -1,10 +1,16 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
-    "hero_section": { "type": "hero-section", "settings": {} },
-
     "nx_bb_header": {
       "type": "nx-bb-header",
-      "settings": {},
       "blocks": {
         "mega_shop": {
           "type": "mega_item",
@@ -24,14 +30,13 @@
             "bottom_bold_text": "Outlet",
             "bottom_bold_url": "/collections/outlet",
             "card_1_button_text": "SHOP NOW",
+            "card_2_button_text": "READ FULL ARTICLE",
             "card_1_title": "Shop Featured Collection",
             "card_1_link": "/collections/all",
-            "card_2_button_text": "READ FULL ARTICLE",
             "card_2_title": "Latest From The Butchers",
             "card_2_link": "/blogs/news"
           }
         },
-
         "mega_seasonings": {
           "type": "mega_item",
           "settings": {
@@ -50,14 +55,13 @@
             "bottom_bold_text": "Outlet",
             "bottom_bold_url": "/collections/outlet",
             "card_1_button_text": "SHOP NOW",
+            "card_2_button_text": "READ FULL ARTICLE",
             "card_1_title": "11 PACK OF SEASONING SHAKERS",
             "card_1_link": "/collections/seasonings-sauces",
-            "card_2_button_text": "READ FULL ARTICLE",
             "card_2_title": "THE ULTIMATE STEAK RUB: OUR BEST STEAK SEASONING",
             "card_2_link": "/blogs/news"
           }
         },
-
         "mega_diy": {
           "type": "mega_item",
           "settings": {
@@ -76,14 +80,13 @@
             "bottom_bold_text": "Outlet",
             "bottom_bold_url": "/collections/outlet",
             "card_1_button_text": "SHOP NOW",
+            "card_2_button_text": "READ FULL ARTICLE",
             "card_1_title": "DIY Processing Essentials",
             "card_1_link": "/collections/diy-processing",
-            "card_2_button_text": "READ FULL ARTICLE",
             "card_2_title": "How To Process Like A Pro",
             "card_2_link": "/blogs/news"
           }
         },
-
         "mega_snacks": {
           "type": "mega_item",
           "settings": {
@@ -102,14 +105,13 @@
             "bottom_bold_text": "Outlet",
             "bottom_bold_url": "/collections/outlet",
             "card_1_button_text": "SHOP NOW",
+            "card_2_button_text": "READ FULL ARTICLE",
             "card_1_title": "Snack Best Sellers",
             "card_1_link": "/collections/snacks",
-            "card_2_button_text": "READ FULL ARTICLE",
             "card_2_title": "Top Snack Picks",
             "card_2_link": "/blogs/news"
           }
         },
-
         "mega_cutlery": {
           "type": "mega_item",
           "settings": {
@@ -128,14 +130,13 @@
             "bottom_bold_text": "Outlet",
             "bottom_bold_url": "/collections/outlet",
             "card_1_button_text": "SHOP NOW",
+            "card_2_button_text": "READ FULL ARTICLE",
             "card_1_title": "Featured Knife Set",
             "card_1_link": "/collections/cutlery",
-            "card_2_button_text": "READ FULL ARTICLE",
             "card_2_title": "Knife Care & Sharpening Tips",
             "card_2_link": "/blogs/news"
           }
         },
-
         "mega_grilling": {
           "type": "mega_item",
           "settings": {
@@ -154,14 +155,13 @@
             "bottom_bold_text": "Outlet",
             "bottom_bold_url": "/collections/outlet",
             "card_1_button_text": "SHOP NOW",
+            "card_2_button_text": "READ FULL ARTICLE",
             "card_1_title": "Grilling Essentials",
             "card_1_link": "/collections/grilling-accessories",
-            "card_2_button_text": "READ FULL ARTICLE",
             "card_2_title": "Grilling Like A Pro",
             "card_2_link": "/blogs/news"
           }
         },
-
         "mega_apparel": {
           "type": "mega_item",
           "settings": {
@@ -180,14 +180,13 @@
             "bottom_bold_text": "Outlet",
             "bottom_bold_url": "/collections/outlet",
             "card_1_button_text": "SHOP NOW",
+            "card_2_button_text": "READ FULL ARTICLE",
             "card_1_title": "Featured Apparel Drop",
             "card_1_link": "/collections/apparel",
-            "card_2_button_text": "READ FULL ARTICLE",
             "card_2_title": "Behind The Brand",
             "card_2_link": "/blogs/news"
           }
         },
-
         "mega_meatshop": {
           "type": "mega_item",
           "settings": {
@@ -206,14 +205,13 @@
             "bottom_bold_text": "Outlet",
             "bottom_bold_url": "/collections/outlet",
             "card_1_button_text": "SHOP NOW",
+            "card_2_button_text": "READ FULL ARTICLE",
             "card_1_title": "Featured Meat Bundle",
             "card_1_link": "/collections/meat-shop",
-            "card_2_button_text": "READ FULL ARTICLE",
             "card_2_title": "Cooking Guides & Tips",
             "card_2_link": "/blogs/news"
           }
         },
-
         "mega_learn": {
           "type": "mega_item",
           "settings": {
@@ -232,9 +230,9 @@
             "bottom_bold_text": "Outlet",
             "bottom_bold_url": "/collections/outlet",
             "card_1_button_text": "READ FULL ARTICLE",
+            "card_2_button_text": "READ FULL ARTICLE",
             "card_1_title": "8 GRILLING TOOLS YOU NEED FOR OUTDOOR COOKING",
             "card_1_link": "/blogs/news",
-            "card_2_button_text": "READ FULL ARTICLE",
             "card_2_title": "A BUTCHER'S GUIDE TO PREPARING AND COOKING AN ENTIRE BEEF TENDERLOIN",
             "card_2_link": "/blogs/news"
           }
@@ -250,22 +248,146 @@
         "mega_apparel",
         "mega_meatshop",
         "mega_learn"
-      ]
+      ],
+      "settings": {
+        "announcement_text": "NON-PERISHABLES FREE SHIPPING OVER $79, PERISHABLES FREE SHIPPING OVER $199",
+        "search_placeholder": "What are you looking for?",
+        "menu": ""
+      }
     },
-
-    "nx_bb_chopping_board": { "type": "nx-bb-chopping-board", "settings": {} },
-    "nx_category_grid": { "type": "nx-category-grid", "settings": {} },
-    "nx_best_sellers": { "type": "nx-best-sellers", "settings": {} },
-    "nx_bb_trust": { "type": "nx-bb-trust", "settings": {} },
-    "nx_bb_snack": { "type": "nx-bb-snack", "settings": {} },
-    "nx_bb_certified": { "type": "nx-bb-certified", "settings": {} },
-    "nx_bb_youtube": { "type": "nx-bb-youtube", "settings": {} },
-    "nx_bb_reels": { "type": "nx-bb-reels", "settings": {} },
-    "nx_bb_bbq": { "type": "nx-bb-bbq", "settings": {} },
-    "nx_bb_article": { "type": "nx-bb-article", "settings": {} },
-    "nx_bb_review": { "type": "nx-bb-review", "settings": {} },
-    "nx_bb_knifes": { "type": "nx-bb-knifes", "settings": {} },
-    "nx_footer": { "type": "nx-bb-footer", "settings": {} }
+    "hero_section": {
+      "type": "hero-section",
+      "settings": {
+        "heading": "ELEVATE THE MEAT EXPERIENCE",
+        "primary_label": "SHOP",
+        "primary_link": "https://bearded-butchers.myshopify.com/pages/contact?view=nx-bb-shop-all",
+        "secondary_label": "LEARN",
+        "secondary_link": ""
+      }
+    },
+    "nx_best_sellers": {
+      "type": "nx-best-sellers",
+      "settings": {
+        "shop_all_link": ""
+      }
+    },
+    "nx_category_grid": {
+      "type": "nx-category-grid",
+      "settings": {
+        "heading": "FIND EXACTLY WHAT YOU NEED",
+        "title_1": "SEASONINGS & SAUCES",
+        "subtitle_1": "Bold flavors, clean ingredients.",
+        "link_1": "https://bearded-butchers.myshopify.com/products/jalapeno-cheddar-bratwurst-diy-kit?view=jalapeno-diy-kit",
+        "title_2": "DIY PROCESSING",
+        "subtitle_2": "Butcher, cure, and process at home.",
+        "link_2": "https://bearded-butchers.myshopify.com/products/jalapeno-cheddar-beef-sticks-3-5oz?view=beef-sticks",
+        "title_3": "SNACKS",
+        "subtitle_3": "Handcrafted jerky & meat sticks.",
+        "link_3": "https://bearded-butchers.myshopify.com/products/dry-aged-ground-beef-burger-and-patties-bundle?view=beef-sticks",
+        "title_4": "CUTLERY",
+        "subtitle_4": "Precision knives for every cut.",
+        "link_4": "https://bearded-butchers.myshopify.com/products/victorinox-rosewood-handle-boning-knife?view=boning-knife",
+        "title_5": "GRILLING & ACCESSORIES",
+        "subtitle_5": "Tools & gear for the perfect cook.",
+        "link_5": "https://bearded-butchers.myshopify.com/products/essential-grilling-accessories?view=essential-grill-accessories",
+        "title_6": "APPAREL",
+        "subtitle_6": "Wear the brand. Live the craft.",
+        "link_6": "",
+        "title_7": "MEAT SHOP",
+        "subtitle_7": "Premium cuts, expertly sourced.",
+        "link_7": "shopify://products/jalapeno-cheddar-beef-sticks-3-5oz",
+        "cta_label": "SHOP ALL",
+        "cta_link": "https://bearded-butchers.myshopify.com/pages/contact?view=nx-bb-shop-all"
+      }
+    },
+    "nx_bb_trust": {
+      "type": "nx-bb-trust",
+      "settings": {}
+    },
+    "nx_bb_snack": {
+      "type": "nx-bb-snack",
+      "settings": {}
+    },
+    "nx_bb_knifes": {
+      "type": "nx-bb-knifes",
+      "settings": {
+        "heading": "BUTCHER LIKE A PRO – THE RIGHT TOOLS FOR THE JOB",
+        "shop_all_link": "",
+        "shop_all_text": "SHOP ALL",
+        "hero_alt": "Butcher tools hero image"
+      }
+    },
+    "nx_bb_chopping_board": {
+      "type": "nx-bb-chopping-board",
+      "settings": {
+        "cta_label": "SHOP SEASONINGS & SAUCES",
+        "cta_link": "shopify://products/black-blend-seasoning"
+      }
+    },
+    "nx_bb_bbq": {
+      "type": "nx-bb-bbq",
+      "settings": {
+        "heading": "GRILL LIKE A PRO – TOOLS FOR THE PERFECT COOK",
+        "shop_all_label": "SHOP ALL",
+        "shop_all_link": "https://bearded-butchers.myshopify.com/pages/contact?view=nx-bb-bundle",
+        "title_1": "GRILLING GURU BBQ BUNDLE",
+        "price_1": "$349.00",
+        "compare_price_1": "$349.00",
+        "reviews_text_1": "29 Reviews",
+        "title_2": "PITMASTER PRO BBQ BUNDLE",
+        "price_2": "$349.00",
+        "compare_price_2": "$349.00",
+        "reviews_text_2": "29 Reviews",
+        "title_3": "BACKYARD BBQ'ER BUNDLE",
+        "price_3": "$349.00",
+        "compare_price_3": "$349.00",
+        "reviews_text_3": "29 Reviews"
+      }
+    },
+    "nx_bb_review": {
+      "type": "nx-bb-review",
+      "settings": {
+        "heading": "REVIEWS FROM BUTCHERS & GRILLMASTERS"
+      }
+    },
+    "nx_bb_article": {
+      "type": "nx-bb-article",
+      "settings": {
+        "heading": "LEARN, COOK, AND MASTER THE CRAFT",
+        "view_all_label": "VIEW ALL",
+        "view_all_link": "https://bearded-butchers.myshopify.com/pages/contact?view=blog"
+      }
+    },
+    "nx_bb_youtube": {
+      "type": "nx-bb-youtube",
+      "settings": {
+        "heading": "WATCH SCOTT & SETH - BUTCHERING, GRILLING & EXPERT TIPS",
+        "body": "<p>We have hundreds of videos and shorts covering everything from <strong>butchering to cooking</strong>—both commercially and at home. Learn how to <strong>cut, process, cure, and preserve meat</strong>, and master cooking on the <strong>grill, oven, smoker, or open fire.</strong></p>",
+        "cta_label": "Visit YouTube Channel",
+        "cta_link": ""
+      }
+    },
+    "nx_bb_reels": {
+      "type": "nx-bb-reels",
+      "settings": {
+        "heading": "CHECK OUT OUR LATEST REELS"
+      }
+    },
+    "nx_bb_certified": {
+      "type": "nx-bb-certified",
+      "settings": {}
+    },
+    "nx_footer": {
+      "type": "nx-bb-footer",
+      "settings": {
+        "col1_heading": "STAY CONNECTED",
+        "col1_text": "Get exclusive deals, new products, expert tips, and mouthwatering recipes from Scott & Seth.",
+        "col2_heading": "LEARN",
+        "col3_heading": "BUSINESS & RETAIL",
+        "col4_heading": "CUSTOMER SUPPORT",
+        "bottom_text": "All rights reserved"
+      }
+    }
   },
   "order": [
     "nx_bb_header",

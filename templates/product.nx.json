@@ -1,34 +1,62 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "nx_main": {
       "type": "nx-product-main",
+      "blocks": {
+        "b1": {
+          "type": "accordion",
+          "settings": {
+            "title": "Description",
+            "content_source": "description"
+          }
+        },
+        "b2": {
+          "type": "accordion",
+          "settings": {
+            "title": "Gluten Free",
+            "content_source": "metafield",
+            "metafield_key": "custom.gluten_free"
+          }
+        },
+        "b3": {
+          "type": "accordion",
+          "settings": {
+            "title": "Ingredients",
+            "content_source": "metafield",
+            "metafield_key": "custom.ingredients"
+          }
+        },
+        "b4": {
+          "type": "accordion",
+          "settings": {
+            "title": "Watch & Learn",
+            "content_source": "metafield",
+            "metafield_key": "custom.watch_and_learn"
+          }
+        }
+      },
+      "block_order": [
+        "b1",
+        "b2",
+        "b3",
+        "b4"
+      ],
       "settings": {
         "show_breadcrumbs": true,
         "show_vendor": true,
         "show_rating": true,
         "show_trust_icons": true
-      },
-      "blocks": {
-        "b1": {
-          "type": "accordion",
-          "settings": { "title": "Description", "content_source": "description" }
-        },
-        "b2": {
-          "type": "accordion",
-          "settings": { "title": "Gluten Free", "content_source": "metafield", "metafield_key": "custom.gluten_free" }
-        },
-        "b3": {
-          "type": "accordion",
-          "settings": { "title": "Ingredients", "content_source": "metafield", "metafield_key": "custom.ingredients" }
-        },
-        "b4": {
-          "type": "accordion",
-          "settings": { "title": "Watch & Learn", "content_source": "metafield", "metafield_key": "custom.watch_and_learn" }
-        }
-      },
-      "block_order": ["b1", "b2", "b3", "b4"]
+      }
     },
-
     "nx_bundle": {
       "type": "nx-product-bundle-strip",
       "settings": {
@@ -37,17 +65,10 @@
         "button_link": "/collections/all"
       }
     },
-
     "nx_reviews": {
       "type": "apps",
-      "blocks": {
-        "app_reviews": {
-          "type": "shopify://apps/*/blocks/*"
-        }
-      },
-      "block_order": ["app_reviews"]
+      "settings": {}
     },
-
     "nx_related": {
       "type": "nx-product-related",
       "settings": {
@@ -61,5 +82,11 @@
       "settings": {}
     }
   },
-  "order": ["nx_main", "nx_bundle", "nx_reviews", "nx_related","nx_footer"]
+  "order": [
+    "nx_main",
+    "nx_bundle",
+    "nx_reviews",
+    "nx_related",
+    "nx_footer"
+  ]
 }

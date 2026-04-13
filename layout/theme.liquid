@@ -6,8 +6,6 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="theme-color" content="">
     <link rel="canonical" href="{{ canonical_url }}">
-    {{ 'base.css' | asset_url | stylesheet_tag }}
-
 
     {%- if settings.favicon != blank -%}
       <link rel="icon" type="image/png" href="{{ settings.favicon | image_url: width: 32, height: 32 }}">
@@ -28,7 +26,7 @@
       <meta name="description" content="{{ page_description | escape }}">
     {% endif %}
 
-    {% comment %} {%- render 'meta-tags' -%} {% endcomment %}
+    {% render 'meta-tags' %}
 
     <script src="{{ 'constants.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'pubsub.js' | asset_url }}" defer="defer"></script>
@@ -47,7 +45,7 @@
       assign body_font_bold = settings.type_body_font | font_modify: 'weight', 'bold'
       assign body_font_italic = settings.type_body_font | font_modify: 'style', 'italic'
       assign body_font_bold_italic = body_font_bold | font_modify: 'style', 'italic'
-    -%}
+    %}
 
     {% style %}
       {{ settings.type_body_font | font_face: font_display: 'swap' }}
@@ -309,10 +307,7 @@
       {%- render 'cart-drawer' -%}
     {%- endif -%}
 
-    {%- comment -%}
-      Use custom NX header globally instead of Dawn's header-group
-    {%- endcomment -%}
-    {% comment %} {% section 'nx-bb-header' %} {% endcomment %}
+    {% sections 'header-group' %}
 
     <main id="MainContent" class="content-for-layout focus-none" role="main" tabindex="-1">
       {{ content_for_layout }}

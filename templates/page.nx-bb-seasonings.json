@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "nx_bb_header": {
@@ -7,7 +16,6 @@
     "nx_bb_shop_hero": {
       "type": "nx-bb-shop-hero",
       "settings": {
-        "hero_image": null,
         "hero_kicker": "HOME / SHOP",
         "hero_heading": "SEASONINGS & SAUCES",
         "hero_subcopy": "Premium seasonings and sauces to level up every cook."
@@ -24,7 +32,6 @@
     "nx_bb_guides_cta": {
       "type": "nx-bb-guides-cta",
       "settings": {
-        "background_image": null,
         "heading": "NEW TO BUTCHERING? CHECK OUT OUR GUIDES",
         "button_label": "LEARN MORE",
         "button_link": ""
@@ -35,9 +42,9 @@
       "settings": {
         "heading": "SHOP OUR BEST SELLING SEASONINGS",
         "subcopy": "Customer favorites that deliver big flavor every time.",
+        "bg_color": "#0b0b0b",
         "button_label": "SHOP ALL SEASONINGS",
         "button_link": "/collections/seasonings",
-        "bg_color": "#0b0b0b",
         "padding_top_desktop": 64,
         "padding_bottom_desktop": 64,
         "padding_top_mobile": 40,
