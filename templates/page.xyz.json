@@ -1,0 +1,78 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "settings": {
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "shareus_qJYW4h": {
+      "type": "shareus",
+      "name": "Benefits Section",
+      "settings": {
+        "heading": "What You’ll Notice Right Away",
+        "text": "<ul><li>Easier grooming = Less stress</li><li>Less itching and discomfort</li><li>Visible comfort after every use</li><li>Softer, shinier coat</li></ul>",
+        "button_text": "BUILD YOUR ROUTINE →",
+        "button_link": "",
+        "padding_top_mobile": 40,
+        "padding_bottom_mobile": 40,
+        "padding_top_desktop": 100,
+        "padding_bottom_desktop": 100
+      }
+    },
+    "hero_text_image_Wy69Cb": {
+      "type": "hero-text-image",
+      "name": "Hero - text with image",
+      "settings": {
+        "heading": "Join the Movement to Unbottle Laundry",
+        "subheading": "Every wash matters. Ditch plastic bottles, protect the planet, and experience a cleaner, simpler way to do laundry — powered by nature and proven by science.",
+        "primary_button_label": "Shop Now",
+        "primary_button_link": "",
+        "secondary_button_label": "For Wholesale Buyers",
+        "secondary_button_link": "",
+        "section_bg": "#FDF7EE",
+        "heading_color": "#3c572a",
+        "text_color": "#000000",
+        "primary_button_bg": "#31542B",
+        "primary_button_bg_hover": "#274422",
+        "primary_button_text": "#FFFFFF",
+        "secondary_button_text": "#31542B",
+        "padding_top_desktop": 80,
+        "padding_bottom_desktop": 80,
+        "padding_top_mobile": 48,
+        "padding_bottom_mobile": 48
+      }
+    },
+    "moneyback_UEGUXa": {
+      "type": "moneyback",
+      "name": "Money Back Guarantee",
+      "settings": {
+        "bg_color": "#ffffff",
+        "title": "90 Day Money Back Guarantee",
+        "title_color": "#155925",
+        "text": "<p>We’re so confident you’ll love how Ruff Naturals™ cares for your dog's skin and coat that every purchase is backed by our full <strong>90-Day Money Back Guarantee</strong>. If for any reason you’re not completely satisfied—whether it’s the feel of their coat, the freshness, or the results on sensitive skin—you can return it, no questions asked.</p><p>With <strong>Ruff Naturals™</strong>, you have nothing to lose and your dog has healthier skin, a softer coat, and long-lasting comfort to gain.</p>",
+        "image_zoom": 1.2,
+        "padding_top_desktop": 80,
+        "padding_bottom_desktop": 80,
+        "padding_top_mobile": 40,
+        "padding_bottom_mobile": 40
+      }
+    }
+  },
+  "order": [
+    "main",
+    "shareus_qJYW4h",
+    "hero_text_image_Wy69Cb",
+    "moneyback_UEGUXa"
+  ]
+}
