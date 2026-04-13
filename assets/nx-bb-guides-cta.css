@@ -1,0 +1,54 @@
+.nx-bb-guides-cta {
+  position: relative;
+  overflow: hidden
+}
+.nx-bb-guides-cta__bg img {
+  display: block;
+  width: 100%;
+  height: 260px;
+  object-fit: cover
+}
+.nx-bb-guides-cta__overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center
+}
+.nx-bb-guides-cta__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  color: #fff
+}
+.nx-bb-guides-cta__kicker {
+  margin: 0 0 8px;
+  font-family: "Barlow Condensed",sans-serif;
+  font-size: 14px;
+  letter-spacing: .12em;
+  text-transform: uppercase
+}
+.nx-bb-guides-cta__heading {
+  margin: 0 0 16px;
+  font-family: "Bebas Neue",sans-serif;
+  font-weight: 400;
+  font-size: 28px;
+  color: #fff;
+  letter-spacing: .12em
+}
+.nx-bb-guides-cta__btn {
+  margin-top: 4px;
+  max-width: 100%;
+  width: 117px;
+  font-family: Bebas Neue;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 140%;
+  text-transform: uppercase
+}
+@media (max-width:768px) {
+  .nx-bb-guides-cta__bg img {
+    height: 220px
+  }
+}

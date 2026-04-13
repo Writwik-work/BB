@@ -1,0 +1,235 @@
+{{ 'nx-bb-knifes.css' | asset_url | stylesheet_tag }}
+
+<section id="section-{{ section.id }}" class="nx-bb-knifes">
+  <div class="page-width nx-bb-knifes__inner">
+
+    <!-- Top Heading Row -->
+    <div class="nx-bb-knifes__top">
+      <h2 class="nx-bb-knifes__heading">
+        {{ section.settings.heading }}
+      </h2>
+
+      {% if section.settings.shop_all_link != blank %}
+        <a href="{{ section.settings.shop_all_link }}" class="nx-bb-knifes__shop-all">
+          {{ section.settings.shop_all_text }}
+        </a>
+      {% endif %}
+    </div>
+
+    <!-- Main Layout -->
+    <div class="nx-bb-knifes__content">
+
+      <!-- HERO IMAGE -->
+      <div class="nx-bb-knifes__hero">
+        <img
+          src="{{ 'knifes/knife-1.png' | asset_url }}"
+          alt="{{ section.settings.hero_alt | default: section.settings.heading }}"
+          loading="lazy"
+        >
+      </div>
+
+      <!-- PRODUCT SCROLLER -->
+      <div class="nx-bb-knifes__products">
+
+        <div class="nx-bb-knifes__scroller-wrapper">
+          <div class="nx-bb-knifes__scroller" data-knifes-scroller>
+
+            <!-- CARD 1 -->
+            <article class="nx-bb-knifes__card nx-bb-knifes__card--active">
+
+              <div class="nx-bb-knifes__card-media">
+                <img src="{{ 'knifes/knife-2.png' | asset_url }}" alt="Knife 1" loading="lazy">
+                <div class="nx-bb-knifes__image-dots">
+                  <span class="is-active"></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </div>
+              </div>
+
+              <div class="nx-bb-knifes__card-body">
+                <p class="nx-bb-knifes__brand">The Bearded Butchers</p>
+                <h3 class="nx-bb-knifes__title">
+                  VICTORINOX 6" ROSEWOOD HANDLE BONING KNIFE W/ LOGO
+                </h3>
+
+                <div class="nx-bb-knifes__rating-row">
+                  <div class="nx-bb-knifes__stars">
+                    <span class="is-active">★</span>
+                    <span class="is-active">★</span>
+                    <span class="is-active">★</span>
+                    <span class="is-active">★</span>
+                    <span class="is-active">★</span>
+                  </div>
+                  <span class="nx-bb-knifes__reviews">29 Reviews</span>
+                </div>
+
+                <div class="nx-bb-knifes__price-row">
+                  <span class="nx-bb-knifes__price">$349.00</span>
+                  <span class="nx-bb-knifes__compare">$349.00</span>
+                </div>
+              </div>
+
+            </article>
+
+            <!-- CARD 2 -->
+            <article class="nx-bb-knifes__card">
+
+              <div class="nx-bb-knifes__card-media">
+                <img src="{{ 'knifes/knife-3.png' | asset_url }}" alt="Knife 2" loading="lazy">
+                <div class="nx-bb-knifes__image-dots">
+                  <span class="is-active"></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </div>
+              </div>
+
+              <div class="nx-bb-knifes__card-body">
+                <p class="nx-bb-knifes__brand">The Bearded Butchers</p>
+                <h3 class="nx-bb-knifes__title">
+                  "SETH'S FAVORITE" CUTLERY KIT
+                </h3>
+
+                <div class="nx-bb-knifes__rating-row">
+                  <div class="nx-bb-knifes__stars">
+                    <span class="is-active">★</span>
+                    <span class="is-active">★</span>
+                    <span class="is-active">★</span>
+                    <span class="is-active">★</span>
+                    <span class="is-active">★</span>
+                  </div>
+                  <span class="nx-bb-knifes__reviews">29 Reviews</span>
+                </div>
+
+                <div class="nx-bb-knifes__price-row">
+                  <span class="nx-bb-knifes__price">$349.00</span>
+                  <span class="nx-bb-knifes__compare">$349.00</span>
+                </div>
+              </div>
+
+            </article>
+
+            <!-- CARD 3 -->
+            <article class="nx-bb-knifes__card">
+
+              <div class="nx-bb-knifes__card-media">
+                <img src="{{ 'knifes/knife-3.png' | asset_url }}" alt="Knife 3" loading="lazy">
+                <div class="nx-bb-knifes__image-dots">
+                  <span class="is-active"></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </div>
+              </div>
+
+              <div class="nx-bb-knifes__card-body">
+                <p class="nx-bb-knifes__brand">The Bearded Butchers</p>
+                <h3 class="nx-bb-knifes__title">PRO BUTCHER'S KNIFE</h3>
+
+                <div class="nx-bb-knifes__rating-row">
+                  <div class="nx-bb-knifes__stars">
+                    <span class="is-active">★</span>
+                    <span class="is-active">★</span>
+                    <span class="is-active">★</span>
+                    <span class="is-active">★</span>
+                    <span class="is-active">★</span>
+                  </div>
+                  <span class="nx-bb-knifes__reviews">18 Reviews</span>
+                </div>
+
+                <div class="nx-bb-knifes__price-row">
+                  <span class="nx-bb-knifes__price">$329.00</span>
+                  <span class="nx-bb-knifes__compare">$359.00</span>
+                </div>
+              </div>
+
+            </article>
+
+          </div>
+        </div>
+
+        <!-- ONLY NEXT BUTTON -->
+        <button
+          class="nx-bb-knifes__nav nx-bb-knifes__nav--next"
+          type="button"
+          aria-label="Next products"
+          data-knifes-next
+        >
+          ›
+        </button>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- JS -->
+  <script>
+    (function () {
+      var root = document.getElementById('section-{{ section.id }}');
+      if (!root) return;
+
+      var scroller = root.querySelector('[data-knifes-scroller]');
+      if (!scroller) return;
+
+      var nextBtn = root.querySelector('[data-knifes-next]');
+      var card = scroller.querySelector('.nx-bb-knifes__card');
+
+      function getStep() {
+        if (!card) return 320;
+        var style = window.getComputedStyle(scroller);
+        var gap = parseFloat(style.columnGap || style.gap || '24') || 24;
+        return card.getBoundingClientRect().width + gap;
+      }
+
+      function scrollNext() {
+        var step = getStep();
+        scroller.scrollBy({ left: step, behavior: "smooth" });
+      }
+
+      if (nextBtn) {
+        nextBtn.addEventListener("click", scrollNext);
+      }
+    })();
+  </script>
+</section>
+
+{% schema %}
+{
+  "name": "NX – BB Knifes",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "BUTCHER LIKE A PRO – THE RIGHT TOOLS FOR THE JOB"
+    },
+    {
+      "type": "url",
+      "id": "shop_all_link",
+      "label": "Shop all link"
+    },
+    {
+      "type": "text",
+      "id": "shop_all_text",
+      "label": "Shop all text",
+      "default": "SHOP ALL"
+    },
+    {
+      "type": "text",
+      "id": "hero_alt",
+      "label": "Hero image alt",
+      "default": "Butcher tools hero image"
+    }
+  ],
+  "presets": [
+    {
+      "name": "NX – BB Knifes",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}

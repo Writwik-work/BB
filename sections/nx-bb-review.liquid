@@ -1,0 +1,245 @@
+{{ 'nx-bb-review.css' | asset_url | stylesheet_tag }}
+
+<section id="section-{{ section.id }}" class="nx-section nx-bb-review">
+  <div class="container">
+    <h2 class="nx-bb-review__heading">
+      {{ section.settings.heading }}
+    </h2>
+
+    <!-- arrows -->
+    <button
+      class="nx-bb-review__arrow nx-bb-review__arrow--prev"
+      type="button"
+      aria-label="Previous"
+      data-review-prev
+    >
+      ‹
+    </button>
+    <button
+      class="nx-bb-review__arrow nx-bb-review__arrow--next"
+      type="button"
+      aria-label="Next"
+      data-review-next
+    >
+      ›
+    </button>
+
+    <!-- slider -->
+    <div class="nx-bb-review__slider" data-review-slider>
+
+      <!-- CARD 1 -->
+      <article class="nx-bb-review__card is-active">
+        <header class="nx-bb-review__card-header">
+          <span class="nx-bb-review__label">RATING</span>
+          <div class="nx-bb-review__stars">
+            <span class="nx-bb-review__star is-active">★</span>
+            <span class="nx-bb-review__star is-active">★</span>
+            <span class="nx-bb-review__star is-active">★</span>
+            <span class="nx-bb-review__star is-active">★</span>
+            <span class="nx-bb-review__star is-active">★</span>
+          </div>
+        </header>
+
+        <div class="nx-bb-review__body">
+          <div class="nx-bb-review__row nx-bb-review__row--review">
+            <span class="nx-bb-review__label">REVIEW</span>
+            <h3 class="nx-bb-review__title">A Butcher’s Dream Knife</h3>
+            <p class="nx-bb-review__text">
+              These knives are razor-sharp and durable. Butchering has never been this easy!
+            </p>
+          </div>
+
+          <div class="nx-bb-review__row nx-bb-review__row--name">
+            <span class="nx-bb-review__label">NAME</span>
+            <p class="nx-bb-review__name">Mark R.</p>
+          </div>
+
+          <div class="nx-bb-review__row nx-bb-review__row--product">
+            <div class="nx-bb-review__product-media">
+              <img
+                src="{{ 'review/black.png' | asset_url }}"
+                alt="Knife"
+                width="220"
+                height="220"
+                loading="lazy"
+              >
+            </div>
+
+            <div class="nx-bb-review__product-info">
+              <p class="nx-bb-review__product-brand">The Bearded Butchers</p>
+              <p class="nx-bb-review__product-title">VICTORINOX 6&quot; FIBROX BONING KNIFE</p>
+
+              <div class="nx-bb-review__price-row">
+                <span class="nx-bb-review__price">$349.00</span>
+                <span class="nx-bb-review__compare">$349.00</span>
+              </div>
+            </div>
+          </div>
+
+          <a href="/cart" class="btn btn--primary nx-bb-review__btn">ADD TO CART</a>
+        </div>
+      </article>
+
+      <!-- CARD 2 -->
+      <article class="nx-bb-review__card">
+        <header class="nx-bb-review__card-header">
+          <span class="nx-bb-review__label">RATING</span>
+          <div class="nx-bb-review__stars">
+            <span class="nx-bb-review__star is-active">★</span>
+            <span class="nx-bb-review__star is-active">★</span>
+            <span class="nx-bb-review__star is-active">★</span>
+            <span class="nx-bb-review__star is-active">★</span>
+            <span class="nx-bb-review__star is-active">★</span>
+          </div>
+        </header>
+
+        <div class="nx-bb-review__body">
+          <div class="nx-bb-review__row nx-bb-review__row--review">
+            <span class="nx-bb-review__label">REVIEW</span>
+            <h3 class="nx-bb-review__title">Precision in Every Cut</h3>
+            <p class="nx-bb-review__text">
+              Perfect balance and control — exactly what I need every day.
+            </p>
+          </div>
+
+          <div class="nx-bb-review__row nx-bb-review__row--name">
+            <span class="nx-bb-review__label">NAME</span>
+            <p class="nx-bb-review__name">Sarah D.</p>
+          </div>
+
+          <div class="nx-bb-review__row nx-bb-review__row--product">
+            <div class="nx-bb-review__product-media">
+              <img
+                src="{{ 'review/butter.png' | asset_url }}"
+                alt="Knife 2"
+                width="220"
+                height="220"
+                loading="lazy"
+              >
+            </div>
+
+            <div class="nx-bb-review__product-info">
+              <p class="nx-bb-review__product-brand">The Bearded Butchers</p>
+              <p class="nx-bb-review__product-title">PRO SERIES CHEF KNIFE</p>
+
+              <div class="nx-bb-review__price-row">
+                <span class="nx-bb-review__price">$299.00</span>
+                <span class="nx-bb-review__compare">$349.00</span>
+              </div>
+            </div>
+          </div>
+
+          <a href="/cart" class="btn btn--primary nx-bb-review__btn">ADD TO CART</a>
+        </div>
+      </article>
+
+      <!-- CARD 3 -->
+      <article class="nx-bb-review__card">
+        <header class="nx-bb-review__card-header">
+          <span class="nx-bb-review__label">RATING</span>
+          <div class="nx-bb-review__stars">
+            <span class="nx-bb-review__star is-active">★</span>
+            <span class="nx-bb-review__star is-active">★</span>
+            <span class="nx-bb-review__star is-active">★</span>
+            <span class="nx-bb-review__star is-active">★</span>
+            <span class="nx-bb-review__star is-active">★</span>
+          </div>
+        </header>
+
+        <div class="nx-bb-review__body">
+          <div class="nx-bb-review__row nx-bb-review__row--review">
+            <span class="nx-bb-review__label">REVIEW</span>
+            <h3 class="nx-bb-review__title">Built to Take a Beating</h3>
+            <p class="nx-bb-review__text">
+              Holds an edge incredibly well. From game breakdown to trimming, does it all.
+            </p>
+          </div>
+
+          <div class="nx-bb-review__row nx-bb-review__row--name">
+            <span class="nx-bb-review__label">NAME</span>
+            <p class="nx-bb-review__name">Chris L.</p>
+          </div>
+
+          <div class="nx-bb-review__row nx-bb-review__row--product">
+            <div class="nx-bb-review__product-media">
+              <img
+                src="{{ 'review/knife.png' | asset_url }}"
+                alt="Knife 3"
+                width="220"
+                height="220"
+                loading="lazy"
+              >
+            </div>
+
+            <div class="nx-bb-review__product-info">
+              <p class="nx-bb-review__product-brand">The Bearded Butchers</p>
+              <p class="nx-bb-review__product-title">HEAVY DUTY BONING KNIFE</p>
+
+              <div class="nx-bb-review__price-row">
+                <span class="nx-bb-review__price">$329.00</span>
+                <span class="nx-bb-review__compare">$359.00</span>
+              </div>
+            </div>
+          </div>
+
+          <a href="/cart" class="btn btn--primary nx-bb-review__btn">ADD TO CART</a>
+        </div>
+      </article>
+    </div>
+
+    <!-- dots -->
+    <div class="nx-bb-review__dots" data-review-dots>
+      <button class="nx-bb-review__dot is-active"></button>
+      <button class="nx-bb-review__dot"></button>
+      <button class="nx-bb-review__dot"></button>
+    </div>
+  </div>
+
+  <!-- JS -->
+  <script>
+    (function () {
+      var root = document.getElementById('section-{{ section.id }}');
+      if (!root) return;
+
+      var slider = root.querySelector('[data-review-slider]');
+      var cards = slider.querySelectorAll('.nx-bb-review__card');
+      var dots = root.querySelectorAll('.nx-bb-review__dot');
+      var prevBtn = root.querySelector('[data-review-prev]');
+      var nextBtn = root.querySelector('[data-review-next]');
+
+      var currentIndex = 0;
+
+      function goTo(i) {
+        currentIndex = i;
+
+        cards.forEach((c, idx) => c.classList.toggle('is-active', idx === i));
+        dots.forEach((d, idx) => d.classList.toggle('is-active', idx === i));
+
+        prevBtn.disabled = i === 0;
+        nextBtn.disabled = i === cards.length - 1;
+      }
+
+      prevBtn.addEventListener('click', () => currentIndex > 0 && goTo(currentIndex - 1));
+      nextBtn.addEventListener('click', () => currentIndex < cards.length - 1 && goTo(currentIndex + 1));
+
+      dots.forEach((dot, idx) => dot.addEventListener('click', () => goTo(idx)));
+
+      goTo(0);
+    })();
+  </script>
+</section>
+
+{% schema %}
+{
+  "name": "NX – BB Review",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "REVIEWS FROM BUTCHERS & GRILLMASTERS"
+    }
+  ],
+  "presets": [{ "name": "NX – BB Review" }]
+}
+{% endschema %}

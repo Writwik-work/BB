@@ -1,0 +1,293 @@
+{% comment %}
+  FAQ Page Section
+{% endcomment %}
+
+<section
+  id="section-{{ section.id }}"
+  class="faq-page"
+  data-faq-page
+>
+  {{ 'faq-page.css' | asset_url | stylesheet_tag }}
+  <script src="{{ 'faq-page.js' | asset_url }}" defer></script>
+
+  <div class="page-width faq-page__inner">
+    {% if section.settings.heading != blank %}
+      <h1 class="faq-page__heading">
+        {{ section.settings.heading }}
+      </h1>
+    {% endif %}
+
+    <div class="faq-page__layout">
+      {%- comment -%} SIDEBAR (desktop + mobile filter panel) {%- endcomment -%}
+      <aside class="faq-page__sidebar">
+        <div class="faq-page__sidebar-inner">
+          {%- comment -%} INNER FILTER HEADER (shown when panel open on mobile) {%- endcomment -%}
+          <div class="faq-page__filter faq-page__filter--inner" data-faq-filter-inner>
+            <span class="faq-page__filter-label">FILTER OUR FAQ</span>
+            <button
+              type="button"
+              class="faq-page__filter-btn"
+              data-faq-filter-btn
+            >
+              Close
+            </button>
+          </div>
+
+          {% assign first_category_key = '' %}
+          <ul class="faq-page__sidebar-list" role="tablist">
+            {% for i in (1..5) %}
+              {% assign key = 'cat_' | append: i %}
+              {% assign title_id = key | append: '_title' %}
+              {% assign icon_id = key | append: '_icon' %}
+
+              {% if section.settings[title_id] != blank %}
+                {% if first_category_key == '' %}
+                  {% assign first_category_key = key %}
+                {% endif %}
+
+                <li class="faq-page__sidebar-item{% if key == first_category_key %} is-active{% endif %}">
+                  <button
+                    type="button"
+                    class="faq-page__sidebar-button"
+                    data-faq-category="{{ key }}"
+                    aria-selected="{% if key == first_category_key %}true{% else %}false{% endif %}"
+                  >
+                    {% if section.settings[icon_id] != blank %}
+                      <span class="faq-page__sidebar-icon">
+                        {{ section.settings[icon_id] | image_url: width: 24 | image_tag: loading: 'lazy', widths: '24' }}
+                      </span>
+                    {% endif %}
+                    <span class="faq-page__sidebar-label">
+                      {{ section.settings[title_id] }}
+                    </span>
+                  </button>
+                </li>
+              {% endif %}
+            {% endfor %}
+          </ul>
+        </div>
+      </aside>
+
+      {%- comment -%} MAIN FAQ CONTENT {%- endcomment -%}
+      <div class="faq-page__content">
+
+        {%- comment -%} OUTER FILTER BAR (shown when panel is closed on mobile) {%- endcomment -%}
+        <div class="faq-page__filter faq-page__filter--outer" data-faq-filter-outer>
+          <span class="faq-page__filter-label">FILTER OUR FAQ</span>
+          <button
+            type="button"
+            class="faq-page__filter-btn"
+            data-faq-filter-btn
+          >
+            Filter
+          </button>
+        </div>
+
+        {%- comment -%} SEARCH {%- endcomment -%}
+        <div class="faq-page__search">
+          {% if section.settings.search_heading != blank %}
+            <p class="faq-page__search-heading">
+              {{ section.settings.search_heading }}
+            </p>
+          {% endif %}
+
+          <input
+            type="search"
+            class="faq-page__search-input"
+            placeholder="{{ section.settings.search_placeholder }}"
+          >
+        </div>
+
+        {%- comment -%} CATEGORY PANELS {%- endcomment -%}
+        {% assign first_category_key = '' %}
+        {% for i in (1..5) %}
+          {% assign key = 'cat_' | append: i %}
+          {% assign title_id = key | append: '_title' %}
+
+          {% if section.settings[title_id] != blank %}
+            {% if first_category_key == '' %}
+              {% assign first_category_key = key %}
+            {% endif %}
+
+            <div
+              class="faq-page__category{% if key == first_category_key %} is-active{% endif %}"
+              data-faq-category-panel="{{ key }}"
+            >
+              <div class="faq-page__card">
+                <h2 class="faq-page__category-title">
+                  {{ section.settings[title_id] }}
+                </h2>
+
+                <div class="faq-page__items">
+                  {% assign has_items = false %}
+
+                  {% for block in section.blocks %}
+                    {% if block.type == 'faq_item' %}
+                      {% assign block_cat = block.settings.category | default: 'cat_1' %}
+
+                      {% if block_cat == key %}
+                        {% assign has_items = true %}
+                        <div
+                          class="faq-page__item"
+                          data-faq-text="{{ block.settings.question | escape }} {{ block.settings.answer | strip_html | escape }}"
+                          {{ block.shopify_attributes }}
+                        >
+                          <button class="faq-page__question" aria-expanded="false">
+                            <span>{{ block.settings.question }}</span>
+                            <span class="faq-page__icon"></span>
+                          </button>
+                          <div class="faq-page__answer" hidden>
+                            {{ block.settings.answer }}
+                          </div>
+                        </div>
+                      {% endif %}
+                    {% endif %}
+                  {% endfor %}
+
+                  {% unless has_items %}
+                    <p class="faq-page__empty">
+                      {{ 'No FAQs in this category yet.' }}
+                    </p>
+                  {% endunless %}
+                </div>
+              </div>
+            </div>
+          {% endif %}
+        {% endfor %}
+
+        <p class="faq-page__no-results" hidden>
+          {{ section.settings.no_results_text }}
+        </p>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "FAQ page",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Frequently Asked Questions"
+    },
+    {
+      "type": "text",
+      "id": "search_placeholder",
+      "label": "Search placeholder",
+      "default": "Search"
+    },
+    {
+      "type": "text",
+      "id": "search_heading",
+      "label": "Search heading",
+      "default": "SEARCH OUR FAQ"
+    },
+    {
+      "type": "text",
+      "id": "no_results_text",
+      "label": "No results text",
+      "default": "No FAQs found."
+    },
+
+    {
+      "type": "header",
+      "content": "Categories"
+    },
+    {
+      "type": "text",
+      "id": "cat_1_title",
+      "label": "Category 1 title",
+      "default": "Product Information"
+    },
+    {
+      "type": "image_picker",
+      "id": "cat_1_icon",
+      "label": "Category 1 icon"
+    },
+    {
+      "type": "text",
+      "id": "cat_2_title",
+      "label": "Category 2 title",
+      "default": "Eco-Friendliness and Sustainability"
+    },
+    {
+      "type": "image_picker",
+      "id": "cat_2_icon",
+      "label": "Category 2 icon"
+    },
+    {
+      "type": "text",
+      "id": "cat_3_title",
+      "label": "Category 3 title",
+      "default": "Purchasing and Shipping"
+    },
+    {
+      "type": "image_picker",
+      "id": "cat_3_icon",
+      "label": "Category 3 icon"
+    },
+    {
+      "type": "text",
+      "id": "cat_4_title",
+      "label": "Category 4 title",
+      "default": "Returns and Customer Support"
+    },
+    {
+      "type": "image_picker",
+      "id": "cat_4_icon",
+      "label": "Category 4 icon"
+    },
+    {
+      "type": "text",
+      "id": "cat_5_title",
+      "label": "Category 5 title",
+      "default": "Business and Partnerships"
+    },
+    {
+      "type": "image_picker",
+      "id": "cat_5_icon",
+      "label": "Category 5 icon"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "faq_item",
+      "name": "FAQ item",
+      "settings": [
+        {
+          "type": "select",
+          "id": "category",
+          "label": "Category",
+          "options": [
+            { "value": "cat_1", "label": "Category 1" },
+            { "value": "cat_2", "label": "Category 2" },
+            { "value": "cat_3", "label": "Category 3" },
+            { "value": "cat_4", "label": "Category 4" },
+            { "value": "cat_5", "label": "Category 5" }
+          ],
+          "default": "cat_1"
+        },
+        {
+          "type": "text",
+          "id": "question",
+          "label": "Question"
+        },
+        {
+          "type": "richtext",
+          "id": "answer",
+          "label": "Answer"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "FAQ page"
+    }
+  ]
+}
+{% endschema %}

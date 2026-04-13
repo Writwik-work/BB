@@ -1,0 +1,101 @@
+<section id="section-{{ section.id }}" class="nx-bestsellers-section">
+  {{ 'best-seller.css' | asset_url | stylesheet_tag }}
+
+  <div class="container">
+    <div class="nx-bs-top">
+      <h2 class="nx-bs-heading">TRIED, TESTED & LOVED – OUR BEST SELLERS</h2>
+
+      {%- comment -%}
+        SHOP ALL button – uses URL from theme editor.
+        In the editor, paste the Jalapeño product URL into “Shop all link”.
+      {%- endcomment -%}
+      {% if section.settings.shop_all_link != blank %}
+        <a href="{{ section.settings.shop_all_link }}" class="nx-bs-shopall">SHOP ALL</a>
+      {% endif %}
+    </div>
+
+    <div class="nx-bs-grid">
+      <div class="nx-bs-card">
+        <div class="nx-bs-media">
+          <span class="nx-bs-badge">LIMITED EDITION</span>
+          <img src="{{ 'best-seller/product-1.png' | asset_url }}" class="nx-bs-img" alt="">
+        </div>
+
+        <div class="nx-bs-info">
+          <p class="nx-bs-vendor">The Bearded Butchers</p>
+          <h3 class="nx-bs-title">Jalapeño Cheddar Bratwurst DIY Kit</h3>
+
+          <div class="nx-bs-rating">
+            <span class="nx-bs-stars">★★★★★</span>
+            <span class="nx-bs-reviews">29 Reviews</span>
+          </div>
+
+          <div class="nx-bs-price">
+            <span class="nx-bs-current">$349.00</span>
+            <span class="nx-bs-compare">$349.00</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="nx-bs-card">
+        <div class="nx-bs-media">
+          <img src="{{ 'best-seller/product-2.png' | asset_url }}" class="nx-bs-img" alt="">
+        </div>
+
+        <div class="nx-bs-info">
+          <p class="nx-bs-vendor">The Bearded Butchers</p>
+          <h3 class="nx-bs-title">Jalapeño Cheddar Bratwurst DIY Kit</h3>
+
+          <div class="nx-bs-rating">
+            <span class="nx-bs-stars">★★★★★</span>
+            <span class="nx-bs-reviews">29 Reviews</span>
+          </div>
+
+          <div class="nx-bs-price">
+            <span class="nx-bs-current">$349.00</span>
+            <span class="nx-bs-compare">$349.00</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="nx-bs-card">
+        <div class="nx-bs-media">
+          <img src="{{ 'best-seller/product-2.png' | asset_url }}" class="nx-bs-img" alt="">
+        </div>
+
+        <div class="nx-bs-info">
+          <p class="nx-bs-vendor">The Bearded Butchers</p>
+          <h3 class="nx-bs-title">Jalapeño Cheddar Bratwurst DIY Kit</h3>
+
+          <div class="nx-bs-rating">
+            <span class="nx-bs-stars">★★★★★</span>
+            <span class="nx-bs-reviews">29 Reviews</span>
+          </div>
+
+          <div class="nx-bs-price">
+            <span class="nx-bs-current">$349.00</span>
+            <span class="nx-bs-compare">$349.00</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "NX – Best Sellers",
+  "settings": [
+    {
+      "type": "url",
+      "id": "shop_all_link",
+      "label": "Shop all link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "NX – Best Sellers"
+    }
+  ]
+}
+{% endschema %}

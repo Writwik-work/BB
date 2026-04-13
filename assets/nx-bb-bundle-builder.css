@@ -1,0 +1,198 @@
+.nx-bb-bundle-builder .nxbb-bundle__layout {
+  display: grid;
+  gap: 24px
+}
+.nx-bb-bundle-builder .nxbb-bundle__heading {
+  margin: 0 0 8px;
+  font-size: 34px;
+  line-height: 1.05;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: .02em
+}
+.nx-bb-bundle-builder .nxbb-bundle__subheading {
+  margin: 0 0 18px;
+  opacity: .85
+}
+.nx-bb-bundle-builder .nxbb-bundle__grid {
+  display: grid;
+  gap: 18px;
+  grid-template-columns: repeat(2,minmax(0,1fr))
+}
+.nx-bb-bundle-builder .nxbb-bundle__card {
+  border: 1px solid rgba(0,0,0,.1);
+  background: #fff;
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  gap: 14px;
+  padding: 12px;
+  align-items: center
+}
+.nx-bb-bundle-builder .nxbb-bundle__media img {
+  width: 110px;
+  height: 110px;
+  object-fit: cover;
+  display: block;
+  background: #f6f6f6
+}
+.nx-bb-bundle-builder .nxbb-bundle__title {
+  display: inline-block;
+  text-decoration: none;
+  color: inherit;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: .02em;
+  font-size: 13px;
+  line-height: 1.25;
+  margin-bottom: 6px
+}
+.nx-bb-bundle-builder .nxbb-bundle__price {
+  display: flex;
+  gap: 10px;
+  align-items: baseline;
+  margin-bottom: 10px;
+  font-size: 13px
+}
+.nx-bb-bundle-builder .nxbb-bundle__price-compare {
+  opacity: .65;
+  text-decoration: line-through
+}
+.nx-bb-bundle-builder .nxbb-bundle__variant {
+  margin-bottom: 10px
+}
+.nx-bb-bundle-builder .nxbb-bundle__select {
+  width: 100%;
+  min-height: 38px;
+  border: 1px solid rgba(0,0,0,.2);
+  padding: 8px 10px;
+  background: #fff
+}
+.nx-bb-bundle-builder .nxbb-bundle__pick {
+  width: 100%;
+  min-height: 40px;
+  border: 1px solid rgba(0,0,0,.25);
+  background: #fff;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: .02em;
+  cursor: pointer
+}
+.nx-bb-bundle-builder .nxbb-bundle__right .nxbb-bundle__sidebar {
+  border: 1px solid rgba(0,0,0,.12);
+  background: #fff;
+  padding: 14px
+}
+.nx-bb-bundle-builder .nxbb-bundle__sidebar-title {
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  font-size: 12px;
+  margin-bottom: 12px
+}
+.nx-bb-bundle-builder .nxbb-bundle__slots {
+  display: grid;
+  gap: 10px;
+  margin-bottom: 14px
+}
+.nx-bb-bundle-builder .nxbb-bundle__slot {
+  display: grid;
+  grid-template-columns: 44px 1fr auto;
+  align-items: center;
+  gap: 10px;
+  border: 1px dashed rgba(0,0,0,.2);
+  padding: 10px;
+  min-height: 64px
+}
+.nx-bb-bundle-builder .nxbb-bundle__slot-media img {
+  width: 44px;
+  height: 44px;
+  object-fit: cover;
+  display: block;
+  background: #f6f6f6
+}
+.nx-bb-bundle-builder .nxbb-bundle__slot-name {
+  font-weight: 700;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: .03em
+}
+.nx-bb-bundle-builder .nxbb-bundle__slot-remove {
+  margin-top: 6px;
+  background: 0 0;
+  border: 0;
+  padding: 0;
+  text-decoration: underline;
+  cursor: pointer;
+  font-size: 12px;
+  opacity: .8
+}
+.nx-bb-bundle-builder .nxbb-bundle__slot-price {
+  font-weight: 800;
+  font-size: 12px
+}
+.nx-bb-bundle-builder .nxbb-bundle__summary {
+  border-top: 1px solid rgba(0,0,0,.12);
+  padding-top: 12px;
+  margin-top: 6px
+}
+.nx-bb-bundle-builder .nxbb-bundle__summary-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: .02em;
+  font-size: 12px
+}
+.nx-bb-bundle-builder .nxbb-bundle__summary-row--small {
+  margin-top: 6px;
+  font-weight: 700;
+  opacity: .85;
+  text-transform: none;
+  letter-spacing: 0
+}
+.nx-bb-bundle-builder .nxbb-bundle__cta {
+  width: 100%;
+  margin-top: 12px;
+  min-height: 44px;
+  border: 0;
+  background: #7b2b22;
+  color: #fff;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+  cursor: pointer;
+  opacity: 1
+}
+.nx-bb-bundle-builder .nxbb-bundle__cta:disabled {
+  opacity: .45;
+  cursor: not-allowed
+}
+.nx-bb-bundle-builder .nxbb-bundle__helper {
+  margin-top: 10px;
+  font-size: 12px;
+  opacity: .8
+}
+@media screen and (min-width:990px) {
+  .nx-bb-bundle-builder .nxbb-bundle__layout {
+    grid-template-columns: 1fr 340px;
+    align-items: start
+  }
+  .nx-bb-bundle-builder .nxbb-bundle__grid {
+    grid-template-columns: repeat(3,minmax(0,1fr))
+  }
+  .nx-bb-bundle-builder .nxbb-bundle__card {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    padding: 12px
+  }
+  .nx-bb-bundle-builder .nxbb-bundle__media img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1/1
+  }
+  .nx-bb-bundle-builder .nxbb-bundle__right .nxbb-bundle__sidebar {
+    position: sticky;
+    top: 90px
+  }
+}

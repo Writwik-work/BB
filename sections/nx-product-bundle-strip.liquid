@@ -1,0 +1,22 @@
+<section id="section-{{ section.id }}" class="nx-bundle">
+  {{ 'nx-product-bundle-strip.css' | asset_url | stylesheet_tag }}
+  <div class="page-width nx-bundle__inner">
+    <div class="nx-bundle__text">{{ section.settings.heading }}</div>
+    {% if section.settings.button_label != blank and section.settings.button_link != blank %}
+      <a class="nx-bundle__btn" href="{{ section.settings.button_link }}">{{ section.settings.button_label }}</a>
+    {% endif %}
+  </div>
+
+  {% schema %}
+  {
+    "name": "NX Bundle Strip",
+    "tag": "section",
+    "settings": [
+      { "type": "text", "id": "heading", "label": "Heading", "default": "Mix, match & save – get 10% off when you buy 3+!" },
+      { "type": "text", "id": "button_label", "label": "Button label", "default": "Build your bundle" },
+      { "type": "url", "id": "button_link", "label": "Button link" }
+    ],
+    "presets": [{ "name": "NX Bundle Strip" }]
+  }
+  {% endschema %}
+</section>

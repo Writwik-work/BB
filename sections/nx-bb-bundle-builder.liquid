@@ -1,0 +1,192 @@
+{{ 'nx-bb-bundle-builder.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'nx-bb-bundle-builder.js' | asset_url }}" defer></script>
+
+<section id="section-{{ section.id }}" class="nx-bb-bundle-builder section-{{ section.id }}-padding" data-section-id="{{ section.id }}" data-discount-percent="{{ section.settings.discount_percent }}">
+<section id="section-{{ section.id }}" class="nx-bb-bundle-builder section-{{ section.id }}-padding" data-section-id="{{ section.id }}">
+  <div class="page-width">
+    <div class="nxbb-bundle__layout">
+      <!-- LEFT -->
+      <div class="nxbb-bundle__left">
+        {% if section.settings.heading != blank %}
+          <h2 class="nxbb-bundle__heading">{{ section.settings.heading }}</h2>
+        {% endif %}
+
+        {% if section.settings.subheading != blank %}
+          <div class="nxbb-bundle__subheading">{{ section.settings.subheading }}</div>
+        {% endif %}
+
+        <div class="nxbb-bundle__grid">
+          {%- for block in section.blocks -%}
+            {%- assign p = block.settings.product -%}
+            {%- if p != blank -%}
+              {%- assign v = p.selected_or_first_available_variant -%}
+              <div
+                class="nxbb-bundle__card"
+                {{ block.shopify_attributes }}
+                data-product-card
+                data-product-id="{{ p.id }}"
+                data-default-variant-id="{{ v.id }}"
+              >
+                <a class="nxbb-bundle__media" href="{{ p.url }}" aria-label="{{ p.title | escape }}">
+                  {%- if p.featured_image != blank -%}
+                    <img
+                      src="{{ p.featured_image | image_url: width: 520 }}"
+                      alt="{{ p.featured_image.alt | escape }}"
+                      width="520"
+                      height="{{ 520 | divided_by: p.featured_image.aspect_ratio | round }}"
+                      loading="lazy"
+                    >
+                  {%- endif -%}
+                </a>
+
+                <div class="nxbb-bundle__info">
+                  <a class="nxbb-bundle__title" href="{{ p.url }}">
+                    {{ p.title }}
+                  </a>
+
+                  <div class="nxbb-bundle__price" data-price-wrap>
+                    <span class="nxbb-bundle__price-current" data-price-current>
+                      {{ v.price | money }}
+                    </span>
+                    {%- if v.compare_at_price > v.price -%}
+                      <span class="nxbb-bundle__price-compare" data-price-compare>
+                        {{ v.compare_at_price | money }}
+                      </span>
+                    {%- endif -%}
+                  </div>
+
+                  {%- if p.variants.size > 1 -%}
+                    <div class="nxbb-bundle__variant">
+                      <select class="nxbb-bundle__select" data-variant-select aria-label="Choose option">
+                        {%- for variant in p.variants -%}
+                          <option
+                            value="{{ variant.id }}"
+                            {% if variant.id == v.id %}selected{% endif %}
+                            {% unless variant.available %}disabled{% endunless %}
+                            data-price="{{ variant.price }}"
+                            data-compare="{{ variant.compare_at_price }}"
+                          >
+                            {{ variant.title }}{% unless variant.available %} — Sold out{% endunless %}
+                          </option>
+                        {%- endfor -%}
+                      </select>
+                    </div>
+                  {%- endif -%}
+
+                  <button
+                    type="button"
+                    class="nxbb-bundle__pick"
+                    data-pick
+                  >
+                    Add to bundle
+                  </button>
+                </div>
+              </div>
+            {%- endif -%}
+          {%- endfor -%}
+        </div>
+      </div>
+
+      <!-- RIGHT SIDEBAR -->
+      <aside class="nxbb-bundle__right" aria-label="Bundle contents">
+        <div class="nxbb-bundle__sidebar" data-sidebar>
+          <div class="nxbb-bundle__sidebar-title">{{ section.settings.sidebar_title }}</div>
+
+          <div class="nxbb-bundle__slots" data-slots>
+            {%- for i in (1..section.settings.max_items) -%}
+              <div class="nxbb-bundle__slot" data-slot data-slot-index="{{ i }}">
+                <div class="nxbb-bundle__slot-media" data-slot-media></div>
+                <div class="nxbb-bundle__slot-text">
+                  <div class="nxbb-bundle__slot-name" data-slot-name>Choose item {{ i }}</div>
+                  <button type="button" class="nxbb-bundle__slot-remove" data-remove hidden aria-label="Remove item">
+                    Remove
+                  </button>
+                </div>
+                <div class="nxbb-bundle__slot-price" data-slot-price></div>
+              </div>
+            {%- endfor -%}
+          </div>
+
+          <div class="nxbb-bundle__summary">
+            <div class="nxbb-bundle__summary-row">
+              <span>Total</span>
+              <span class="nxbb-bundle__total" data-total>—</span>
+            </div>
+
+            {%- if section.settings.discount_percent > 0 -%}
+              <div class="nxbb-bundle__summary-row nxbb-bundle__summary-row--small">
+                <span>Bundle discount</span>
+                <span>-{{ section.settings.discount_percent }}%</span>
+              </div>
+            {%- endif -%}
+          </div>
+
+          <button
+            type="button"
+            class="nxbb-bundle__cta"
+            data-add-to-cart
+            disabled
+          >
+            {{ section.settings.cta_label }}
+          </button>
+
+          {%- if section.settings.helper_text != blank -%}
+            <div class="nxbb-bundle__helper">{{ section.settings.helper_text }}</div>
+          {%- endif -%}
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <style>
+    #section-{{ section.id }}.section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top_mobile }}px;
+      padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+    }
+    @media screen and (min-width: 990px) {
+      #section-{{ section.id }}.section-{{ section.id }}-padding {
+        padding-top: {{ section.settings.padding_top_desktop }}px;
+        padding-bottom: {{ section.settings.padding_bottom_desktop }}px;
+      }
+    }
+  </style>
+
+  {% schema %}
+  {
+    "name": "BB Bundle Builder",
+    "settings": [
+      { "type": "text", "id": "heading", "label": "Heading", "default": "MIX & MATCH YOUR FAVORITES" },
+      { "type": "text", "id": "subheading", "label": "Subheading", "default": "Y" },
+
+      { "type": "text", "id": "sidebar_title", "label": "Sidebar title", "default": "BUNDLE CONTENTS" },
+      { "type": "range", "id": "max_items", "label": "Max bundle items", "min": 2, "max": 6, "step": 1, "default": 3 },
+
+      { "type": "range", "id": "discount_percent", "label": "Bundle discount (%)", "min": 0, "max": 50, "step": 1, "default": 0 },
+      { "type": "text", "id": "cta_label", "label": "CTA label", "default": "ADD TO CART" },
+      { "type": "text", "id": "helper_text", "label": "Helper text", "default": "Select your items to build your bundle." },
+
+      { "type": "range", "id": "padding_top_desktop", "label": "Padding top (desktop)", "min": 0, "max": 160, "step": 4, "default": 40 },
+      { "type": "range", "id": "padding_bottom_desktop", "label": "Padding bottom (desktop)", "min": 0, "max": 160, "step": 4, "default": 60 },
+      { "type": "range", "id": "padding_top_mobile", "label": "Padding top (mobile)", "min": 0, "max": 120, "step": 4, "default": 24 },
+      { "type": "range", "id": "padding_bottom_mobile", "label": "Padding bottom (mobile)", "min": 0, "max": 120, "step": 4, "default": 36 }
+    ],
+    "blocks": [
+      {
+        "type": "product",
+        "name": "Product",
+        "settings": [
+          { "type": "product", "id": "product", "label": "Product" }
+        ]
+      }
+    ],
+    "max_blocks": 9,
+    "presets": [
+      { "name": "BB Bundle Builder", "blocks": [
+        { "type": "product" },
+        { "type": "product" },
+        { "type": "product" }
+      ]}
+    ]
+  }
+  {% endschema %}
+</section>

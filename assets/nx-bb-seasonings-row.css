@@ -1,0 +1,127 @@
+.nx-bb-seasonings-row {
+  color: #fff;
+}
+
+.nx-bb-seasonings-row__head {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.nx-bb-seasonings-row__heading {
+  margin: 0 0 10px;
+  font-size: 28px;
+  line-height: 1.1;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  font-family: "Barlow Condensed", sans-serif;
+}
+
+.nx-bb-seasonings-row__subcopy {
+  margin: 0 auto;
+  max-width: 760px;
+  font-size: 14px;
+  line-height: 1.5;
+  opacity: 0.9;
+  font-family: "Barlow", sans-serif;
+}
+
+.nx-bb-seasonings-row__grid {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.nx-bb-seasonings-row__card {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  border-radius: 10px;
+  overflow: hidden;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+
+.nx-bb-seasonings-row__card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(255,255,255,0.22);
+  background: rgba(255,255,255,0.08);
+}
+
+.nx-bb-seasonings-row__media img {
+  width: 100%;
+  height: auto;
+  display: block;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+
+.nx-bb-seasonings-row__meta {
+  padding: 12px 12px 14px;
+  display: grid;
+  gap: 6px;
+}
+
+.nx-bb-seasonings-row__title {
+  font-size: 13px;
+  line-height: 1.2;
+  font-weight: 800;
+  text-transform: uppercase;
+  font-family: "Barlow Condensed", sans-serif;
+  letter-spacing: 0.02em;
+}
+
+.nx-bb-seasonings-row__price {
+  font-size: 13px;
+  line-height: 1.2;
+  opacity: 0.92;
+  font-family: "Barlow", sans-serif;
+}
+
+.nx-bb-seasonings-row__cta {
+  display: flex;
+  justify-content: center;
+  margin-top: 18px;
+}
+
+.nx-bb-seasonings-row__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 10px 18px;
+  border-radius: 999px;
+  background: #fff;
+  color: #111;
+  text-decoration: none;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  font-family: "Barlow Condensed", sans-serif;
+}
+
+@media screen and (min-width: 750px) {
+  .nx-bb-seasonings-row__grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+  }
+
+  .nx-bb-seasonings-row__heading {
+    font-size: 34px;
+  }
+
+  .nx-bb-seasonings-row__subcopy {
+    font-size: 15px;
+  }
+}
+
+@media screen and (min-width: 990px) {
+  .nx-bb-seasonings-row__heading {
+    font-size: 38px;
+  }
+
+  .nx-bb-seasonings-row__meta {
+    padding: 14px 14px 16px;
+  }
+}

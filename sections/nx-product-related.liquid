@@ -1,0 +1,56 @@
+<section id="section-{{ section.id }}" class="nx-related" data-section-id="{{ section.id }}">
+  {{ 'nx-product-related.css' | asset_url | stylesheet_tag }}
+
+  <div class="page-width nx-related__head">
+    <h2 class="nx-related__title">{{ section.settings.heading }}</h2>
+    {% if section.settings.collection != blank %}
+      <a class="nx-related__link" href="{{ section.settings.collection.url }}">Shop all</a>
+    {% endif %}
+  </div>
+
+  <div class="page-width">
+    <div class="nx-related__track">
+      {% assign items = section.settings.collection.products %}
+      {% if section.settings.collection == blank %}
+        {% assign items = product.collections.first.products %}
+      {% endif %}
+
+      {% if items != blank %}
+        {% for p in items limit: section.settings.products_to_show %}
+          <a class="nx-related__card" href="{{ p.url }}">
+            <div class="nx-related__imgWrap">
+              {% if p.featured_image %}
+                <img
+                  src="{{ p.featured_image | image_url: width: 520 }}"
+                  srcset="{{ p.featured_image | image_url: width: 320 }} 320w, {{ p.featured_image | image_url: width: 520 }} 520w"
+                  sizes="220px"
+                  width="{{ p.featured_image.width }}"
+                  height="{{ p.featured_image.height }}"
+                  alt="{{ p.featured_image.alt | escape }}"
+                  loading="lazy"
+                >
+              {% endif %}
+            </div>
+            <div class="nx-related__meta">
+              <div class="nx-related__pTitle">{{ p.title }}</div>
+              <div class="nx-related__price">{% render 'price', product: p %}</div>
+            </div>
+          </a>
+        {% endfor %}
+      {% endif %}
+    </div>
+  </div>
+
+  {% schema %}
+  {
+    "name": "NX Related Products",
+    "tag": "section",
+    "settings": [
+      { "type": "text", "id": "heading", "label": "Heading", "default": "Popular picks for meat lovers" },
+      { "type": "collection", "id": "collection", "label": "Collection (optional)" },
+      { "type": "range", "id": "products_to_show", "label": "Products to show", "min": 4, "max": 24, "step": 1, "default": 12 }
+    ],
+    "presets": [{ "name": "NX Related Products" }]
+  }
+  {% endschema %}
+</section>

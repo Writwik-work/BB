@@ -1,0 +1,315 @@
+{
+  "name": "FAQ page",
+  "sections": {
+    "hero": {
+      "type": "hero-text-image",
+      "settings": {
+        "heading": "Join the Movement to Unbottle Laundry",
+        "subheading": "Every wash matters. Ditch plastic bottles, protect the planet, and experience a cleaner, simpler way to do laundry — powered by nature and proven by science.",
+        "primary_button_label": "Shop Now",
+        "primary_button_link": "/collections/all",
+        "secondary_button_label": "For Wholesale Buyers",
+        "secondary_button_link": "/pages/contact",
+        "section_bg": "#FDF7EE"
+      }
+    },
+    "main": {
+      "type": "faq-page",
+      "settings": {
+        "heading": "Frequently Asked Questions",
+        "search_heading": "SEARCH OUR FAQ",
+        "search_placeholder": "Search",
+        "no_results_text": "No FAQs found.",
+        "cat_1_title": "Product Information",
+        "cat_2_title": "Eco-Friendliness and Sustainability",
+        "cat_3_title": "Purchasing and Shipping",
+        "cat_4_title": "Returns and Customer Support",
+        "cat_5_title": "Business and Partnerships"
+      },
+      "blocks": {
+        "pi-1": {
+          "type": "faq_item",
+          "settings": {
+            "category": "cat_1",
+            "question": "What are Match With Nature laundry detergent sheets made of?",
+            "answer": "<p>Our detergent sheets are crafted from carefully selected, plant-based ingredients that are hypoallergenic, vegan, and free from harsh chemicals like phosphates, parabens, colorants, chlorine, and dioxane. They’re tough on stains while being gentle on sensitive skin and the environment.</p>"
+          }
+        },
+        "pi-2": {
+          "type": "faq_item",
+          "settings": {
+            "category": "cat_1",
+            "question": "Are your sheets biodegradable?",
+            "answer": "<p>Yes, our laundry sheets carry the OECD 301B certification, a globally recognised standard for evaluating biodegradability.</p>"
+          }
+        },
+        "pi-3": {
+          "type": "faq_item",
+          "settings": {
+            "category": "cat_1",
+            "question": "Are the ingredients in your sheets certified to be safe?",
+            "answer": "<p>Each ingredient is backed by MSDS certification and is hypoallergenic, vegan-friendly, and cruelty-free.</p>"
+          }
+        },
+        "pi-4": {
+          "type": "faq_item",
+          "settings": {
+            "category": "cat_1",
+            "question": "Are your laundry detergent sheets safe for sensitive skin?",
+            "answer": "<p>Yes, our sheets are allergy-friendly and designed for sensitive skin. A scent-free option is also available.</p>"
+          }
+        },
+        "pi-5": {
+          "type": "faq_item",
+          "settings": {
+            "category": "cat_1",
+            "question": "What are the dimensions of the packets?",
+            "answer": "<p>Each packet measures 11 cm × 7 cm × 1 cm.</p>"
+          }
+        },
+        "pi-6": {
+          "type": "faq_item",
+          "settings": {
+            "category": "cat_1",
+            "question": "What is the minimum order quantity?",
+            "answer": "<p>The minimum order is 1 box containing 300 packets.</p>"
+          }
+        },
+        "pi-7": {
+          "type": "faq_item",
+          "settings": {
+            "category": "cat_1",
+            "question": "Are the detergent sheets compatible with vending machines?",
+            "answer": "<p>Yes, our packets fit most standard vending machines.</p>"
+          }
+        },
+        "pi-8": {
+          "type": "faq_item",
+          "settings": {
+            "category": "cat_1",
+            "question": "How do I use Match With Nature detergent sheets?",
+            "answer": "<p>Place one sheet directly in the drum of your washing machine. It dissolves quickly with no mess.</p>"
+          }
+        },
+        "pi-9": {
+          "type": "faq_item",
+          "settings": {
+            "category": "cat_1",
+            "question": "Can I use these sheets in high-efficiency (HE) washing machines?",
+            "answer": "<p>Yes, they are compatible with all washing machines, including HE models.</p>"
+          }
+        },
+        "pi-10": {
+          "type": "faq_item",
+          "settings": {
+            "category": "cat_1",
+            "question": "Are the detergent sheets suitable for handwashing?",
+            "answer": "<p>Yes, dissolve a sheet in water to create a gentle handwashing solution.</p>"
+          }
+        },
+        "eco-1": {
+          "type": "faq_item",
+          "settings": {
+            "category": "cat_2",
+            "question": "How eco-friendly are your detergent sheets?",
+            "answer": "<p>Our sheets are biodegradable, plant-based, and packaged in compostable materials, reducing plastic waste and carbon footprint.</p>"
+          }
+        },
+        "eco-2": {
+          "type": "faq_item",
+          "settings": {
+            "category": "cat_2",
+            "question": "Do you have any eco-certifications?",
+            "answer": "<p>Yes, our sheets hold the OECD-301B certification for biodegradability.</p>"
+          }
+        },
+        "eco-3": {
+          "type": "faq_item",
+          "settings": {
+            "category": "cat_2",
+            "question": "How do your detergent sheets help reduce shipping impact?",
+            "answer": "<p>Their lightweight, compact design reduces fuel consumption and shipping emissions.</p>"
+          }
+        },
+        "ship-1": {
+          "type": "faq_item",
+          "settings": {
+            "category": "cat_3",
+            "question": "Do you ship in Australia?",
+            "answer": "<p>Yes, we ship throughout Australia.</p>"
+          }
+        },
+        "ship-2": {
+          "type": "faq_item",
+          "settings": {
+            "category": "cat_3",
+            "question": "Where can I buy Match With Nature detergent sheets?",
+            "answer": "<p>You can purchase directly from our website or select eco-friendly retailers.</p>"
+          }
+        },
+        "ship-3": {
+          "type": "faq_item",
+          "settings": {
+            "category": "cat_3",
+            "question": "Do you offer wholesale pricing?",
+            "answer": "<p>Yes, we offer wholesale pricing for bulk buyers. Contact support@matchwithnature.com.au.</p>"
+          }
+        },
+        "ship-4": {
+          "type": "faq_item",
+          "settings": {
+            "category": "cat_3",
+            "question": "Can I order samples before purchasing in bulk?",
+            "answer": "<p>Yes, sample packs are available upon request.</p>"
+          }
+        },
+        "ship-5": {
+          "type": "faq_item",
+          "settings": {
+            "category": "cat_3",
+            "question": "Do you ship to the United States?",
+            "answer": "<p>Yes, we are expanding operations to the US.</p>"
+          }
+        },
+        "ship-6": {
+          "type": "faq_item",
+          "settings": {
+            "category": "cat_3",
+            "question": "Are there discounts for larger orders?",
+            "answer": "<p>Yes, we offer tiered pricing for bulk orders.</p>"
+          }
+        },
+        "ship-7": {
+          "type": "faq_item",
+          "settings": {
+            "category": "cat_3",
+            "question": "What are your shipping options and costs?",
+            "answer": "<p>Shipping costs vary by location and order size.</p>"
+          }
+        },
+        "ship-8": {
+          "type": "faq_item",
+          "settings": {
+            "category": "cat_3",
+            "question": "How long will it take for my order to arrive?",
+            "answer": "<p>Orders are processed in 1–2 business days and arrive within 5–7 business days.</p>"
+          }
+        },
+        "ret-1": {
+          "type": "faq_item",
+          "settings": {
+            "category": "cat_4",
+            "question": "What if I’m not satisfied with my purchase?",
+            "answer": "<p>We offer a satisfaction guarantee within 30 days.</p>"
+          }
+        },
+        "ret-2": {
+          "type": "faq_item",
+          "settings": {
+            "category": "cat_4",
+            "question": "How do I contact customer support?",
+            "answer": "<p>Email us at support@matchwithnature.com.au.</p>"
+          }
+        },
+        "ret-3": {
+          "type": "faq_item",
+          "settings": {
+            "category": "cat_4",
+            "question": "Do you offer support for wholesale clients?",
+            "answer": "<p>Yes, we provide dedicated wholesale support and training.</p>"
+          }
+        },
+        "biz-1": {
+          "type": "faq_item",
+          "settings": {
+            "category": "cat_5",
+            "question": "I own a laundromat/hotel. How can I start using Match With Nature sheets in my business?",
+            "answer": "<p>We’d love to work with you. Contact us at support@matchwithnature.com.au to learn more about wholesale pricing, bulk order options, and partnership opportunities tailored for businesses.</p>"
+          }
+        },
+        "biz-2": {
+          "type": "faq_item",
+          "settings": {
+            "category": "cat_5",
+            "question": "Are Match With Nature sheets suitable for resale through vending machines?",
+            "answer": "<p>Absolutely. Our compact packets are specifically designed to fit in most vending machines, making them a hassle-free option for resale in laundromats and other self-service facilities.</p>"
+          }
+        },
+        "biz-3": {
+          "type": "faq_item",
+          "settings": {
+            "category": "cat_5",
+            "question": "How can I market Match With Nature sheets to my customers?",
+            "answer": "<p>We provide wholesale clients with promotional materials and tips to help market the product effectively, whether through vending machines, front desks, or direct resale.</p>"
+          }
+        },
+        "biz-4": {
+          "type": "faq_item",
+          "settings": {
+            "category": "cat_5",
+            "question": "Can I sell Match With Nature products in my retail store?",
+            "answer": "<p>Yes, we welcome partnerships with retail stores that align with our eco-conscious mission. Please reach out to us at support@matchwithnature.com.au for details on becoming a retail partner.</p>"
+          }
+        },
+        "biz-5": {
+          "type": "faq_item",
+          "settings": {
+            "category": "cat_5",
+            "question": "Do you plan to offer other eco-friendly products?",
+            "answer": "<p>Yes, we are excited to expand our product line. Upcoming additions include eco-friendly fabric softener sheets, dryer sheets, and stain removers. Subscribe to our newsletter for product launch announcements.</p>"
+          }
+        },
+        "biz-6": {
+          "type": "faq_item",
+          "settings": {
+            "category": "cat_5",
+            "question": "Do you offer support for businesses looking to switch to Match With Nature products?",
+            "answer": "<p>Yes, we provide detailed onboarding support, including product training, usage instructions, and assistance with integrating our detergent sheets into your business operations.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "pi-1",
+        "pi-2",
+        "pi-3",
+        "pi-4",
+        "pi-5",
+        "pi-6",
+        "pi-7",
+        "pi-8",
+        "pi-9",
+        "pi-10",
+        "eco-1",
+        "eco-2",
+        "eco-3",
+        "ship-1",
+        "ship-2",
+        "ship-3",
+        "ship-4",
+        "ship-5",
+        "ship-6",
+        "ship-7",
+        "ship-8",
+        "ret-1",
+        "ret-2",
+        "ret-3",
+        "biz-1",
+        "biz-2",
+        "biz-3",
+        "biz-4",
+        "biz-5",
+        "biz-6"
+      ]
+    },
+    "contact-cta": {
+      "type": "contact-cta",
+      "settings": {
+        "heading": "Have Questions or Wholesale Inquiries?",
+        "subheading": "We’d love to help. Reach out to our team — we usually reply within 24 hours.",
+        "button_label": "Contact Us",
+        "button_link": "/pages/contact"
+      }
+    }
+  },
+  "order": [ "main", "contact-cta","hero"]
+}

@@ -1,0 +1,127 @@
+.nx-bb-contact__inner {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 0 18px
+}
+.nx-bb-contact__title {
+  text-align: center;
+  margin: 30px 0 10px;
+  font-family: Barlow Condensed;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 140%;
+  text-align: center;
+  text-transform: uppercase
+}
+.nx-bb-contact__subtext {
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto 22px;
+  font-family: Work Sans;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 140%;
+  color: #1c1c1c;
+  opacity: .85
+}
+.nx-bb-contact__form-wrap {
+  display: flex;
+  justify-content: center;
+  width: 638px;
+  max-width: 100%;
+  margin-bottom: 40px
+}
+.nx-bb-contact__form {
+  width: 100%;
+  max-width: 638px;
+}
+.nx-bb-contact__field {
+  margin-bottom: 12px;
+  text-align: left
+}
+.nx-bb-contact__field label {
+  display: block;
+  margin-bottom: 6px;
+  font-family: Work Sans;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 140%
+}
+.nx-bb-contact__field input,
+.nx-bb-contact__field textarea {
+  width: 100%;
+  border: 1px solid #e3e3e3;
+  padding: 10px 12px;
+  font-size: 13px;
+  border-radius: 0;
+  background: #fff
+}
+.nx-bb-contact__btn {
+  display: inline-block;
+  padding: 10px 26px;
+  background: #9e3727;
+  color: #fff;
+  font-family: "Barlow Condensed",sans-serif;
+  font-size: 20px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  border-radius: 2px;
+  text-decoration: none
+}
+.nx-bb-contact__success {
+  text-align: center;
+  margin: 0 0 12px;
+  font-size: 12px;
+  font-weight: 700
+}
+.nx-bb-contact__errors {
+  margin: 0 0 12px;
+  font-size: 12px
+}
+.nx-bb-contact__info {
+  max-width: 740px;
+  margin: 0 auto;
+  text-align: left;
+  display: grid;
+  gap: 18px
+}
+.nx-bb-contact__info-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px
+}
+.nx-bb-contact__info-title {
+  margin: 0;
+  font-family: Barlow Condensed;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 140%;
+  text-align: center;
+  text-transform: uppercase
+}
+.nx-bb-contact__info-text {
+  font-family: Work Sans;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 140%
+}
+.nx-bb-contact__info-text p {
+  margin: 16px 0
+}
+.nx-bb-contact__info-link {
+  display: inline-block;
+  margin-top: 6px;
+  font-size: 12px;
+  font-weight: 800;
+  text-decoration: underline;
+  color: inherit
+}
+.nx-bb-contact__info-item{
+    margin-bottom: 40px;
+}
+@media (max-width:749px) {
+  .nx-bb-contact__form {
+    max-width: 100%
+  }
+}

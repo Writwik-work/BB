@@ -1,0 +1,56 @@
+.nx-bb-chopping-board {
+  position: relative;
+  width: 100%;
+  overflow: hidden
+}
+.nx-bb-chopping-board__video-wrapper {
+  width: 100%
+}
+.nx-bb-chopping-board__video {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover
+}
+.nx-bb-chopping-board__content {
+  display: flex;
+  margin-bottom: 40px;
+  justify-content: center
+}
+.nx-bb-chopping-board .hero-section__buttons {
+  display: flex;
+  justify-content: center
+}
+.nx-bb-chopping-board .hero-section__btn {
+  padding: 12px 24px;
+  max-width: none;
+  height: auto;
+  border-radius: 4px;
+  font-family: 'Barlow Condensed',sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  border: 2px solid transparent;
+  transition: .25s ease
+}
+.nx-bb-chopping-board .hero-section__btn--primary {
+  background: #9e3727;
+  border-color: #9e3727;
+  color: #fff
+}
+.nx-bb-chopping-board .hero-section__btn--primary:hover {
+  background-color: #9e3727;
+  border-color: #8b301b;
+  transform: translateY(-2px)
+}
+@media (max-width:768px) {
+  .nx-bb-chopping-board__content {
+    bottom: 24px
+  }
+}

@@ -1,0 +1,100 @@
+@import url(https://fonts.googleapis.com/css?family=Barlow+Condensed:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic);
+.hero-section {
+  position: relative;
+  height: 83vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #fff;
+  background-color: #000;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  overflow: hidden
+}
+.hero-section__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,.45)
+}
+.hero-section__inner {
+  position: relative;
+  z-index: 1;
+  max-width: 960px;
+  margin-inline: auto;
+  padding: 4rem 1.5rem
+}
+.hero-section__heading {
+  font-family: Barlow Condensed;
+  font-weight: 700;
+  font-size: 72px;
+  line-height: 140%;
+  text-align: center;
+  color: #fff;
+  text-transform: uppercase;
+  margin: 0 0 2rem
+}
+.hero-section__buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin-top: 20px
+}
+.hero-section__btn {
+  padding: 12px 20px;
+  max-width: 72px;
+  height: 48px;
+  border-radius: 4px;
+  font-family: Barlow Condensed;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  line-height: 1;
+  border: 2px solid transparent;
+  transition: .25s ease
+}
+.hero-section__btn--primary {
+  background: #9e3727;
+  border-color: #9e3727;
+  color: #fff
+}
+.hero-section__btn--primary:hover {
+  background-color: #9e3727;
+  border-color: #8b301b;
+  transform: translateY(-2px)
+}
+.hero-section__btn--secondary {
+  border: 2px solid #fff;
+  border-color: #fff;
+  color: #fff
+}
+.hero-section__btn--secondary:hover {
+  background-color: #fff;
+  color: #000;
+  transform: translateY(-2px)
+}
+@media (max-width:1024px) {
+  .hero-section__heading {
+    font-weight: 700;
+    font-size: 56px
+  }
+}
+@media (max-width:768px) {
+  .hero-section {
+    min-height: 70vh
+  }
+  .hero-section__heading {
+    font-size: 38px
+  }
+  .hero-section__inner {
+    padding: 3rem 1.25rem
+  }
+}

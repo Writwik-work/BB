@@ -1,0 +1,70 @@
+.nx-bb-shop-hero {
+  width: 100%
+}
+.nx-bb-shop-hero__inner {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0
+}
+.nx-bb-shop-hero__media img {
+  display: block;
+  width: 100%;
+  height: 350px;
+  object-fit: cover
+}
+.nx-bb-shop-hero__content {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #fff;
+  padding: 0 16px
+}
+.nx-bb-shop-hero__heading {
+  margin: 0 0 8px;
+  font-family: "Barlow Condensed",sans-serif;
+  font-weight: 700;
+  font-size: 72px;
+  line-height: 1.05;
+  text-transform: uppercase
+}
+.nx-bb-shop-hero__subcopy {
+  margin: 0;
+  max-width: 520px;
+  font-family: "Work Sans",sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.4
+}
+@media (max-width:1024px) {
+  .nx-bb-shop-hero__media img {
+    height: 300px
+  }
+  .nx-bb-shop-hero__heading {
+    font-size: 52px
+  }
+}
+@media (max-width:768px) {
+  .nx-bb-shop-hero__media img {
+    height: 220px
+  }
+  .nx-bb-shop-hero__heading {
+    font-size: 36px
+  }
+  .nx-bb-shop-hero__subcopy {
+    font-size: 14px
+  }
+}
+@media (max-width:480px) {
+  .nx-bb-shop-hero__media img {
+    height: 200px
+  }
+  .nx-bb-shop-hero__heading {
+    font-size: 30px
+  }
+}

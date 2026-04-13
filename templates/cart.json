@@ -1,0 +1,35 @@
+{
+  "sections": {
+    "nx_bb_header": {
+      "type": "nx-bb-header",
+      "settings": {}
+    },
+    "nx_bb_cart_main": {
+      "type": "nx-bb-cart-main",
+      "settings": {
+        "show_free_shipping": true,
+        "free_shipping_threshold": 79,
+        "show_tax_note": true,
+        "show_express_buttons": true,
+        "show_trust_row": true,
+        "checkout_label": "PROCEED TO SECURE CHECKOUT",
+        "trust_text_1": "Expert-approved quality",
+        "trust_text_2": "Fast shipping",
+        "trust_text_3": "Satisfaction guarantee",
+        "padding_top_desktop": 40,
+        "padding_bottom_desktop": 64,
+        "padding_top_mobile": 24,
+        "padding_bottom_mobile": 40
+      }
+    },
+    "nx_footer": {
+      "type": "nx-bb-footer",
+      "settings": {}
+    }
+  },
+  "order": [
+    "nx_bb_header",
+    "nx_bb_cart_main",
+    "nx_footer"
+  ]
+}

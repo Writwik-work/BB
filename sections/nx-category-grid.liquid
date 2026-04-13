@@ -1,0 +1,160 @@
+{{ 'nx-category-grid.css' | asset_url | stylesheet_tag }}
+
+<section
+  id="section-{{ section.id }}"
+  class="nx-section nx-category-grid section-{{ section.id }}"
+>
+  <div class="container">
+    {% if section.settings.heading != blank %}
+      <h2 class="nx-category-grid__heading">
+        {{ section.settings.heading }}
+      </h2>
+    {% endif %}
+
+    <div class="nx-category-grid__grid">
+      {%- for i in (1..7) -%}
+        {%- assign img_id = 'image_' | append: i -%}
+        {%- assign title_id = 'title_' | append: i -%}
+        {%- assign subtitle_id = 'subtitle_' | append: i -%}
+        {%- assign link_id = 'link_' | append: i -%}
+
+        {%- assign img = section.settings[img_id] -%}
+        {%- assign title = section.settings[title_id] -%}
+        {%- assign subtitle = section.settings[subtitle_id] -%}
+        {%- assign link = section.settings[link_id] -%}
+
+        {%- case i -%}
+          {%- when 1 -%}
+            {%- assign fallback = 'grid/1st.png' -%}
+          {%- when 2 -%}
+            {%- assign fallback = 'grid/2.png' -%}
+          {%- when 3 -%}
+            {%- assign fallback = 'grid/3.png' -%}
+          {%- when 4 -%}
+            {%- assign fallback = 'grid/4.png' -%}
+          {%- when 5 -%}
+            {%- assign fallback = 'grid/5.png' -%}
+          {%- when 6 -%}
+            {%- assign fallback = 'grid/6.png' -%}
+          {%- when 7 -%}
+            {%- assign fallback = 'grid/7.png' -%}
+        {%- endcase -%}
+
+        {%- assign card_classes = 'nx-category-grid__card' -%}
+
+        {%- if link != blank -%}
+          <a href="{{ link }}" class="{{ card_classes }}">
+        {%- else -%}
+          <div class="{{ card_classes }}">
+        {%- endif -%}
+
+          {%- if img != blank -%}
+            <div
+              class="nx-category-grid__image"
+              style="background-image: url({{ img | image_url: width: 900, height: 600, crop: 'center' }});"
+            ></div>
+          {%- else -%}
+            <div
+              class="nx-category-grid__image"
+              style="background-image: url({{ fallback | asset_url }});"
+            ></div>
+          {%- endif -%}
+
+
+          <div class="nx-category-grid__content">
+            {% if title != blank %}
+              <h3 class="nx-category-grid__title">{{ title }}</h3>
+            {% endif %}
+            {% if subtitle != blank %}
+              <p class="nx-category-grid__subtitle">{{ subtitle }}</p>
+            {% endif %}
+          </div>
+
+        {%- if link != blank -%}
+          </a>
+        {%- else -%}
+          </div>
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+
+    {% if section.settings.cta_label != blank %}
+      <div class="nx-category-grid__cta-wrapper">
+        <a href="{{ section.settings.cta_link | default: '#' }}" class="nx-category-grid__cta">
+          {{ section.settings.cta_label }}
+        </a>
+      </div>
+    {% endif %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Category grid (7 cards)",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "FIND EXACTLY WHAT YOU NEED"
+    },
+
+    { "type": "image_picker", "id": "image_1", "label": "Card 1 image" },
+    { "type": "text", "id": "title_1", "label": "Card 1 title", "default": "SEASONINGS & SAUCES" },
+    { "type": "text", "id": "subtitle_1", "label": "Card 1 subtitle", "default": "Bold flavors, clean ingredients." },
+    { "type": "url", "id": "link_1", "label": "Card 1 link" },
+
+    { "type": "image_picker", "id": "image_2", "label": "Card 2 image" },
+    { "type": "text", "id": "title_2", "label": "Card 2 title", "default": "DIY PROCESSING" },
+    {
+      "type": "text",
+      "id": "subtitle_2",
+      "label": "Card 2 subtitle",
+      "default": "Butcher, cure, and process at home."
+    },
+    { "type": "url", "id": "link_2", "label": "Card 2 link" },
+
+    { "type": "image_picker", "id": "image_3", "label": "Card 3 image" },
+    { "type": "text", "id": "title_3", "label": "Card 3 title", "default": "SNACKS" },
+    { "type": "text", "id": "subtitle_3", "label": "Card 3 subtitle", "default": "Handcrafted jerky & meat sticks." },
+    { "type": "url", "id": "link_3", "label": "Card 3 link" },
+
+    { "type": "image_picker", "id": "image_4", "label": "Card 4 image" },
+    { "type": "text", "id": "title_4", "label": "Card 4 title", "default": "CUTLERY" },
+    { "type": "text", "id": "subtitle_4", "label": "Card 4 subtitle", "default": "Precision knives for every cut." },
+    { "type": "url", "id": "link_4", "label": "Card 4 link" },
+
+    { "type": "image_picker", "id": "image_5", "label": "Card 5 image" },
+    { "type": "text", "id": "title_5", "label": "Card 5 title", "default": "GRILLING & ACCESSORIES" },
+    { "type": "text", "id": "subtitle_5", "label": "Card 5 subtitle", "default": "Tools & gear for the perfect cook." },
+    { "type": "url", "id": "link_5", "label": "Card 5 link" },
+
+    { "type": "image_picker", "id": "image_6", "label": "Card 6 image" },
+    { "type": "text", "id": "title_6", "label": "Card 6 title", "default": "APPAREL" },
+    { "type": "text", "id": "subtitle_6", "label": "Card 6 subtitle", "default": "Wear the brand. Live the craft." },
+    { "type": "url", "id": "link_6", "label": "Card 6 link" },
+
+    { "type": "image_picker", "id": "image_7", "label": "Card 7 image" },
+    { "type": "text", "id": "title_7", "label": "Card 7 title", "default": "MEAT SHOP" },
+    { "type": "text", "id": "subtitle_7", "label": "Card 7 subtitle", "default": "Premium cuts, expertly sourced." },
+    { "type": "url", "id": "link_7", "label": "Card 7 link" },
+
+    {
+      "type": "text",
+      "id": "cta_label",
+      "label": "Bottom button label",
+      "default": "SHOP ALL"
+    },
+    {
+      "type": "url",
+      "id": "cta_link",
+      "label": "Bottom button link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Category grid (7 cards)"
+    }
+  ]
+}
+{% endschema %}

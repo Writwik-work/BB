@@ -1,0 +1,126 @@
+.nx-bb-faq {
+  background: var(--nxbb-faq-bg);
+  color: var(--nxbb-faq-text);
+}
+
+.nx-bb-faq__inner {
+  max-width: var(--nxbb-faq-width);
+  margin: 0 auto;
+  padding: 0 18px;
+}
+
+.nx-bb-faq__header {
+  text-align: center;
+  margin-bottom: 22px;
+}
+
+.nx-bb-faq__title {
+  margin: 0;
+  font-weight: 800;
+  font-size: clamp(22px, 2.3vw, 30px);
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.nx-bb-faq__subtitle {
+  margin: 8px 0 0;
+  font-size: 13px;
+  opacity: 0.7;
+}
+
+/* Accordion list */
+.nx-bb-faq__list {
+  border-top: 1px solid var(--nxbb-faq-divider);
+}
+
+.nx-bb-faq__row {
+  border-bottom: 1px solid var(--nxbb-faq-divider);
+}
+
+.nx-bb-faq__trigger {
+  width: 100%;
+  background: transparent;
+  border: 0;
+  padding: 18px 0;
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+
+  text-align: left;
+  color: inherit;
+}
+
+.nx-bb-faq__q {
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+/* plus icon */
+.nx-bb-faq__plus {
+  position: relative;
+  width: 22px;
+  height: 22px;
+  flex: 0 0 22px;
+}
+
+.nx-bb-faq__plus::before,
+.nx-bb-faq__plus::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  background: var(--nxbb-faq-icon);
+  transform: translate(-50%, -50%);
+  border-radius: 1px;
+}
+
+.nx-bb-faq__plus::before {
+  width: 14px;
+  height: 2px;
+}
+
+.nx-bb-faq__plus::after {
+  width: 2px;
+  height: 14px;
+}
+
+/* when open -> minus */
+.nx-bb-faq__trigger[aria-expanded="true"] .nx-bb-faq__plus::after {
+  transform: translate(-50%, -50%) scaleY(0);
+}
+
+/* panel */
+.nx-bb-faq__panel {
+  padding: 0 0 16px;
+}
+
+.nx-bb-faq__a {
+  font-size: 13px;
+  line-height: 1.65;
+  opacity: 0.85;
+}
+
+/* bottom */
+.nx-bb-faq__bottom {
+  text-align: center;
+  margin-top: 22px;
+  font-size: 12px;
+  opacity: 0.85;
+}
+
+.nx-bb-faq__bottom-link {
+  color: inherit;
+  font-weight: 800;
+  text-decoration: underline;
+  margin-left: 4px;
+}
+
+@media (max-width: 749px) {
+  .nx-bb-faq__trigger {
+    padding: 16px 0;
+  }
+}

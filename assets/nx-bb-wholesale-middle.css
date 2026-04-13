@@ -1,0 +1,120 @@
+.nx-bb-wholesale-middle__inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 18px;
+  text-align: center
+}
+.nx-bb-wholesale-middle__title {
+  margin: 0 0 12px;
+  font-weight: 800;
+  font-size: clamp(22px, 2.4vw, 30px);
+  letter-spacing: 0;
+  text-transform: uppercase
+}
+.nx-bb-wholesale-middle__intro {
+  max-width: 760px;
+  margin: 0 auto 28px;
+  font-size: 13px;
+  line-height: 1.65;
+  opacity: .85
+}
+.nx-bb-wholesale-middle__intro p {
+  font-size: 16px;
+  font-weight: 400
+}
+.nx-bb-wholesale-middle__intro a {
+  text-decoration: underline;
+  color: #1c1c1c
+}
+.nx-bb-wholesale-middle__subheading {
+  margin: 0 0 22px;
+  font-weight: 700;
+  font-size: 24px;
+  letter-spacing: .6px;
+  text-transform: uppercase
+}
+.nx-bb-wholesale-middle__benefits {
+  display: grid;
+  grid-template-columns: repeat(3,minmax(0,1fr));
+  gap: 28px;
+  justify-content: center;
+  align-items: start;
+  margin: 0 auto 34px
+}
+.nx-bb-wholesale-middle__benefit {
+  text-align: center;
+  padding: 4px 6px
+}
+.nx-bb-wholesale-middle__icon {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 12px
+}
+.nx-bb-wholesale-middle__icon img {
+  width: 60px;
+  height: auto
+}
+.nx-bb-wholesale-middle__benefit-title {
+  font-weight: 700;
+  font-size: 16px;
+  letter-spacing: .4px;
+  text-transform: uppercase;
+  margin-bottom: 6px
+}
+.nx-bb-wholesale-middle__benefit-text {
+  font-size: 12px;
+  line-height: 1.55;
+  opacity: .85
+}
+.nx-bb-wholesale-middle__criteria-title {
+  margin: 0 0 16px;
+  font-weight: 700;
+  font-size: 24px;
+  letter-spacing: .6px;
+  text-transform: uppercase
+}
+.nx-bb-wholesale-middle__criteria {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: left
+}
+.nx-bb-wholesale-middle__criteria ul {
+  list-style: none;
+  padding: 0;
+  margin: 0
+}
+.nx-bb-wholesale-middle__criteria li {
+  position: relative;
+  padding-left: 26px;
+  margin: 12px 0;
+  font-size: 16px;
+  line-height: 1.6;
+  opacity: .9
+}
+.nx-bb-wholesale-middle__criteria li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #c13a2b;
+  font-weight: 900
+}
+.nx-bb-wholesale-middle__footer {
+  margin-top: 26px;
+  font-size: 12px;
+  opacity: .85
+}
+.nx-bb-wholesale-middle__footer a {
+  font-weight: 800;
+  text-decoration: underline;
+  color: inherit
+}
+@media (max-width:990px) {
+  .nx-bb-wholesale-middle__benefits {
+    grid-template-columns: 1fr;
+    gap: 22px
+  }
+  .nx-bb-wholesale-middle__criteria {
+    text-align: left
+  }
+}

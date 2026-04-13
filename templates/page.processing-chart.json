@@ -1,0 +1,42 @@
+{
+  "sections": {
+    "nx_bb_header": {
+      "type": "nx-bb-header",
+      "settings": {}
+    },
+    "main_processing_chart": {
+      "type": "nx-bb-processing-chart",
+      "settings": {
+        "heading": "CUSTOMIZE YOUR MEAT PROCESSING WITH PRECISION",
+        "description": "<p>Got a batch of meat that’s not exactly 25 lbs? Use this chart to calculate the perfect amount of Bearded Butcher Seasoning, High Temp Cheese, Dried Food, or other ingredients for your recipe!</p>",
+        "unit_heading": "Unit Conversions:",
+        "download_text": "DOWNLOAD PRINTABLE PDF OF THIS CHART",
+        "download_link": "/files/processing-chart.pdf",
+        "table_html": "",
+        "bg_color": "#ffffff",
+        "padding_top": 48,
+        "padding_bottom": 48
+      },
+      "blocks": {
+        "unit_1": {
+          "type": "unit",
+          "settings": {
+            "text": "3 tsp = 1 TBSP"
+          }
+        },
+        "unit_2": {
+          "type": "unit",
+          "settings": {
+            "text": "16 TBSP = 1 Cup"
+          }
+        }
+      },
+      "block_order": ["unit_1", "unit_2"]
+    },
+    "nx_footer": {
+      "type": "nx-bb-footer",
+      "settings": {}
+    }
+  },
+  "order": ["nx_bb_header", "main_processing_chart", "nx_footer"]
+}

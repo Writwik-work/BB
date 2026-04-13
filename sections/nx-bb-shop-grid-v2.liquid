@@ -1,0 +1,277 @@
+{{ 'nx-bb-shop-grid-v2.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'nx-bb-shop-grid-v2.js' | asset_url }}" defer></script>
+
+<section
+  id="section-{{ section.id }}"
+  class="nx-bb-shop-grid-v2"
+  data-nx-grid
+  data-section-id="{{ section.id }}"
+  data-initial="{{ section.settings.initial_count }}"
+  data-more="{{ section.settings.load_more_count }}"
+>
+  <div class="page-width">
+    <div class="nx-bb-sg__top">
+      <button class="nx-bb-sg__filtersToggle" type="button" data-nx-filters-toggle aria-expanded="false">
+        <span class="nx-bb-sg__filtersIcon" aria-hidden="true">≡</span>
+        <span>Filters</span>
+      </button>
+
+      <div class="nx-bb-sg__filtersPanel" data-nx-filters-panel hidden>
+        <div class="nx-bb-sg__chips" data-nx-chips>
+          {% for block in section.blocks %}
+            {% if block.type == 'filter_chip' %}
+              <button
+                type="button"
+                class="nx-bb-sg__chip"
+                data-nx-filter-chip
+                data-filter-value="{{ block.settings.filter_value | escape }}"
+                {{ block.shopify_attributes }}
+              >
+                {{ block.settings.label }}
+              </button>
+            {% endif %}
+          {% endfor %}
+        </div>
+
+        <button type="button" class="nx-bb-sg__clearAll" data-nx-clear>
+          Clear All
+        </button>
+      </div>
+
+      <div class="nx-bb-sg__sort">
+        <span class="nx-bb-sg__sortLabel">Sort by:</span>
+        <select class="nx-bb-sg__sortSelect" data-nx-sort>
+          <option value="best" selected>Best Selling</option>
+          <option value="new">New Arrivals</option>
+          <option value="price_asc">Price: Low to High</option>
+          <option value="price_desc">Price: High to Low</option>
+          <option value="rating_desc">Customer Ratings</option>
+          <option value="featured">Featured</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="nx-bb-sg__countRow">
+      <div class="nx-bb-sg__activeFilters" data-nx-active-filters></div>
+      <div class="nx-bb-sg__count" data-nx-count></div>
+    </div>
+
+    <div class="nx-bb-sg__grid" data-nx-grid-list>
+      {% for block in section.blocks %}
+        {% if block.type == 'product_card' %}
+          {% assign images_csv = block.settings.images_csv | default: '' %}
+          {% assign images = images_csv | split: ',' %}
+
+          <article
+            class="nx-bb-sg__card"
+            data-nx-item
+            data-type="product"
+            data-tags="{{ block.settings.tags | escape }}"
+            data-price="{{ block.settings.price_cents | default: 0 }}"
+            data-rating="{{ block.settings.rating | default: 0 }}"
+            data-featured="{% if block.settings.is_featured %}1{% else %}0{% endif %}"
+            data-new="{% if block.settings.is_new %}1{% else %}0{% endif %}"
+            data-best="{{ block.settings.best_rank | default: 9999 }}"
+            {{ block.shopify_attributes }}
+          >
+            <div class="nx-bb-sg__media">
+              {% if block.settings.badge_label != blank %}
+                <span class="nx-bb-sg__badge">{{ block.settings.badge_label }}</span>
+              {% endif %}
+
+              <div class="nx-bb-sg__slider" data-nx-slider>
+                <div class="nx-bb-sg__slides" data-nx-slides>
+                  {% for img_name in images %}
+                    {% assign img_trim = img_name | strip %}
+                    {% if img_trim != blank %}
+                      <div class="nx-bb-sg__slide" data-nx-slide>
+                        <img
+                          src="{{ img_trim | asset_url }}"
+                          alt="{{ block.settings.title | escape }}"
+                          loading="lazy"
+                        >
+                      </div>
+                    {% endif %}
+                  {% endfor %}
+                </div>
+
+                <button type="button" class="nx-bb-sg__nav nx-bb-sg__nav--prev" data-nx-prev aria-label="Previous image">‹</button>
+                <button type="button" class="nx-bb-sg__nav nx-bb-sg__nav--next" data-nx-next aria-label="Next image">›</button>
+
+                <div class="nx-bb-sg__dots" data-nx-dots></div>
+
+                {% unless block.settings.available %}
+                  <div class="nx-bb-sg__oos">
+                    <span class="nx-bb-sg__oosLabel">SOLD OUT</span>
+                    <a
+                      class="nx-bb-sg__oosBtn"
+                      href="{{ section.settings.email_when_available_link | default: '#' }}"
+                    >
+                      Email when available
+                    </a>
+                  </div>
+                {% endunless %}
+              </div>
+            </div>
+
+            <div class="nx-bb-sg__body">
+              {% if block.settings.meta != blank %}
+                <div class="nx-bb-sg__meta">{{ block.settings.meta }}</div>
+              {% endif %}
+
+              {% if block.settings.title != blank %}
+                <div class="nx-bb-sg__title">{{ block.settings.title }}</div>
+              {% endif %}
+
+              <div class="nx-bb-sg__reviews">
+                <span class="nx-bb-sg__stars" aria-hidden="true">{{ block.settings.stars_text }}</span>
+                <span class="nx-bb-sg__reviewsText">{{ block.settings.reviews_text }}</span>
+              </div>
+
+              <div class="nx-bb-sg__priceRow">
+                <span class="nx-bb-sg__price">{{ block.settings.price_text }}</span>
+                {% if block.settings.compare_text != blank %}
+                  <span class="nx-bb-sg__compare">{{ block.settings.compare_text }}</span>
+                {% endif %}
+              </div>
+            </div>
+          </article>
+
+        {% elsif block.type == 'testimonial_card' %}
+          <article class="nx-bb-sg__card nx-bb-sg__card--testimonial" data-nx-item data-type="testimonial" {{ block.shopify_attributes }}>
+            <div class="nx-bb-sg__tStars" aria-hidden="true">{{ block.settings.stars | default: '★★★★★' }}</div>
+            <div class="nx-bb-sg__tTitle">{{ block.settings.title }}</div>
+            <div class="nx-bb-sg__tBody">{{ block.settings.body }}</div>
+
+            <div class="nx-bb-sg__tProd">
+              {% if block.settings.product_image != blank %}
+                <img src="{{ block.settings.product_image | image_url: width: 160 }}" alt="{{ block.settings.product_title | escape }}" loading="lazy">
+              {% endif %}
+              <div>
+                <div class="nx-bb-sg__tProdTitle">{{ block.settings.product_title }}</div>
+                <div class="nx-bb-sg__tProdMeta">{{ block.settings.product_meta }}</div>
+              </div>
+            </div>
+          </article>
+        {% endif %}
+      {% endfor %}
+    </div>
+
+    <div class="nx-bb-sg__loader" data-nx-loader hidden>
+      Loading more…
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "NX – BB Shop Grid v2",
+  "settings": [
+    {
+      "type": "url",
+      "id": "email_when_available_link",
+      "label": "Email when available link",
+      "info": "Use your Back-in-stock / Klaviyo form URL or a page link."
+    },
+    {
+      "type": "range",
+      "id": "initial_count",
+      "label": "Initial items visible",
+      "min": 6,
+      "max": 30,
+      "step": 1,
+      "default": 9
+    },
+    {
+      "type": "range",
+      "id": "load_more_count",
+      "label": "Items per infinite load",
+      "min": 3,
+      "max": 18,
+      "step": 1,
+      "default": 6
+    }
+  ],
+  "blocks": [
+    {
+      "type": "filter_chip",
+      "name": "Filter chip",
+      "settings": [
+        { "type": "text", "id": "label", "label": "Label", "default": "Seasonings & Sauces" },
+        { "type": "text", "id": "filter_value", "label": "Filter value", "info": "Must match a tag in product blocks. Example: seasonings", "default": "seasonings" }
+      ]
+    },
+    {
+      "type": "product_card",
+      "name": "Product card",
+      "settings": [
+        { "type": "text", "id": "badge_label", "label": "Badge label", "default": "LIMITED EDITION" },
+        { "type": "text", "id": "meta", "label": "Brand/meta", "default": "The Bearded Butchers" },
+        { "type": "text", "id": "title", "label": "Title", "default": "Jalapeño Cheddar Bratwurst DIY Kit" },
+
+        {
+          "type": "text",
+          "id": "images_csv",
+          "label": "Hard-coded images (assets) CSV",
+          "info": "Example: best-seller/p1.jpg,best-seller/p1-2.jpg,best-seller/p1-3.jpg",
+          "default": "best-seller/product-2.png,best-seller/product-2.png,best-seller/product-2.png"
+        },
+
+        { "type": "checkbox", "id": "available", "label": "Available (in stock)", "default": true },
+
+        { "type": "text", "id": "stars_text", "label": "Stars text", "default": "★★★★★" },
+        { "type": "text", "id": "reviews_text", "label": "Reviews text", "default": "29 Reviews" },
+
+        { "type": "text", "id": "price_text", "label": "Price text", "default": "$34.00" },
+        { "type": "text", "id": "compare_text", "label": "Compare text", "default": "$39.00" },
+
+        { "type": "number", "id": "price_cents", "label": "Price (cents) for sorting", "default": 3400 },
+        { "type": "number", "id": "rating", "label": "Rating (0-5) for sorting", "default": 5 },
+        { "type": "number", "id": "best_rank", "label": "Best selling rank (lower = better)", "default": 1 },
+
+        { "type": "checkbox", "id": "is_new", "label": "New arrival", "default": false },
+        { "type": "checkbox", "id": "is_featured", "label": "Featured", "default": false },
+
+        {
+          "type": "text",
+          "id": "tags",
+          "label": "Tags (comma separated)",
+          "info": "Example: seasonings,diy",
+          "default": "seasonings"
+        }
+      ]
+    },
+    {
+      "type": "testimonial_card",
+      "name": "Testimonial card",
+      "settings": [
+        { "type": "text", "id": "stars", "label": "Stars", "default": "★★★★★" },
+        { "type": "text", "id": "title", "label": "Title", "default": "Perfect flavor & easy to make!" },
+        { "type": "textarea", "id": "body", "label": "Body", "default": "I’ve made sausages before, but this kit made it incredibly simple…" },
+
+        { "type": "image_picker", "id": "product_image", "label": "Small product image" },
+        { "type": "text", "id": "product_title", "label": "Product title", "default": "Jalapeño Cheddar Bratwurst DIY Kit" },
+        { "type": "text", "id": "product_meta", "label": "Product meta", "default": "The Bearded Butchers" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "NX – BB Shop Grid v2",
+      "category": "Custom",
+      "blocks": [
+        { "type": "filter_chip" },
+        { "type": "filter_chip" },
+        { "type": "product_card" },
+        { "type": "product_card" },
+        { "type": "product_card" },
+        { "type": "product_card" },
+        { "type": "testimonial_card" },
+        { "type": "product_card" },
+        { "type": "product_card" },
+        { "type": "product_card" }
+      ]
+    }
+  ]
+}
+{% endschema %}

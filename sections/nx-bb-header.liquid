@@ -1,0 +1,469 @@
+<section id="section-{{ section.id }}" class="nx-bb-header" data-nx-bb-header>
+  {{ 'header.css' | asset_url | stylesheet_tag }}
+
+  <div class="container">
+    <div class="nx-bb-announcement">
+      <button class="nx-bb-ann-arrow" type="button" aria-hidden="true">‹</button>
+      <p class="nx-bb-ann-text">{{ section.settings.announcement_text }}</p>
+      <button class="nx-bb-ann-arrow" type="button" aria-hidden="true">›</button>
+    </div>
+
+    <div class="nx-bb-main">
+      <div class="page-width nx-bb-main-inner">
+        <a href="{{ routes.root_url }}" class="nx-bb-logo-wrap">
+          {% assign header_logo = section.settings.logo %}
+          {% if header_logo != blank %}
+            <img
+              src="{{ header_logo | image_url: width: 160 }}"
+              alt="{{ header_logo.alt | default: shop.name }}"
+              class="nx-bb-logo"
+              width="{{ header_logo.width }}"
+              height="{{ header_logo.height }}"
+              loading="lazy"
+            >
+          {% else %}
+            <img
+              src="{{ 'logos/bb-logo.png' | asset_url }}"
+              alt="{{ shop.name }}"
+              class="nx-bb-logo"
+              width="80"
+              height="80"
+              loading="lazy"
+            >
+          {% endif %}
+        </a>
+
+        <div class="nx-h-search">
+          <input type="text" placeholder="{{ section.settings.search_placeholder }}">
+          <div class="nx-h-search-icon">
+            <img
+              src="{{ 'logos/search-bar.png' | asset_url }}"
+              alt="Search"
+              width="24"
+              height="24"
+              loading="lazy"
+            >
+          </div>
+        </div>
+
+        <div class="nx-bb-actions">
+          {% form 'localization', class: 'nx-bb-loc-form' %}
+            {% if localization.available_countries.size > 1 %}
+              <div class="nx-bb-currency">
+                <select name="country_code" class="nx-bb-currency-select" aria-label="Country/region">
+                  {% for country in localization.available_countries %}
+                    <option value="{{ country.iso_code }}" {% if country.iso_code == localization.country.iso_code %}selected{% endif %}>
+                      {{ country.iso_code }} {{ country.currency.symbol }}
+                    </option>
+                  {% endfor %}
+                </select>
+              </div>
+            {% endif %}
+          {% endform %}
+
+          <a href="{{ routes.account_url }}" class="nx-bb-icon-link nx-bb-icon-link--account" aria-label="Account">
+            <span class="nx-bb-icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 12c2.485 0 4.5-2.015 4.5-4.5S14.485 3 12 3 7.5 5.015 7.5 7.5 9.515 12 12 12Zm0 2c-3.038 0-9 1.523-9 4.5V21h18v-2.5c0-2.977-5.962-4.5-9-4.5Z"/>
+              </svg>
+            </span>
+          </a>
+
+          <a href="{{ routes.cart_url }}" class="nx-bb-icon-link nx-bb-icon-link--cart" aria-label="Cart">
+            <span class="nx-bb-icon nx-bb-cart-img">
+              <img
+                src="{{ 'logos/shopping-cart.png' | asset_url }}"
+                alt="Cart"
+                class="nx-bb-cart-icon"
+                width="24"
+                height="24"
+                loading="lazy"
+              >
+            </span>
+          </a>
+
+          <button class="nx-bb-menu-toggle" type="button" aria-label="Open menu" data-nx-menu-toggle>
+            <span class="nx-bb-icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M3 6h18v2H3V6zm0 5h18v2H3v-2zm0 5h18v2H3v-2z"/>
+              </svg>
+            </span>
+          </button>
+        </div>
+      </div>
+
+      <div class="nx-bb-nav-wrap">
+        <div class="page-width">
+          <nav class="nx-bb-nav" aria-label="Main navigation">
+            <ul class="nx-bb-nav-list">
+              {% if section.settings.menu != blank and section.settings.menu.links.size > 0 %}
+                {% for link in section.settings.menu.links %}
+                  {%- liquid
+                    assign mega_block = blank
+                    assign link_title_key = link.title | strip | downcase
+
+                    for b in section.blocks
+                      if b.type == 'mega_item'
+                        assign block_title_key = b.settings.menu_title | strip | downcase
+                        if block_title_key == link_title_key
+                          assign mega_block = b
+                          break
+                        endif
+                      endif
+                    endfor
+
+                    assign hard_img_1 = blank
+                    assign hard_img_2 = blank
+
+                    case link_title_key
+                      when 'shop'
+                        assign hard_img_1 = 'header-shop-1.jpg'
+                        assign hard_img_2 = 'header-shop-2.png'
+                      when 'seasonings & sauces'
+                        assign hard_img_1 = 'header/seasonings-1.png'
+                        assign hard_img_2 = 'header/seasonings-2.jpg'
+                      when 'diy processing'
+                        assign hard_img_1 = 'header/diy-1.jpg'
+                        assign hard_img_2 = 'header/diy-2.jpg'
+                      when 'snacks'
+                        assign hard_img_1 = 'header/snacks-1.jpg'
+                        assign hard_img_2 = 'header/snacks-2.jpg'
+                      when 'cutlery'
+                        assign hard_img_1 = 'header/cutlery-1.png'
+                        assign hard_img_2 = 'header/cutlery-2.png'
+                      when 'grilling & accessories'
+                        assign hard_img_1 = 'header/grilling-1.jpg'
+                        assign hard_img_2 = 'header/grilling-2.jpg'
+                      when 'apparel'
+                        assign hard_img_1 = 'header/apparel-1.jpg'
+                        assign hard_img_2 = 'header/apparel-2.png'
+                      when 'meat shop'
+                        assign hard_img_1 = 'header/meatshop-1.jpg'
+                        assign hard_img_2 = 'header/meatshop-2.jpg'
+                      when 'learn'
+                        assign hard_img_1 = 'header/learn-1.jpg'
+                        assign hard_img_2 = 'header/learn-3.jpg'
+                    endcase
+                  -%}
+
+                  <li class="nx-bb-nav-item {% if mega_block != blank %}has-mega{% endif %}" data-nx-mega-item>
+                    <a href="{{ link.url }}" class="nx-bb-nav-link">{{ link.title }}</a>
+
+                    {% if mega_block != blank %}
+                      <div class="nx-bb-mega" role="region" aria-label="{{ link.title }} menu" data-nx-mega-panel>
+                        <div class="nx-bb-mega__inner">
+                          <div class="nx-bb-mega__links">
+                            <div class="nx-bb-mega__heading">
+                              {{ mega_block.settings.left_heading | default: 'FEATURED' }}
+                            </div>
+
+                            <ul class="nx-bb-mega__list">
+                              {% if link.links.size > 0 %}
+                                {% for child in link.links %}
+                                  <li class="nx-bb-mega__item">
+                                    <a class="nx-bb-mega__link" href="{{ child.url }}">{{ child.title }}</a>
+                                  </li>
+                                {% endfor %}
+                              {% else %}
+                                {% if mega_block.settings.fallback_link_1_text != blank and mega_block.settings.fallback_link_1_url != blank %}
+                                  <li class="nx-bb-mega__item"><a class="nx-bb-mega__link" href="{{ mega_block.settings.fallback_link_1_url }}">{{ mega_block.settings.fallback_link_1_text }} </a></li>
+                                {% endif %}
+                                {% if mega_block.settings.fallback_link_2_text != blank and mega_block.settings.fallback_link_2_url != blank %}
+                                  <li class="nx-bb-mega__item"><a class="nx-bb-mega__link" href="{{ mega_block.settings.fallback_link_2_url }}">{{ mega_block.settings.fallback_link_2_text }}</a></li>
+                                {% endif %}
+                                {% if mega_block.settings.fallback_link_3_text != blank and mega_block.settings.fallback_link_3_url != blank %}
+                                  <li class="nx-bb-mega__item"><a class="nx-bb-mega__link" href="{{ mega_block.settings.fallback_link_3_url }}">{{ mega_block.settings.fallback_link_3_text }}</a></li>
+                                {% endif %}
+                                {% if mega_block.settings.fallback_link_4_text != blank and mega_block.settings.fallback_link_4_url != blank %}
+                                  <li class="nx-bb-mega__item"><a class="nx-bb-mega__link" href="{{ mega_block.settings.fallback_link_4_url }}">{{ mega_block.settings.fallback_link_4_text }}</a></li>
+                                {% endif %}
+                                {% if mega_block.settings.fallback_link_5_text != blank and mega_block.settings.fallback_link_5_url != blank %}
+                                  <li class="nx-bb-mega__item"><a class="nx-bb-mega__link" href="{{ mega_block.settings.fallback_link_5_url }}">{{ mega_block.settings.fallback_link_5_text }}</a></li>
+                                {% endif %}
+                              {% endif %}
+                            </ul>
+
+                            {% if mega_block.settings.bottom_bold_text != blank and mega_block.settings.bottom_bold_url != blank %}
+                              <div class="nx-bb-mega__bold">
+                                <a class="nx-bb-mega__boldlink" href="{{ mega_block.settings.bottom_bold_url }}">{{ mega_block.settings.bottom_bold_text }}</a>
+                              </div>
+                            {% endif %}
+                          </div>
+
+                          <div class="nx-bb-mega__cards">
+                            <a class="nx-bb-mega-card" href="{{ mega_block.settings.card_1_link }}">
+                              <div class="nx-bb-mega-card__media">
+                                {% if hard_img_1 != blank %}
+                                  <img src="{{ hard_img_1 | asset_url }}" alt="{{ mega_block.settings.card_1_title | escape }}" loading="lazy">
+                                {% elsif mega_block.settings.card_1_image != blank %}
+                                  <img
+                                    src="{{ mega_block.settings.card_1_image | image_url: width: 900 }}"
+                                    alt="{{ mega_block.settings.card_1_image.alt | default: mega_block.settings.card_1_title }}"
+                                    width="{{ mega_block.settings.card_1_image.width }}"
+                                    height="{{ mega_block.settings.card_1_image.height }}"
+                                    loading="lazy"
+                                  >
+                                {% endif %}
+                                {% if mega_block.settings.card_1_button_text != blank %}
+                                  <span class="nx-bb-mega-card__btn">{{ mega_block.settings.card_1_button_text }}</span>
+                                {% endif %}
+                              </div>
+                              {% if mega_block.settings.card_1_title != blank %}
+                                <div class="nx-bb-mega-card__title">{{ mega_block.settings.card_1_title }}</div>
+                              {% endif %}
+                            </a>
+
+                            <a class="nx-bb-mega-card" href="{{ mega_block.settings.card_2_link }}">
+                              <div class="nx-bb-mega-card__media">
+                                {% if hard_img_2 != blank %}
+                                  <img src="{{ hard_img_2 | asset_url }}" alt="{{ mega_block.settings.card_2_title | escape }}" loading="lazy">
+                                {% elsif mega_block.settings.card_2_image != blank %}
+                                  <img
+                                    src="{{ mega_block.settings.card_2_image | image_url: width: 900 }}"
+                                    alt="{{ mega_block.settings.card_2_image.alt | default: mega_block.settings.card_2_title }}"
+                                    width="{{ mega_block.settings.card_2_image.width }}"
+                                    height="{{ mega_block.settings.card_2_image.height }}"
+                                    loading="lazy"
+                                  >
+                                {% endif %}
+                                {% if mega_block.settings.card_2_button_text != blank %}
+                                  <span class="nx-bb-mega-card__btn">{{ mega_block.settings.card_2_button_text }}</span>
+                                {% endif %}
+                              </div>
+                              {% if mega_block.settings.card_2_title != blank %}
+                                <div class="nx-bb-mega-card__title">{{ mega_block.settings.card_2_title }}</div>
+                              {% endif %}
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    {% endif %}
+                  </li>
+                {% endfor %}
+              {% else %}
+                {%- assign fallback_titles = "SHOP|SEASONINGS & SAUCES|DIY PROCESSING|SNACKS|CUTLERY|GRILLING & ACCESSORIES|APPAREL|MEAT SHOP|LEARN|ABOUT US|RETAIL STORE LOCATOR" | split: "|" -%}
+
+                {% for t in fallback_titles %}
+                  {%- liquid
+                    assign mega_block = blank
+                    assign t_key = t | strip | downcase
+
+                    for b in section.blocks
+                      if b.type == 'mega_item'
+                        assign b_key = b.settings.menu_title | strip | downcase
+                        if b_key == t_key
+                          assign mega_block = b
+                          break
+                        endif
+                      endif
+                    endfor
+
+                    assign hard_img_1 = blank
+                    assign hard_img_2 = blank
+
+                    case t_key
+                      when 'shop'
+                        assign hard_img_1 = 'shop-1.jpg'
+                        assign hard_img_2 = 'shop-2.jpg'
+                      when 'seasonings & sauces'
+                        assign hard_img_1 = 'seasonings-1.jpg'
+                        assign hard_img_2 = 'seasonings-2.jpg'
+                      when 'diy processing'
+                        assign hard_img_1 = 'diy-1.jpg'
+                        assign hard_img_2 = 'diy-2.jpg'
+                      when 'snacks'
+                        assign hard_img_1 = 'snacks-1.jpg'
+                        assign hard_img_2 = 'snacks-2.jpg'
+                      when 'cutlery'
+                        assign hard_img_1 = 'cutlery-1.jpg'
+                        assign hard_img_2 = 'cutlery-2.jpg'
+                      when 'grilling & accessories'
+                        assign hard_img_1 = 'grilling-1.jpg'
+                        assign hard_img_2 = 'grilling-2.jpg'
+                      when 'apparel'
+                        assign hard_img_1 = 'apparel-1.jpg'
+                        assign hard_img_2 = 'apparel-2.jpg'
+                      when 'meat shop'
+                        assign hard_img_1 = 'meatshop-1.jpg'
+                        assign hard_img_2 = 'meatshop-2.jpg'
+                      when 'learn'
+                        assign hard_img_1 = 'learn-1.jpg'
+                        assign hard_img_2 = 'learn-2.jpg'
+                    endcase
+                  -%}
+
+                  <li class="nx-bb-nav-item {% if mega_block != blank %}has-mega{% endif %}" data-nx-mega-item>
+                    <a href="#" class="nx-bb-nav-link">{{ t }}</a>
+
+                    {% if mega_block != blank %}
+                      <div class="nx-bb-mega" role="region" aria-label="{{ t }} menu" data-nx-mega-panel>
+                        <div class="nx-bb-mega__inner">
+                          <div class="nx-bb-mega__links">
+                            <div class="nx-bb-mega__heading">
+                              {{ mega_block.settings.left_heading | default: 'FEATURED' }}
+                            </div>
+
+                            <ul class="nx-bb-mega__list">
+                              {% if mega_block.settings.fallback_link_1_text != blank and mega_block.settings.fallback_link_1_url != blank %}
+                                <li class="nx-bb-mega__item"><a class="nx-bb-mega__link" href="{{ mega_block.settings.fallback_link_1_url }}">{{ mega_block.settings.fallback_link_1_text }}</a></li>
+                              {% endif %}
+                              {% if mega_block.settings.fallback_link_2_text != blank and mega_block.settings.fallback_link_2_url != blank %}
+                                <li class="nx-bb-mega__item"><a class="nx-bb-mega__link" href="{{ mega_block.settings.fallback_link_2_url }}">{{ mega_block.settings.fallback_link_2_text }}</a></li>
+                              {% endif %}
+                              {% if mega_block.settings.fallback_link_3_text != blank and mega_block.settings.fallback_link_3_url != blank %}
+                                <li class="nx-bb-mega__item"><a class="nx-bb-mega__link" href="{{ mega_block.settings.fallback_link_3_url }}">{{ mega_block.settings.fallback_link_3_text }}</a></li>
+                              {% endif %}
+                              {% if mega_block.settings.fallback_link_4_text != blank and mega_block.settings.fallback_link_4_url != blank %}
+                                <li class="nx-bb-mega__item"><a class="nx-bb-mega__link" href="{{ mega_block.settings.fallback_link_4_url }}">{{ mega_block.settings.fallback_link_4_text }}</a></li>
+                              {% endif %}
+                              {% if mega_block.settings.fallback_link_5_text != blank and mega_block.settings.fallback_link_5_url != blank %}
+                                <li class="nx-bb-mega__item"><a class="nx-bb-mega__link" href="{{ mega_block.settings.fallback_link_5_url }}">{{ mega_block.settings.fallback_link_5_text }}</a></li>
+                              {% endif %}
+                            </ul>
+
+                            {% if mega_block.settings.bottom_bold_text != blank and mega_block.settings.bottom_bold_url != blank %}
+                              <div class="nx-bb-mega__bold">
+                                <a class="nx-bb-mega__boldlink" href="{{ mega_block.settings.bottom_bold_url }}">{{ mega_block.settings.bottom_bold_text }}</a>
+                              </div>
+                            {% endif %}
+                          </div>
+
+                          <div class="nx-bb-mega__cards">
+                            <a class="nx-bb-mega-card" href="{{ mega_block.settings.card_1_link }}">
+                              <div class="nx-bb-mega-card__media">
+                                {% if hard_img_1 != blank %}
+                                  <img src="{{ hard_img_1 | asset_url }}" alt="{{ mega_block.settings.card_1_title | escape }}" loading="lazy">
+                                {% elsif mega_block.settings.card_1_image != blank %}
+                                  <img src="{{ mega_block.settings.card_1_image | image_url: width: 900 }}" alt="{{ mega_block.settings.card_1_title | escape }}" loading="lazy">
+                                {% endif %}
+                                {% if mega_block.settings.card_1_button_text != blank %}
+                                  <span class="nx-bb-mega-card__btn">{{ mega_block.settings.card_1_button_text }}</span>
+                                {% endif %}
+                              </div>
+                              {% if mega_block.settings.card_1_title != blank %}
+                                <div class="nx-bb-mega-card__title">{{ mega_block.settings.card_1_title }}</div>
+                              {% endif %}
+                            </a>
+
+                            <a class="nx-bb-mega-card" href="{{ mega_block.settings.card_2_link }}">
+                              <div class="nx-bb-mega-card__media">
+                                {% if hard_img_2 != blank %}
+                                  <img src="{{ hard_img_2 | asset_url }}" alt="{{ mega_block.settings.card_2_title | escape }}" loading="lazy">
+                                {% elsif mega_block.settings.card_2_image != blank %}
+                                  <img src="{{ mega_block.settings.card_2_image | image_url: width: 900 }}" alt="{{ mega_block.settings.card_2_title | escape }}" loading="lazy">
+                                {% endif %}
+                                {% if mega_block.settings.card_2_button_text != blank %}
+                                  <span class="nx-bb-mega-card__btn">{{ mega_block.settings.card_2_button_text }}</span>
+                                {% endif %}
+                              </div>
+                              {% if mega_block.settings.card_2_title != blank %}
+                                <div class="nx-bb-mega-card__title">{{ mega_block.settings.card_2_title }}</div>
+                              {% endif %}
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    {% endif %}
+                  </li>
+                {% endfor %}
+              {% endif %}
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="nx-bb-mobile-menu" data-nx-mobile-menu>
+    <div class="nx-bb-mobile-menu__overlay" data-nx-mobile-overlay></div>
+    <div class="nx-bb-mobile-menu__panel">
+      <button class="nx-bb-mobile-menu__close" type="button" aria-label="Close menu" data-nx-mobile-close>✕</button>
+
+      <nav class="nx-bb-mobile-nav" aria-label="Mobile navigation">
+        <ul class="nx-bb-mobile-nav-list">
+          {% if section.settings.menu != blank and section.settings.menu.links.size > 0 %}
+            {% for link in section.settings.menu.links %}
+              <li class="nx-bb-mobile-nav-item">
+                <a href="{{ link.url }}" class="nx-bb-mobile-nav-link">{{ link.title }}</a>
+              </li>
+            {% endfor %}
+          {% else %}
+            <li class="nx-bb-mobile-nav-item"><a href="#" class="nx-bb-mobile-nav-link">SHOP</a></li>
+            <li class="nx-bb-mobile-nav-item"><a href="#" class="nx-bb-mobile-nav-link">SEASONINGS &amp; SAUCES</a></li>
+            <li class="nx-bb-mobile-nav-item"><a href="#" class="nx-bb-mobile-nav-link">DIY PROCESSING</a></li>
+            <li class="nx-bb-mobile-nav-item"><a href="#" class="nx-bb-mobile-nav-link">SNACKS</a></li>
+            <li class="nx-bb-mobile-nav-item"><a href="#" class="nx-bb-mobile-nav-link">CUTLERY</a></li>
+            <li class="nx-bb-mobile-nav-item"><a href="#" class="nx-bb-mobile-nav-link">GRILLING &amp; ACCESSORIES</a></li>
+            <li class="nx-bb-mobile-nav-item"><a href="#" class="nx-bb-mobile-nav-link">APPAREL</a></li>
+            <li class="nx-bb-mobile-nav-item"><a href="#" class="nx-bb-mobile-nav-link">MEAT SHOP</a></li>
+            <li class="nx-bb-mobile-nav-item"><a href="#" class="nx-bb-mobile-nav-link">LEARN</a></li>
+            <li class="nx-bb-mobile-nav-item"><a href="#" class="nx-bb-mobile-nav-link">ABOUT US</a></li>
+            <li class="nx-bb-mobile-nav-item"><a href="#" class="nx-bb-mobile-nav-link">RETAIL STORE LOCATOR</a></li>
+          {% endif %}
+        </ul>
+      </nav>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "NX – BB Header",
+  "settings": [
+    { "type": "image_picker", "id": "logo", "label": "Logo" },
+    {
+      "type": "text",
+      "id": "announcement_text",
+      "label": "Announcement text",
+      "default": "NON-PERISHABLES FREE SHIPPING OVER $79, PERISHABLES FREE SHIPPING OVER $199"
+    },
+    {
+      "type": "text",
+      "id": "search_placeholder",
+      "label": "Search placeholder",
+      "default": "What are you looking for?"
+    },
+    { "type": "link_list", "id": "menu", "label": "Main menu" }
+  ],
+  "blocks": [
+    {
+      "type": "mega_item",
+      "name": "Mega menu item",
+      "settings": [
+        { "type": "text", "id": "menu_title", "label": "Match menu title", "default": "SEASONINGS & SAUCES" },
+        { "type": "text", "id": "left_heading", "label": "Left heading", "default": "FEATURED" },
+
+        { "type": "text", "id": "fallback_link_1_text", "label": "Featured link 1 text", "default": "All Seasonings & Sauces" },
+        { "type": "url", "id": "fallback_link_1_url", "label": "Featured link 1 url" },
+
+        { "type": "text", "id": "fallback_link_2_text", "label": "Featured link 2 text", "default": "Best Sellers" },
+        { "type": "url", "id": "fallback_link_2_url", "label": "Featured link 2 url" },
+
+        { "type": "text", "id": "fallback_link_3_text", "label": "Featured link 3 text", "default": "Bundles & Kits" },
+        { "type": "url", "id": "fallback_link_3_url", "label": "Featured link 3 url" },
+
+        { "type": "text", "id": "fallback_link_4_text", "label": "Featured link 4 text", "default": "Limited Editions" },
+        { "type": "url", "id": "fallback_link_4_url", "label": "Featured link 4 url" },
+
+        { "type": "text", "id": "fallback_link_5_text", "label": "Featured link 5 text", "default": "Recipes & Pairings" },
+        { "type": "url", "id": "fallback_link_5_url", "label": "Featured link 5 url" },
+
+        { "type": "text", "id": "bottom_bold_text", "label": "Bottom bold text", "default": "Outlet" },
+        { "type": "url", "id": "bottom_bold_url", "label": "Bottom bold url" },
+
+        { "type": "text", "id": "card_1_button_text", "label": "Card 1 button text", "default": "SHOP NOW" },
+        { "type": "text", "id": "card_2_button_text", "label": "Card 2 button text", "default": "READ FULL ARTICLE" },
+
+        { "type": "image_picker", "id": "card_1_image", "label": "Card 1 image (optional override)" },
+        { "type": "text", "id": "card_1_title", "label": "Card 1 caption", "default": "11 PACK OF SEASONING SHAKERS" },
+        { "type": "url", "id": "card_1_link", "label": "Card 1 link" },
+
+        { "type": "image_picker", "id": "card_2_image", "label": "Card 2 image (optional override)" },
+        { "type": "text", "id": "card_2_title", "label": "Card 2 caption", "default": "THE ULTIMATE STEAK RUB: OUR BEST STEAK SEASONING" },
+        { "type": "url", "id": "card_2_link", "label": "Card 2 link" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "NX – BB Header", "category": "Custom" }]
+}
+{% endschema %}

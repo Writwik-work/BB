@@ -1,0 +1,210 @@
+{{ 'nx-bb-processing-chart.css' | asset_url | stylesheet_tag }}
+
+<section
+  id="section-{{ section.id }}"
+  class="nx-bb-processing-chart section-{{ section.id }}-padding"
+  style="background: {{ section.settings.bg_color }};"
+>
+  <div class="nx-bb-processing-chart__inner">
+    {% if section.settings.heading != blank %}
+      <h1 class="nx-bb-processing-chart__title">{{ section.settings.heading }}</h1>
+    {% endif %}
+
+    {% if section.settings.description != blank %}
+      <div class="nx-bb-processing-chart__desc rte">
+        {{ section.settings.description }}
+      </div>
+    {% endif %}
+
+    {% if section.settings.unit_heading != blank or section.blocks.size > 0 %}
+      <div class="nx-bb-processing-chart__units">
+        {% if section.settings.unit_heading != blank %}
+          <p class="nx-bb-processing-chart__unit-title">{{ section.settings.unit_heading }}</p>
+        {% endif %}
+
+        {% if section.blocks.size > 0 %}
+          <ul class="nx-bb-processing-chart__unit-list">
+            {% for block in section.blocks %}
+              {% if block.type == 'unit' and block.settings.text != blank %}
+                <li {{ block.shopify_attributes }}>{{ block.settings.text }}</li>
+              {% endif %}
+            {% endfor %}
+          </ul>
+        {% endif %}
+      </div>
+    {% endif %}
+
+    {% if section.settings.download_text != blank and section.settings.download_link != blank %}
+      <a class="nx-bb-processing-chart__download" href="{{ section.settings.download_link }}">
+        {{ section.settings.download_text }}
+      </a>
+    {% endif %}
+
+    <div class="nx-bb-processing-chart__table-wrap">
+      {% if section.settings.table_html != blank %}
+        <div class="nx-bb-processing-chart__table rte">
+          {{ section.settings.table_html }}
+        </div>
+      {% else %}
+        <div class="nx-bb-processing-chart__table rte">
+          <table>
+            <thead>
+              <tr>
+                <th rowspan="2">
+                  BEARDED BUTCHER BLEND SEASONING<br>
+                  PARTIAL BATCH CALCULATION CHART
+                </th>
+                <th colspan="8">MEAT BLOCK SIZE</th>
+              </tr>
+              <tr>
+                <th colspan="2">25 MEAT BLOCK</th>
+                <th colspan="2">12.5 MEAT BLOCK</th>
+                <th colspan="2">5 MEAT BLOCK</th>
+                <th colspan="2">1 MEAT BLOCK</th>
+              </tr>
+              <tr>
+                <th>INGREDIENT</th>
+                <th>WEIGHT (OZ)</th>
+                <th>VOLUME</th>
+                <th>WEIGHT (OZ)</th>
+                <th>VOLUME</th>
+                <th>WEIGHT (OZ)</th>
+                <th>VOLUME</th>
+                <th>WEIGHT (OZ)</th>
+                <th>VOLUME</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Original Bearded Butcher Seasoning 13oz</strong></td>
+                <td>13</td>
+                <td>1 pack</td>
+                <td>6.5</td>
+                <td>1 Cup</td>
+                <td>2.6</td>
+                <td>6 Tbsp</td>
+                <td>0.52</td>
+                <td>1.2 Tbsp</td>
+              </tr>
+              <tr>
+                <td><strong>Hot Bearded Butcher Seasoning 13oz</strong></td>
+                <td>13</td>
+                <td>1 pack</td>
+                <td>6.5</td>
+                <td>1 Cup</td>
+                <td>2.6</td>
+                <td>6 Tbsp</td>
+                <td>0.52</td>
+                <td>1.2 Tbsp</td>
+              </tr>
+              <tr>
+                <td><strong>Cajun Bearded Butcher Seasoning 13oz</strong></td>
+                <td>13</td>
+                <td>1 pack</td>
+                <td>6.5</td>
+                <td>1 Cup</td>
+                <td>2.6</td>
+                <td>6 Tbsp</td>
+                <td>0.52</td>
+                <td>1.2 Tbsp</td>
+              </tr>
+              <tr>
+                <td><strong>Chipotle Bearded Butcher Seasoning 13oz</strong></td>
+                <td>13</td>
+                <td>1 pack</td>
+                <td>6.5</td>
+                <td>1 Cup</td>
+                <td>2.6</td>
+                <td>6 Tbsp</td>
+                <td>0.52</td>
+                <td>1.2 Tbsp</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "NX BB - Processing Chart",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "CUSTOMIZE YOUR MEAT PROCESSING WITH PRECISION" },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Description",
+      "default": "<p>Got a batch of meat that’s not exactly 25 lbs? Use this chart to calculate the perfect amount of Bearded Butcher Seasoning, High Temp Cheese, Dried Food, or other ingredients for your recipe!</p>"
+    },
+    { "type": "text", "id": "unit_heading", "label": "Unit conversions heading", "default": "Unit Conversions:" },
+
+    {
+      "type": "text",
+      "id": "download_text",
+      "label": "Download text",
+      "default": "DOWNLOAD PRINTABLE PDF OF THIS CHART"
+    },
+    { "type": "url", "id": "download_link", "label": "Download link" },
+
+    {
+      "type": "textarea",
+      "id": "table_html",
+      "label": "Table HTML",
+      "info": "Paste full <table>...</table> here."
+    },
+
+    { "type": "color", "id": "bg_color", "label": "Background", "default": "#ffffff" },
+
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding top",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding bottom",
+      "default": 48
+    }
+  ],
+  "blocks": [
+    {
+      "type": "unit",
+      "name": "Unit conversion",
+      "settings": [{ "type": "text", "id": "text", "label": "Text", "default": "3 tsp = 1 TBSP" }]
+    }
+  ],
+  "presets": [
+    {
+      "name": "NX BB - Processing Chart",
+      "blocks": [{ "type": "unit" }, { "type": "unit", "settings": { "text": "16 TBSP = 1 Cup" } }]
+    }
+  ]
+}
+{% endschema %}
+
+{% style %}
+  #section-{{ section.id }}.section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+  }
+  @media (max-width: 749px) {
+    #section-{{ section.id }}.section-{{ section.id }}-padding {
+      padding-top: calc({{ section.settings.padding_top }}px * 0.75);
+      padding-bottom: calc({{ section.settings.padding_bottom }}px * 0.75);
+    }
+  }
+{% endstyle %}

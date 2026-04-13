@@ -1,0 +1,139 @@
+.nx-footer {
+  background: #111;
+  color: #fff;
+  padding: 40px 70px;
+  font-family: "Work Sans",sans-serif
+}
+.nx-footer-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 60px;
+  flex-wrap: wrap
+}
+.nx-footer-col {
+  flex: 1;
+  min-width: 180px
+}
+.nx-footer-col--wide {
+  flex: 1.7;
+  min-width: 260px
+}
+.nx-footer-heading {
+  font-size: 16px;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  font-family: "Barlow Condensed",sans-serif
+}
+.nx-footer-text {
+  font-size: 14px;
+  color: #fff;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  max-width: 280px
+}
+.nx-footer-form {
+  display: flex;
+  border: 1px solid #444;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 20px;
+  max-width: 280px
+}
+.nx-footer-form input {
+  flex: 1;
+  padding: 10px 14px;
+  border: none;
+  background: #111;
+  color: #fff
+}
+.nx-footer-form button {
+  padding: 0 16px;
+  color: #fff;
+  background: 0 0;
+  border: none;
+  font-size: 18px;
+  cursor: pointer
+}
+.nx-footer-socials {
+  display: flex;
+  gap: 16px;
+  margin-top: 10px
+}
+.nx-footer-socials img {
+  width: 32px;
+  height: 32px;
+  opacity: .85;
+  transition: .2s
+}
+.nx-footer-socials img:hover {
+  opacity: 1
+}
+.nx-footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0
+}
+.nx-footer-links li {
+  margin-bottom: 10px
+}
+.nx-footer-links a {
+  color: #ccc;
+  font-size: 14px;
+  text-decoration: none;
+  transition: .2s
+}
+.nx-footer-links a:hover {
+  color: #fff
+}
+.nx-footer-bottom {
+  font-size: 13px;
+  color: #aaa;
+  text-align: left
+}
+@media (max-width:880px) and (min-width:769px) {
+  .nx-footer-inner {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 32px 80px
+  }
+  .nx-footer-col,
+  .nx-footer-col--wide {
+    flex: 0 0 calc(50% - 40px);
+    min-width: 0
+  }
+  .nx-footer-bottom,
+  .nx-footer-form,
+  .nx-footer-text {
+    max-width: 100%
+  }
+}
+@media (max-width:768px) {
+  .nx-footer-inner {
+    flex-direction: column;
+    gap: 40px;
+    align-items: center;
+    justify-content: center;
+    padding-left: 0;
+    padding-right: 0
+  }
+  .nx-footer-col,
+  .nx-footer-col--wide {
+    width: 100%;
+    max-width: 320px
+  }
+  .nx-footer-col *,
+  .nx-footer-col--wide * {
+    text-align: left
+  }
+  .nx-footer-socials {
+    justify-content: flex-start
+  }
+  .nx-footer-bottom {
+    margin: 20px auto 0;
+    text-align: left;
+    max-width: 320px
+  }
+}

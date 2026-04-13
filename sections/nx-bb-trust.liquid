@@ -1,0 +1,73 @@
+{{ 'nx-bb-trust.css' | asset_url | stylesheet_tag }}
+
+<section class="nx-bb-trust">
+  <div class="nx-bb-trust__inner page-width">
+
+    <!-- ITEM 1 -->
+    <div class="nx-bb-trust__item">
+      <img 
+        src="{{ 'Trust/Quality.png' | asset_url }}" 
+        alt="Unmatched Quality" 
+        class="nx-bb-trust__icon"
+        loading="lazy"
+      >
+      <h3 class="nx-bb-trust__heading">UNMATCHED QUALITY</h3>
+      <p class="nx-bb-trust__text">
+        No fillers, no shortcuts—just premium tools & seasonings.
+      </p>
+    </div>
+
+    <!-- ITEM 2 -->
+    <div class="nx-bb-trust__item">
+      <img 
+        src="{{ 'Trust/butcher.png' | asset_url }}" 
+        alt="Made by Experts" 
+        class="nx-bb-trust__icon"
+        loading="lazy"
+      >
+      <h3 class="nx-bb-trust__heading">MADE BY EXPERTS</h3>
+      <p class="nx-bb-trust__text">
+        Designed by experts who live the craft.
+      </p>
+    </div>
+
+    <!-- ITEM 3 -->
+    <div class="nx-bb-trust__item">
+      <img 
+        src="{{ 'Trust/sausages.png' | asset_url }}" 
+        alt="DIY with Confidence" 
+        class="nx-bb-trust__icon"
+        loading="lazy"
+      >
+      <h3 class="nx-bb-trust__heading">DIY WITH CONFIDENCE</h3>
+      <p class="nx-bb-trust__text">
+        From butchering to grilling, we’ve got you covered.
+      </p>
+    </div>
+
+    <!-- ITEM 4 -->
+    <div class="nx-bb-trust__item">
+      <img 
+        src="{{ 'Trust/feedback.png' | asset_url }}" 
+        alt="Trusted by Thousands" 
+        class="nx-bb-trust__icon"
+        loading="lazy"
+      >
+      <h3 class="nx-bb-trust__heading">TRUSTED BY THOUSANDS</h3>
+      <p class="nx-bb-trust__text">
+        Real reviews from real people who love what we do.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "NX – BB Trust",
+  "settings": [],
+  "presets": [
+    { "name": "NX – BB Trust" }
+  ]
+}
+{% endschema %}

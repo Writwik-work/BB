@@ -1,0 +1,98 @@
+{{ 'nx-bb-article.css' | asset_url | stylesheet_tag }}
+
+<section id="section-{{ section.id }}" class="nx-section nx-bb-article section-{{ section.id }}">
+  <div class="container">
+
+    <!-- Heading + View All -->
+    <div class="nx-bb-article__header">
+      <h2 class="nx-bb-article__heading">{{ section.settings.heading }}</h2>
+
+      {% if section.settings.view_all_label != blank %}
+        <a href="{{ section.settings.view_all_link | default: '#' }}" class="nx-bb-article__view-all">
+          {{ section.settings.view_all_label }}
+        </a>
+      {% endif %}
+    </div>
+
+    <!-- Article Grid -->
+    <div class="nx-bb-article__grid">
+
+      <!-- ARTICLE 1 -->
+      <div class="nx-bb-article__card">
+        <div class="nx-bb-article__image-wrapper">
+          <img src="{{ 'article/cajun.png' | asset_url }}" alt="Article Image" class="nx-bb-article__image">
+        </div>
+        <p class="nx-bb-article__date">Feb 27, 2025</p>
+        <h3 class="nx-bb-article__title">CAJUN BUTTER STEAK BITES RECIPE</h3>
+        <a href="#" class="nx-bb-article__link">READ FULL ARTICLE</a>
+      </div>
+
+      <!-- ARTICLE 2 -->
+      <div class="nx-bb-article__card">
+        <div class="nx-bb-article__image-wrapper">
+          <img src="{{ 'article/cheesy.png' | asset_url }}" alt="Article Image" class="nx-bb-article__image">
+        </div>
+        <p class="nx-bb-article__date">Feb 27, 2025</p>
+        <h3 class="nx-bb-article__title">
+          CHEESY MASHED POTATOES WITH BEARDED BUTCHER ORIGINAL SEASONING
+        </h3>
+        <a href="#" class="nx-bb-article__link">READ FULL ARTICLE</a>
+      </div>
+
+      <!-- ARTICLE 3 -->
+      <div class="nx-bb-article__card">
+        <div class="nx-bb-article__image-wrapper">
+          <img src="{{ 'article/rich.png' | asset_url }}" alt="Article Image" class="nx-bb-article__image">
+        </div>
+        <p class="nx-bb-article__date">Feb 27, 2025</p>
+        <h3 class="nx-bb-article__title">
+          RICH AND TENDER BRAISED BISON SHORT RIBS
+        </h3>
+        <a href="#" class="nx-bb-article__link">READ FULL ARTICLE</a>
+      </div>
+
+      <!-- ARTICLE 4 -->
+      <div class="nx-bb-article__card">
+        <div class="nx-bb-article__image-wrapper">
+          <img src="{{ 'article/classic.png' | asset_url }}" alt="Article Image" class="nx-bb-article__image">
+        </div>
+        <p class="nx-bb-article__date">Feb 27, 2025</p>
+        <h3 class="nx-bb-article__title">
+          CLASSIC PANCAKES WITH MAPLE WHIPPED CREAM
+        </h3>
+        <a href="#" class="nx-bb-article__link">READ FULL ARTICLE</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "NX – BB Article Grid",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "LEARN, COOK, AND MASTER THE CRAFT"
+    },
+    {
+      "type": "text",
+      "id": "view_all_label",
+      "label": "View All label",
+      "default": "VIEW ALL"
+    },
+    {
+      "type": "url",
+      "id": "view_all_link",
+      "label": "View All link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "NX – BB Article Grid"
+    }
+  ]
+}
+{% endschema %}

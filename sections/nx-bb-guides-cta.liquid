@@ -1,0 +1,91 @@
+{{ 'nx-bb-guides-cta.css' | asset_url | stylesheet_tag }}
+
+<section id="section-{{ section.id }}" class="nx-bb-guides-cta">
+  <div class="nx-bb-guides-cta__bg">
+    {% if section.settings.background_image != blank %}
+      <img
+        src="{{ section.settings.background_image | image_url: width: 2000 }}"
+        alt="{{ section.settings.heading | escape }}"
+        loading="lazy"
+      >
+    {% else %}
+      <img
+        src="{{ 'nx-bb-guide/guide.jpg' | asset_url }}"
+        alt="{{ section.settings.heading | escape }}"
+        loading="lazy"
+      >
+    {% endif %}
+  </div>
+
+  <div class="nx-bb-guides-cta__overlay">
+    <div class="container">
+      <div class="nx-bb-guides-cta__content">
+        {% if section.settings.heading != blank %}
+          <h2 class="nx-bb-guides-cta__heading">
+            {{ section.settings.heading }}
+          </h2>
+        {% endif %}
+
+        {% if section.settings.button_label != blank %}
+          {% if section.settings.button_link != blank %}
+            <a
+              href="{{ section.settings.button_link }}"
+              class="btn btn--primary nx-bb-guides-cta__btn"
+            >
+              {{ section.settings.button_label }}
+            </a>
+          {% else %}
+            <button
+              type="button"
+              class="btn btn--primary nx-bb-guides-cta__btn"
+            >
+              {{ section.settings.button_label }}
+            </button>
+          {% endif %}
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "NX – BB Guides CTA",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "background_image",
+      "label": "Background image"
+    },
+    {
+      "type": "text",
+      "id": "kicker",
+      "label": "Kicker",
+      "default": "NEW TO BUTCHERING?"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "CHECK OUT OUR GUIDES"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "default": "LEARN MORE"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "NX – BB Guides CTA",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}

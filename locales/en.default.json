@@ -1,0 +1,59 @@
+{
+  "accessibility": {
+    "skip_to_text": "Skip to content",
+    "refresh_page": "The page will refresh.",
+    "link_messages": {
+      "new_window": "Opens in a new window."
+    }
+  },
+  "general": {
+    "share": {
+      "success_message": "Link copied to clipboard."
+    }
+  },
+  "sections": {
+    "slideshow": {
+      "pause_slideshow": "Pause slideshow",
+      "play_slideshow": "Play slideshow"
+    },
+    "cart": {
+      "cart_error": "There was an error updating your cart.",
+      "cart_quantity_error_html": "You can only add [quantity] of this item."
+    },
+    "quick_order_list": {
+      "items_added": {
+        "one": "1 item added",
+        "other": "[quantity] items added"
+      },
+      "items_removed": {
+        "one": "1 item removed",
+        "other": "[quantity] items removed"
+      },
+      "view_cart": "View cart",
+      "each": "Each [money]",
+      "min_error": "Minimum [min]",
+      "max_error": "Maximum [max]",
+      "step_error": "Must be purchased in multiples of [step]"
+    }
+  },
+  "products": {
+    "product": {
+      "add_to_cart": "Add to cart",
+      "sold_out": "Sold out",
+      "unavailable": "Unavailable",
+      "value_unavailable": "[value] is unavailable"
+    }
+  },
+  "recipient": {
+    "form": {
+      "expanded": "Gift card form expanded",
+      "collapsed": "Gift card form collapsed"
+    }
+  },
+  "localization": {
+    "country_results_count": {
+      "one": "1 country available.",
+      "other": "[count] countries available."
+    }
+  }
+}

@@ -1,0 +1,86 @@
+.nx-bb-processing__inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 18px
+}
+.nx-bb-processing__title {
+  margin: 0 0 10px;
+  font-size: clamp(20px, 2.2vw, 26px);
+  font-weight: 800;
+  letter-spacing: 0;
+  text-transform: uppercase
+}
+.nx-bb-processing__desc {
+  margin-bottom: 14px;
+  font-size: 13px;
+  line-height: 1.65;
+  color: #222
+}
+.nx-bb-processing__units {
+  margin: 10px 0 14px;
+  font-size: 13px
+}
+.nx-bb-processing__unit-title {
+  margin: 0 0 6px;
+  font-weight: 700
+}
+.nx-bb-processing__unit-list {
+  margin: 0;
+  padding-left: 18px
+}
+.nx-bb-processing__download {
+  display: inline-block;
+  margin: 12px 0 18px;
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+  text-decoration: underline;
+  color: inherit
+}
+.nx-bb-processing__table-wrap {
+  margin-top: 10px
+}
+.nx-bb-processing__table table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+  background: #fff
+}
+.nx-bb-processing__table td,
+.nx-bb-processing__table th {
+  border: 1px solid #cfcfcf;
+  padding: 8px 10px;
+  vertical-align: middle
+}
+.nx-bb-processing__table thead th {
+  text-align: center;
+  font-weight: 800;
+  background: #f7f7f7
+}
+.nx-bb-processing__table tbody td:first-child {
+  font-weight: 700
+}
+.nx-bb-processing-chart__table {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch
+}
+.nx-bb-processing-chart__table table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+  min-width: 900px
+}
+.nx-bb-processing-chart__table td,
+.nx-bb-processing-chart__table th {
+  border: 1px solid #cfcfcf;
+  padding: 8px 10px
+}
+@media (max-width:990px) {
+  .nx-bb-processing__table {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch
+  }
+  .nx-bb-processing__table table {
+    min-width: 900px
+  }
+}

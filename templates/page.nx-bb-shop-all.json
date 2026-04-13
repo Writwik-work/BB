@@ -1,0 +1,258 @@
+{
+  "sections": {
+    "nx_bb_header": {
+      "type": "nx-bb-header",
+      "settings": {}
+    },
+    "nx_bb_shop_hero": {
+      "type": "nx-bb-shop-hero",
+      "settings": {
+        "hero_image": null,
+        "hero_kicker": "HOME / SHOP",
+        "hero_heading": "SHOP ALL",
+        "hero_subcopy": "From premium seasonings to expert tools, explore everything you need to butcher, grill, and cook like a pro."
+      }
+    },
+    "nx_bb_shop_grid": {
+      "type": "nx-bb-shop-grid-v2",
+      "settings": {
+        "email_when_available_link": "",
+        "initial_count": 9,
+        "load_more_count": 6
+      },
+      "blocks": {
+        "filter_1": {
+          "type": "filter_chip",
+          "settings": {
+            "label": "Seasonings & Sauces",
+            "filter_value": "seasonings"
+          }
+        },
+        "filter_2": {
+          "type": "filter_chip",
+          "settings": {
+            "label": "DIY Processing",
+            "filter_value": "diy"
+          }
+        },
+
+        "product_1": {
+          "type": "product_card",
+          "settings": {
+            "badge_label": "LIMITED EDITION",
+            "meta": "The Bearded Butchers",
+            "title": "JALAPEÑO CHEDDAR BRATWURST DIY KIT",
+            "images_csv": "best-seller/product-2.png,best-seller/product-2.png,best-seller/product-2.png",
+            "available": true,
+            "stars_text": "★★★★★",
+            "reviews_text": "29 Reviews",
+            "price_text": "$349.00",
+            "compare_text": "$349.00",
+            "price_cents": 34900,
+            "rating": 5,
+            "best_rank": 1,
+            "is_new": false,
+            "is_featured": true,
+            "tags": "seasonings"
+          }
+        },
+        "product_2": {
+          "type": "product_card",
+          "settings": {
+            "meta": "The Bearded Butchers",
+            "title": "JALAPEÑO CHEDDAR BRATWURST DIY KIT",
+            "images_csv": "best-seller/product-2.png,best-seller/product-2.png,best-seller/product-2.png",
+            "available": true,
+            "stars_text": "★★★★★",
+            "reviews_text": "29 Reviews",
+            "price_text": "$349.00",
+            "compare_text": "$349.00",
+            "price_cents": 34900,
+            "rating": 5,
+            "best_rank": 2,
+            "is_new": true,
+            "is_featured": false,
+            "tags": "diy"
+          }
+        },
+        "product_3": {
+          "type": "product_card",
+          "settings": {
+            "meta": "The Bearded Butchers",
+            "title": "JALAPEÑO CHEDDAR BRATWURST DIY KIT",
+            "images_csv": "best-seller/product-2.png,best-seller/product-2.png,best-seller/product-2.png",
+            "available": false,
+            "stars_text": "★★★★★",
+            "reviews_text": "29 Reviews",
+            "price_text": "$349.00",
+            "compare_text": "$349.00",
+            "price_cents": 34900,
+            "rating": 5,
+            "best_rank": 3,
+            "is_new": false,
+            "is_featured": false,
+            "tags": "seasonings,diy"
+          }
+        },
+
+        "product_4": {
+          "type": "product_card",
+          "settings": {
+            "badge_label": "LIMITED EDITION",
+            "meta": "The Bearded Butchers",
+            "title": "JALAPEÑO CHEDDAR BRATWURST DIY KIT",
+            "images_csv": "best-seller/product-2.png,best-seller/product-2.png,best-seller/product-2.png",
+            "available": true,
+            "stars_text": "★★★★★",
+            "reviews_text": "29 Reviews",
+            "price_text": "$349.00",
+            "compare_text": "$349.00",
+            "price_cents": 34900,
+            "rating": 5,
+            "best_rank": 4,
+            "is_new": false,
+            "is_featured": false,
+            "tags": "seasonings"
+          }
+        },
+        "product_5": {
+          "type": "product_card",
+          "settings": {
+            "badge_label": "LIMITED EDITION",
+            "meta": "The Bearded Butchers",
+            "title": "JALAPEÑO CHEDDAR BRATWURST DIY KIT",
+            "images_csv": "best-seller/product-2.png,best-seller/product-2.png,best-seller/product-2.png",
+            "available": true,
+            "stars_text": "★★★★★",
+            "reviews_text": "29 Reviews",
+            "price_text": "$349.00",
+            "compare_text": "$349.00",
+            "price_cents": 34900,
+            "rating": 5,
+            "best_rank": 5,
+            "is_new": false,
+            "is_featured": false,
+            "tags": "diy"
+          }
+        },
+        "product_6": {
+          "type": "product_card",
+          "settings": {
+            "badge_label": "LIMITED EDITION",
+            "meta": "The Bearded Butchers",
+            "title": "JALAPEÑO CHEDDAR BRATWURST DIY KIT",
+            "images_csv": "best-seller/product-2.png,best-seller/product-2.png,best-seller/product-2.png",
+            "available": true,
+            "stars_text": "★★★★★",
+            "reviews_text": "29 Reviews",
+            "price_text": "$349.00",
+            "compare_text": "$349.00",
+            "price_cents": 34900,
+            "rating": 5,
+            "best_rank": 6,
+            "is_new": true,
+            "is_featured": false,
+            "tags": "seasonings"
+          }
+        },
+        "product_7": {
+          "type": "product_card",
+          "settings": {
+            "badge_label": "LIMITED EDITION",
+            "meta": "The Bearded Butchers",
+            "title": "JALAPEÑO CHEDDAR BRATWURST DIY KIT",
+            "images_csv": "best-seller/product-2.png,best-seller/product-2.png,best-seller/product-2.png",
+            "available": true,
+            "stars_text": "★★★★★",
+            "reviews_text": "29 Reviews",
+            "price_text": "$349.00",
+            "compare_text": "$349.00",
+            "price_cents": 34900,
+            "rating": 5,
+            "best_rank": 7,
+            "is_new": false,
+            "is_featured": true,
+            "tags": "diy"
+          }
+        },
+        "product_8": {
+          "type": "product_card",
+          "settings": {
+            "meta": "The Bearded Butchers",
+            "title": "JALAPEÑO CHEDDAR BRATWURST DIY KIT",
+            "images_csv": "best-seller/product-2.png,best-seller/product-2.png,best-seller/product-2.png",
+            "available": false,
+            "stars_text": "★★★★★",
+            "reviews_text": "29 Reviews",
+            "price_text": "$349.00",
+            "compare_text": "$349.00",
+            "price_cents": 34900,
+            "rating": 5,
+            "best_rank": 8,
+            "is_new": false,
+            "is_featured": false,
+            "tags": "seasonings"
+          }
+        },
+        "product_9": {
+          "type": "product_card",
+          "settings": {
+            "badge_label": "LIMITED EDITION",
+            "meta": "The Bearded Butchers",
+            "title": "JALAPEÑO CHEDDAR BRATWURST DIY KIT",
+            "images_csv": "best-seller/product-2.png,best-seller/product-2.png,best-seller/product-2.png",
+            "available": true,
+            "stars_text": "★★★★★",
+            "reviews_text": "29 Reviews",
+            "price_text": "$349.00",
+            "compare_text": "$349.00",
+            "price_cents": 34900,
+            "rating": 5,
+            "best_rank": 9,
+            "is_new": false,
+            "is_featured": false,
+            "tags": "seasonings,diy"
+          }
+        }
+      },
+      "block_order": [
+        "filter_1",
+        "filter_2",
+        "product_1",
+        "product_2",
+        "product_3",
+        "product_4",
+        "product_5",
+        "product_6",
+        "product_7",
+        "product_8",
+        "product_9"
+      ]
+    },
+    "nx_bb_guides_cta": {
+      "type": "nx-bb-guides-cta",
+      "settings": {
+        "background_image": null,
+        "heading": "NEW TO BUTCHERING? CHECK OUT OUR GUIDES",
+        "button_label": "LEARN MORE",
+        "button_link": ""
+      }
+    },
+    "nx_bb_trust": {
+      "type": "nx-bb-trust",
+      "settings": {}
+    },
+    "nx_footer": {
+      "type": "nx-bb-footer",
+      "settings": {}
+    }
+  },
+  "order": [
+    "nx_bb_header",
+    "nx_bb_shop_hero",
+    "nx_bb_shop_grid",
+    "nx_bb_guides_cta",
+    "nx_bb_trust",
+    "nx_footer"
+  ]
+}

@@ -1,0 +1,257 @@
+<section id="section-{{ section.id }}" class="nx-pdp" data-section-id="{{ section.id }}">
+  {{ 'nx-product-main.css' | asset_url | stylesheet_tag }}
+
+  <div class="page-width nx-pdp__inner">
+    {% if section.settings.show_breadcrumbs %}
+      <nav class="nx-pdp__crumbs" aria-label="Breadcrumb">
+        <a href="{{ routes.root_url }}">Home</a>
+        {% if collection %}
+          <span>/</span><a href="{{ collection.url }}">{{ collection.title }}</a>
+        {% endif %}
+        <span>/</span><span>{{ product.title }}</span>
+      </nav>
+    {% endif %}
+
+    <div class="nx-pdp__grid">
+      <div class="nx-pdp__media" aria-label="Product media">
+        {% assign featured = product.selected_or_first_available_variant.featured_media | default: product.featured_media %}
+        <div class="nx-pdp__media-main">
+          {% if featured %}
+            {% if featured.media_type == 'image' %}
+              <img
+                src="{{ featured | image_url: width: 1200 }}"
+                srcset="
+                  {{ featured | image_url: width: 600 }} 600w,
+                  {{ featured | image_url: width: 900 }} 900w,
+                  {{ featured | image_url: width: 1200 }} 1200w
+                "
+                sizes="(min-width: 990px) 520px, 100vw"
+                width="{{ featured.preview_image.width }}"
+                height="{{ featured.preview_image.height }}"
+                alt="{{ featured.alt | escape }}"
+                loading="eager"
+                class="nx-pdp__img"
+                id="NxPdpMainImg-{{ section.id }}"
+              >
+            {% else %}
+              {{ featured | media_tag: image_size: "1200x", class: "nx-pdp__media-tag" }}
+            {% endif %}
+          {% endif %}
+        </div>
+
+        {% if product.media.size > 1 %}
+          <div class="nx-pdp__thumbs" role="list">
+            {% for m in product.media %}
+              {% assign thumb = m.preview_image %}
+              <button
+                class="nx-pdp__thumb"
+                type="button"
+                role="listitem"
+                data-nx-thumb
+                data-nx-media-type="{{ m.media_type }}"
+                data-nx-src="{% if m.media_type == 'image' %}{{ m | image_url: width: 1200 }}{% else %}{{ m | media_tag }}{% endif %}"
+                aria-label="View media {{ forloop.index }}"
+              >
+                <img
+                  src="{{ thumb | image_url: width: 140 }}"
+                  srcset="{{ thumb | image_url: width: 140 }} 140w, {{ thumb | image_url: width: 220 }} 220w"
+                  sizes="70px"
+                  width="{{ thumb.width }}"
+                  height="{{ thumb.height }}"
+                  alt="{{ thumb.alt | escape }}"
+                  loading="lazy"
+                >
+              </button>
+            {% endfor %}
+          </div>
+        {% endif %}
+      </div>
+
+      <div class="nx-pdp__info">
+        {% if section.settings.show_vendor and product.vendor != blank %}
+          <div class="nx-pdp__vendor">{{ product.vendor }}</div>
+        {% endif %}
+
+        <h1 class="nx-pdp__title">{{ product.title }}</h1>
+
+        {% if section.settings.show_rating %}
+          <div class="nx-pdp__rating">
+            <span class="nx-pdp__stars" aria-hidden="true">★★★★★</span>
+            <span class="nx-pdp__rating-text">({{ product.metafields.reviews.rating_count | default: 0 }} reviews)</span>
+          </div>
+        {% endif %}
+
+        {% render 'price', product: product, use_variant: true %}
+
+        {% form 'product', product, id: "product-form-#{section.id}", class: "nx-pdp__form" %}
+          <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+
+          {% unless product.has_only_default_variant %}
+            <div class="nx-pdp__option">
+              <label class="nx-pdp__label" for="NxVariant-{{ section.id }}">Choose variant</label>
+              <select id="NxVariant-{{ section.id }}" class="nx-pdp__select" name="id">
+                {% for v in product.variants %}
+                  <option
+                    value="{{ v.id }}"
+                    {% if v.id == product.selected_or_first_available_variant.id %}selected{% endif %}
+                    {% unless v.available %}disabled{% endunless %}
+                  >
+                    {{ v.title }}{% unless v.available %} - Sold out{% endunless %}
+                  </option>
+                {% endfor %}
+              </select>
+            </div>
+          {% endunless %}
+
+          <div class="nx-pdp__ctaRow">
+            <div class="nx-pdp__qty">
+              <button type="button" class="nx-pdp__qtyBtn" data-nx-qty="minus" aria-label="Decrease quantity">−</button>
+              <input class="nx-pdp__qtyInput" name="quantity" value="1" min="1" type="number" inputmode="numeric">
+              <button type="button" class="nx-pdp__qtyBtn" data-nx-qty="plus" aria-label="Increase quantity">+</button>
+            </div>
+
+            <button
+              type="submit"
+              name="add"
+              class="nx-pdp__atc"
+              {% unless product.selected_or_first_available_variant.available %}disabled{% endunless %}
+            >
+              {% if product.selected_or_first_available_variant.available %}Add to cart{% else %}Sold out{% endif %}
+            </button>
+          </div>
+
+          {{ form | payment_terms }}
+        {% endform %}
+
+        {% if section.settings.show_trust_icons %}
+          <div class="nx-pdp__trust">
+            <div class="nx-pdp__trustItem">
+              <span class="nx-pdp__trustIcon">★</span>
+              <div>
+                <div class="nx-pdp__trustTitle">Expert-approved quality</div>
+                <div class="nx-pdp__trustSub">Premium ingredients</div>
+              </div>
+            </div>
+            <div class="nx-pdp__trustItem">
+              <span class="nx-pdp__trustIcon">🚚</span>
+              <div>
+                <div class="nx-pdp__trustTitle">Fast shipping</div>
+                <div class="nx-pdp__trustSub">Tracked delivery</div>
+              </div>
+            </div>
+            <div class="nx-pdp__trustItem">
+              <span class="nx-pdp__trustIcon">✓</span>
+              <div>
+                <div class="nx-pdp__trustTitle">Satisfaction guarantee</div>
+                <div class="nx-pdp__trustSub">Shop with confidence</div>
+              </div>
+            </div>
+          </div>
+        {% endif %}
+
+        <div class="nx-pdp__acc">
+          {% for block in section.blocks %}
+            {% if block.type == 'accordion' %}
+              {% assign content = '' %}
+              {% if block.settings.content_source == 'description' %}
+                {% assign content = product.description %}
+              {% elsif block.settings.content_source == 'metafield' and block.settings.metafield_key != blank %}
+                {% assign ns = block.settings.metafield_key | split: '.' | first %}
+                {% assign key = block.settings.metafield_key | split: '.' | last %}
+                {% assign mf = product.metafields[ns][key] %}
+                {% if mf != blank %}
+                  {% assign content = mf.value %}
+                {% endif %}
+              {% endif %}
+
+              {% if content != blank %}
+                <details class="nx-pdp__details" {% if forloop.first %}open{% endif %} {{ block.shopify_attributes }}>
+                  <summary class="nx-pdp__summary">
+                    <span>{{ block.settings.title }}</span>
+                    <span class="nx-pdp__chev" aria-hidden="true">+</span>
+                  </summary>
+                  <div class="nx-pdp__panel rte">
+                    {{ content }}
+                  </div>
+                </details>
+              {% endif %}
+            {% endif %}
+          {% endfor %}
+        </div>
+
+        <div class="nx-pdp__share">
+          <span>Share:</span>
+          <a href="https://www.facebook.com/sharer/sharer.php?u={{ shop.url | append: product.url | url_escape }}" target="_blank" rel="noopener">Facebook</a>
+          <a href="https://twitter.com/intent/tweet?url={{ shop.url | append: product.url | url_escape }}" target="_blank" rel="noopener">X</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (() => {
+      const root = document.querySelector('#section-{{ section.id }}');
+      if (!root) return;
+
+      const qtyInput = root.querySelector('.nx-pdp__qtyInput');
+      root.addEventListener('click', (e) => {
+        const btn = e.target.closest('[data-nx-qty]');
+        if (!btn || !qtyInput) return;
+        const cur = Math.max(1, parseInt(qtyInput.value || '1', 10));
+        qtyInput.value = btn.dataset.nxQty === 'plus' ? cur + 1 : Math.max(1, cur - 1);
+      });
+
+      const mainWrap = root.querySelector('.nx-pdp__media-main');
+      const mainImg = root.querySelector('#NxPdpMainImg-{{ section.id }}');
+
+      root.querySelectorAll('[data-nx-thumb]').forEach((b) => {
+        b.addEventListener('click', () => {
+          const type = b.getAttribute('data-nx-media-type');
+          if (type === 'image') {
+            if (mainImg) {
+              mainImg.src = b.querySelector('img').src.replace(/_140x|_220x/, '_1200x');
+            } else if (mainWrap) {
+              mainWrap.innerHTML = b.getAttribute('data-nx-src');
+            }
+          } else if (mainWrap) {
+            mainWrap.innerHTML = b.getAttribute('data-nx-src');
+          }
+        });
+      });
+    })();
+  </script>
+
+  {% schema %}
+  {
+    "name": "NX Product Main",
+    "tag": "section",
+    "settings": [
+      { "type": "checkbox", "id": "show_breadcrumbs", "label": "Show breadcrumbs", "default": true },
+      { "type": "checkbox", "id": "show_vendor", "label": "Show vendor", "default": true },
+      { "type": "checkbox", "id": "show_rating", "label": "Show rating row", "default": true },
+      { "type": "checkbox", "id": "show_trust_icons", "label": "Show trust icons", "default": true }
+    ],
+    "blocks": [
+      {
+        "type": "accordion",
+        "name": "Accordion",
+        "settings": [
+          { "type": "text", "id": "title", "label": "Title", "default": "Description" },
+          {
+            "type": "select",
+            "id": "content_source",
+            "label": "Content source",
+            "default": "description",
+            "options": [
+              { "value": "description", "label": "Product description" },
+              { "value": "metafield", "label": "Metafield" }
+            ]
+          },
+          { "type": "text", "id": "metafield_key", "label": "Metafield key (namespace.key)", "default": "custom.ingredients" }
+        ]
+      }
+    ],
+    "presets": [{ "name": "NX Product Main" }]
+  }
+  {% endschema %}
+</section>

@@ -1,0 +1,526 @@
+{{ 'nx-bb-product-diy-kit.css' | asset_url | stylesheet_tag }}
+{{ 'nx-bb-product-diy-kit.js' | asset_url | script_tag }}
+
+<section
+  id="section-{{ section.id }}"
+  class="nx-bb-product-diy-kit section-{{ section.id }}-padding"
+  style="
+    --pt-desktop: {{ section.settings.padding_top_desktop }}px;
+    --pb-desktop: {{ section.settings.padding_bottom_desktop }}px;
+    --pt-mobile: {{ section.settings.padding_top_mobile }}px;
+    --pb-mobile: {{ section.settings.padding_bottom_mobile }}px;
+  "
+>
+  <div class="page-width nx-bb-product-diy-kit__inner">
+
+    {%- comment -%} TOP ROW: MEDIA + PRODUCT INFO {%- endcomment -%}
+    <div class="nx-bb-product-diy-kit__top">
+      {%- comment -%} LEFT: MEDIA GALLERY {%- endcomment -%}
+      <div class="nx-bb-product-diy-kit__media">
+        {% if product != nil and product.media.size > 0 %}
+          {%- assign initial_media = product.featured_media | default: product.media.first -%}
+
+          <div class="nx-bb-product-diy-kit__media-main">
+            {{ initial_media
+              | image_url: width: 1400
+              | image_tag:
+                loading: 'lazy',
+                alt: initial_media.alt | default: product.title | escape
+            }}
+          </div>
+
+          {% if product.media.size > 1 %}
+            <div class="nx-bb-product-diy-kit__media-thumbs">
+              {% for media in product.media %}
+                <button
+                  type="button"
+                  class="nx-bb-product-diy-kit__thumb"
+                  data-media-id="{{ media.id }}"
+                >
+                  {{ media
+                    | image_url: width: 260
+                    | image_tag:
+                      loading: 'lazy',
+                      alt: media.alt | default: product.title | escape
+                  }}
+                </button>
+              {% endfor %}
+            </div>
+          {% endif %}
+        {% endif %}
+      </div>
+
+      {%- comment -%} RIGHT: PRODUCT INFO {%- endcomment -%}
+      <div class="nx-bb-product-diy-kit__info">
+
+        {% if section.settings.show_vendor and product.vendor != blank %}
+          <div class="nx-bb-product-diy-kit__vendor">
+            {{ product.vendor }}
+          </div>
+        {% endif %}
+
+        <h1 class="nx-bb-product-diy-kit__title">
+          {{ product.title }}
+        </h1>
+
+        {% if section.settings.subheading != blank %}
+          <div class="nx-bb-product-diy-kit__subheading">
+            {{ section.settings.subheading }}
+          </div>
+        {% endif %}
+
+        {%- comment -%} REVIEW APP PLACEHOLDER {%- endcomment -%}
+        {% if section.settings.show_reviews_placeholder %}
+          <div class="nx-bb-product-diy-kit__reviews-placeholder">
+            {{ section.settings.reviews_placeholder_text }}
+          </div>
+        {% endif %}
+
+        {%- comment -%} ICON BULLETS ROW {%- endcomment -%}
+        {% if section.blocks.size > 0 %}
+          <div class="nx-bb-product-diy-kit__icon-row">
+            {% for block in section.blocks %}
+              {% if block.type == 'icon_bullet' %}
+                <div class="nx-bb-product-diy-kit__icon-bullet" {{ block.shopify_attributes }}>
+                  {% if block.settings.icon != blank %}
+                    <div class="nx-bb-product-diy-kit__icon-wrap">
+                      {{ block.settings.icon
+                        | image_url: width: 40
+                        | image_tag: loading: 'lazy', alt: block.settings.title | escape
+                      }}
+                    </div>
+                  {% endif %}
+                  <div class="nx-bb-product-diy-kit__icon-text">
+                    {% if block.settings.title != blank %}
+                      <div class="nx-bb-product-diy-kit__icon-title">
+                        {{ block.settings.title }}
+                      </div>
+                    {% endif %}
+                    {% if block.settings.text != blank %}
+                      <div class="nx-bb-product-diy-kit__icon-sub">
+                        {{ block.settings.text }}
+                      </div>
+                    {% endif %}
+                  </div>
+                </div>
+              {% endif %}
+            {% endfor %}
+          </div>
+        {% endif %}
+
+        {%- comment -%} PRICE + PRODUCT FORM (custom JS handles AJAX) {%- endcomment -%}
+        {% if product != nil %}
+          {%- assign current_variant = product.selected_or_first_available_variant -%}
+
+          <div class="nx-bb-product-diy-kit__price-wrap">
+            <span class="nx-bb-product-diy-kit__price">
+              {{ current_variant.price | money }}
+            </span>
+
+            {% if current_variant.compare_at_price > current_variant.price %}
+              <span class="nx-bb-product-diy-kit__compare">
+                {{ current_variant.compare_at_price | money }}
+              </span>
+            {% endif %}
+          </div>
+
+          {% form 'product',
+            product,
+            id: 'nx-bb-product-diy-form-{{ section.id }}',
+            class: 'nx-bb-product-diy-kit__form',
+            novalidate: 'novalidate',
+            data-nx-diy-form: section.id
+          %}
+
+            {% if product.variants.size > 1 %}
+              <div class="nx-bb-product-diy-kit__variant-select">
+                <label for="ProductSelect-{{ section.id }}">
+                  {{ section.settings.variant_label }}
+                </label>
+                <select
+                  id="ProductSelect-{{ section.id }}"
+                  name="id"
+                >
+                  {% for variant in product.variants %}
+                    <option
+                      value="{{ variant.id }}"
+                      {% if variant.id == current_variant.id %}selected{% endif %}
+                      {% unless variant.available %}disabled{% endunless %}
+                    >
+                      {{ variant.title }}{% unless variant.available %} – {{ 'products.product.sold_out' | t }}{% endunless %}
+                    </option>
+                  {% endfor %}
+                </select>
+              </div>
+            {% else %}
+              <input type="hidden" name="id" value="{{ current_variant.id }}">
+            {% endif %}
+
+            <div class="nx-bb-product-diy-kit__qty-row">
+              <label for="Quantity-{{ section.id }}">{{ 'products.product.quantity' | t }}</label>
+              <input
+                id="Quantity-{{ section.id }}"
+                name="quantity"
+                type="number"
+                min="1"
+                value="1"
+                class="nx-bb-product-diy-kit__qty-input"
+              >
+            </div>
+
+            <button
+              type="submit"
+              name="add"
+              class="nx-bb-product-diy-kit__add-to-cart"
+              data-nx-add-to-cart
+              {% unless current_variant.available %}disabled{% endunless %}
+            >
+              {% if current_variant.available %}
+                {{ section.settings.add_to_cart_label }}
+              {% else %}
+                {{ 'products.product.sold_out' | t }}
+              {% endif %}
+            </button>
+
+          {% endform %}
+        {% endif %}
+
+        {% if section.settings.trust_badges != blank %}
+          <div class="nx-bb-product-diy-kit__trust-badges rte">
+            {{ section.settings.trust_badges }}
+          </div>
+        {% endif %}
+
+      </div>
+    </div>
+
+    {%- comment -%} LOWER CONTENT ROWS {%- endcomment -%}
+    <div class="nx-bb-product-diy-kit__lower">
+
+      <div class="nx-bb-product-diy-kit__description">
+        {% if section.settings.description_heading != blank %}
+          <h2 class="nx-bb-product-diy-kit__block-heading">
+            {{ section.settings.description_heading }}
+          </h2>
+        {% endif %}
+
+        {% if section.settings.description_source == 'product' %}
+          <div class="rte">
+            {{ product.description }}
+          </div>
+        {% else %}
+          <div class="rte">
+            {{ section.settings.custom_description }}
+          </div>
+        {% endif %}
+      </div>
+
+      <div class="nx-bb-product-diy-kit__meta-columns">
+        <div class="nx-bb-product-diy-kit__meta-block">
+          {% if section.settings.included_heading != blank %}
+            <h3 class="nx-bb-product-diy-kit__block-heading">
+              {{ section.settings.included_heading }}
+            </h3>
+          {% endif %}
+          <div class="rte">
+            {{ section.settings.included_text }}
+          </div>
+        </div>
+
+        <div class="nx-bb-product-diy-kit__meta-block">
+          {% if section.settings.notes_heading != blank %}
+            <h3 class="nx-bb-product-diy-kit__block-heading">
+              {{ section.settings.notes_heading }}
+            </h3>
+          {% endif %}
+          <div class="rte">
+            {{ section.settings.notes_text }}
+          </div>
+        </div>
+      </div>
+
+      {% if section.settings.watch_heading != blank or section.settings.watch_video_url != blank or section.settings.watch_text != blank %}
+        <div class="nx-bb-product-diy-kit__watch">
+          {% if section.settings.watch_heading != blank %}
+            <h2 class="nx-bb-product-diy-kit__block-heading">
+              {{ section.settings.watch_heading }}
+            </h2>
+          {% endif %}
+
+          {% if section.settings.watch_text != blank %}
+            <div class="nx-bb-product-diy-kit__watch-text rte">
+              {{ section.settings.watch_text }}
+            </div>
+          {% endif %}
+
+          {% if section.settings.watch_video_url != blank %}
+            <div class="nx-bb-product-diy-kit__video">
+              {% assign video_url = section.settings.watch_video_url %}
+              {% if video_url contains 'youtube.com/watch' %}
+                {% assign video_id = video_url | split: 'v=' | last | split: '&' | first %}
+                <iframe
+                  src="https://www.youtube.com/embed/{{ video_id }}"
+                  frameborder="0"
+                  allowfullscreen
+                ></iframe>
+              {% else %}
+                <a href="{{ video_url }}" target="_blank" rel="noopener">
+                  {{ section.settings.watch_link_label }}
+                </a>
+              {% endif %}
+            </div>
+          {% endif %}
+        </div>
+      {% endif %}
+
+      {% if section.settings.show_share %}
+        <div class="nx-bb-product-diy-kit__share-row">
+          <span class="nx-bb-product-diy-kit__share-label">
+            {{ section.settings.share_label }}
+          </span>
+          <div class="nx-bb-product-diy-kit__share-links">
+            <a
+              href="https://www.facebook.com/sharer/sharer.php?u={{ product.url | absolute_url }}"
+              target="_blank"
+              rel="noopener"
+            >FB</a>
+            <a
+              href="https://twitter.com/intent/tweet?url={{ product.url | absolute_url }}&text={{ product.title | url_encode }}"
+              target="_blank"
+              rel="noopener"
+            >X</a>
+            <a
+              href="mailto:?subject={{ product.title | url_encode }}&body={{ product.url | absolute_url }}"
+            >Email</a>
+          </div>
+        </div>
+      {% endif %}
+    </div>
+
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Jalapeno Cheddar",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_vendor",
+      "label": "Show vendor",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "MAKE IT YOURSELF. MASTER THE CRAFT."
+    },
+    {
+      "type": "checkbox",
+      "id": "show_reviews_placeholder",
+      "label": "Show reviews placeholder",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "reviews_placeholder_text",
+      "label": "Reviews placeholder text",
+      "default": "★★★★★ 200+ reviews"
+    },
+    {
+      "type": "text",
+      "id": "variant_label",
+      "label": "Variant label",
+      "default": "Choose kit size"
+    },
+    {
+      "type": "text",
+      "id": "add_to_cart_label",
+      "label": "Add to cart label",
+      "default": "ADD TO CART"
+    },
+    {
+      "type": "richtext",
+      "id": "trust_badges",
+      "label": "Trust badges text (under button)",
+      "default": "<p>Ships fast from Ohio. Satisfaction guaranteed.</p>"
+    },
+
+    {
+      "type": "header",
+      "content": "Description & content"
+    },
+    {
+      "type": "select",
+      "id": "description_source",
+      "label": "Description source",
+      "options": [
+        { "value": "product", "label": "Use product description" },
+        { "value": "custom", "label": "Use custom description" }
+      ],
+      "default": "product"
+    },
+    {
+      "type": "text",
+      "id": "description_heading",
+      "label": "Description heading",
+      "default": "DESCRIPTION"
+    },
+    {
+      "type": "richtext",
+      "id": "custom_description",
+      "label": "Custom description (if selected above)",
+      "default": "<p>Write your custom description here.</p>"
+    },
+    {
+      "type": "text",
+      "id": "included_heading",
+      "label": "What's included heading",
+      "default": "WHAT'S INCLUDED"
+    },
+    {
+      "type": "richtext",
+      "id": "included_text",
+      "label": "What's included text",
+      "default": "<p>List the components of the DIY kit here.</p>"
+    },
+    {
+      "type": "text",
+      "id": "notes_heading",
+      "label": "Notes heading",
+      "default": "NOTES"
+    },
+    {
+      "type": "richtext",
+      "id": "notes_text",
+      "label": "Notes text",
+      "default": "<p>Add preparation tips, storage information, or other helpful notes.</p>"
+    },
+
+    {
+      "type": "header",
+      "content": "Watch & learn"
+    },
+    {
+      "type": "text",
+      "id": "watch_heading",
+      "label": "Watch section heading",
+      "default": "WATCH & LEARN"
+    },
+    {
+      "type": "richtext",
+      "id": "watch_text",
+      "label": "Watch section text",
+      "default": "<p>See how we make sausages step by step.</p>"
+    },
+    {
+      "type": "text",
+      "id": "watch_video_url",
+      "label": "YouTube video URL",
+      "default": "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+    },
+    {
+      "type": "text",
+      "id": "watch_link_label",
+      "label": "Video link label (if not embeddable)",
+      "default": "Watch on YouTube"
+    },
+
+    {
+      "type": "header",
+      "content": "Share"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_share",
+      "label": "Show share row",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "share_label",
+      "label": "Share label",
+      "default": "Share:"
+    },
+
+    {
+      "type": "range",
+      "id": "padding_top_desktop",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding top (desktop)",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_desktop",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding bottom (desktop)",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "min": 0,
+      "max": 80,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding top (mobile)",
+      "default": 32
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "min": 0,
+      "max": 80,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding bottom (mobile)",
+      "default": 32
+    }
+  ],
+  "blocks": [
+    {
+      "type": "icon_bullet",
+      "name": "Icon bullet",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Master meat processing at home"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text",
+          "default": "Everything you need for pro-level bratwurst."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Jalapeno Cheddar",
+      "blocks": [
+        { "type": "icon_bullet" },
+        { "type": "icon_bullet" },
+        { "type": "icon_bullet" }
+      ]
+    }
+  ]
+}
+{% endschema %}

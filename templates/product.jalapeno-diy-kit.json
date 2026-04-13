@@ -1,0 +1,67 @@
+{
+  "sections": {
+    "nx_bb_header": {
+      "type": "nx-bb-header",
+      "settings": {}
+    },
+    "nx_bb_product_jalapeno": {
+      "type": "nx-bb-product-jalapeno",
+      "settings": {
+        "show_vendor": true,
+        "subheading": "MAKE IT YOURSELF. MASTER THE CRAFT.",
+        "show_reviews_placeholder": true,
+        "reviews_placeholder_text": "★★★★★ 200+ reviews",
+        "variant_label": "Choose kit size",
+        "add_to_cart_label": "ADD TO CART",
+        "trust_badges": "<p>Ships fast from Ohio. Satisfaction guaranteed.</p>",
+        "description_source": "product",
+        "description_heading": "DESCRIPTION",
+        "custom_description": "<p>Write your custom description here.</p>",
+        "included_heading": "WHAT'S INCLUDED",
+        "included_text": "<p>List the components of the DIY kit here.</p>",
+        "notes_heading": "NOTES",
+        "notes_text": "<p>Add preparation tips, storage information, or other helpful notes.</p>",
+        "watch_heading": "WATCH & LEARN",
+        "watch_text": "<p>See how we make sausages step by step.</p>",
+        "watch_video_url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+        "watch_link_label": "Watch on YouTube",
+        "show_share": true,
+        "share_label": "Share:",
+        "padding_top_desktop": 40,
+        "padding_bottom_desktop": 40,
+        "padding_top_mobile": 32,
+        "padding_bottom_mobile": 32
+      }
+    },
+    "nx_bb_reviews": {
+      "type": "nx-bb-reviews",
+      "settings": {
+        "heading": "Customer Reviews",
+        "padding_top_desktop": 40,
+        "padding_bottom_desktop": 40,
+        "padding_top_mobile": 32,
+        "padding_bottom_mobile": 32
+      }
+    },
+    "nx_best_sellers": {
+      "type": "nx-best-sellers",
+      "settings": {}
+    },
+    "nx_bb_trust": {
+      "type": "nx-bb-trust",
+      "settings": {}
+    },
+    "nx_footer": {
+      "type": "nx-bb-footer",
+      "settings": {}
+    }
+  },
+  "order": [
+    "nx_bb_header",
+    "nx_bb_product_jalapeno",
+    "nx_bb_reviews",
+    "nx_best_sellers",
+    "nx_bb_trust",
+    "nx_footer"
+  ]
+}

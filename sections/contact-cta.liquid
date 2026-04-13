@@ -1,0 +1,266 @@
+{% comment %}
+  Contact CTA section
+{% endcomment %}
+
+<section
+  id="section-{{ section.id }}"
+  class="contact-cta section-{{ section.id }}-padding"
+  style="
+    --section-bg: {{ section.settings.section_bg }};
+    --card-bg: {{ section.settings.card_bg }};
+    --heading-color: {{ section.settings.heading_color }};
+    --text-color: {{ section.settings.text_color }};
+    --button-bg: {{ section.settings.button_bg }};
+    --button-text: {{ section.settings.button_text }};
+    --button-bg-hover: {{ section.settings.button_bg_hover }};
+    --border-color: {{ section.settings.border_color }};
+    --pt-desktop: {{ section.settings.padding_top_desktop }}px;
+    --pb-desktop: {{ section.settings.padding_bottom_desktop }}px;
+    --pt-mobile: {{ section.settings.padding_top_mobile }}px;
+    --pb-mobile: {{ section.settings.padding_bottom_mobile }}px;
+  "
+>
+  <div class="page-width">
+    <div class="contact-cta__card">
+      {% if section.settings.heading != blank %}
+        <h2 class="contact-cta__heading">
+          {{ section.settings.heading }}
+        </h2>
+      {% endif %}
+
+      {% if section.settings.subheading != blank %}
+        <p class="contact-cta__subheading">
+          {{ section.settings.subheading }}
+        </p>
+      {% endif %}
+
+      {% if section.settings.button_label != blank and section.settings.button_link != blank %}
+        <a
+          href="{{ section.settings.button_link }}"
+          class="contact-cta__button"
+        >
+          {{ section.settings.button_label }}
+        </a>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+<style>
+          #section-{{ section.id }} {
+            background-color: var(--section-bg);
+          }
+
+          .section-{{ section.id }}-padding {
+            padding-top: var(--pt-mobile);
+            padding-bottom: var(--pb-mobile);
+          }
+
+          @media screen and (min-width: 750px) {
+            .section-{{ section.id }}-padding {
+              padding-top: var(--pt-desktop);
+              padding-bottom: var(--pb-desktop);
+            }
+          }
+
+          #section-{{ section.id }} .contact-cta__card {
+            max-width: 920px;
+            margin: 0 16px;
+            padding: 40px 32px;
+            border-radius: 20px;
+            border: 1.5px solid var(--border-color);
+            background-color: var(--card-bg);
+            text-align: center;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06);
+          }
+
+          @media screen and (min-width: 990px) {
+            #section-{{ section.id }} .contact-cta__card {
+              padding: 48px 64px;
+            }
+          }
+
+          #section-{{ section.id }} .contact-cta__heading {
+            margin: 0 0 12px;
+        font-family: Montserrat;
+        font-weight: 500;
+        font-size: 36px !important;
+        line-height: 44px;
+        text-align: center;
+            color: var(--heading-color);
+          }
+
+          @media screen and (min-width: 990px) {
+            #section-{{ section.id }} .contact-cta__heading {
+              font-size: 32px;
+            }
+          }
+
+          #section-{{ section.id }} .contact-cta__subheading {
+            margin: 0 0 28px;
+      font-family: Montserrat;
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 26px;
+      letter-spacing: 0px;
+      text-align: center;
+            color: var(--text-color);
+          }
+
+          #section-{{ section.id }} .contact-cta__button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 9px 32px;
+            background-color: #3c572a;
+    width: 159px;
+    height: 48px;
+    opacity: 1;
+    border-radius: 60px;
+    font-family: Montserrat;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 21px;
+  color: #f9f5f1;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background-color 0.2s ease, transform 0.15s ease, box-shadow 0.15s ease;
+            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.12);
+          }
+
+          #section-{{ section.id }} .contact-cta__button:hover {
+            background-color: var(--button-bg-hover);
+            transform: translateY(-1px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.16);
+          }
+
+          #section-{{ section.id }} .contact-cta__button:focus-visible {
+            outline: 2px solid var(--button-bg-hover);
+            outline-offset: 3px;
+          }
+</style>
+
+{% schema %}
+{
+  "name": "Contact CTA",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Have Questions or Wholesale Inquiries?"
+    },
+    {
+      "type": "textarea",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "We’d love to help. Reach out to our team — we usually reply within 24 hours."
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "default": "Contact Us"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    },
+    {
+      "type": "color",
+      "id": "section_bg",
+      "label": "Section background",
+      "default": "#FDF7EE"
+    },
+    {
+      "type": "color",
+      "id": "card_bg",
+      "label": "Card background",
+      "default": "#FFFDF8"
+    },
+    {
+      "type": "color",
+      "id": "border_color",
+      "label": "Card border color",
+      "default": "#2E2E2E"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading color",
+      "default": "#31542B"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#3E3E3E"
+    },
+    {
+      "type": "color",
+      "id": "button_bg",
+      "label": "Button background",
+      "default": "#31542B"
+    },
+    {
+      "type": "color",
+      "id": "button_bg_hover",
+      "label": "Button background (hover)",
+      "default": "#274422"
+    },
+    {
+      "type": "color",
+      "id": "button_text",
+      "label": "Button text color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_desktop",
+      "label": "Padding top (desktop)",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 64
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_desktop",
+      "label": "Padding bottom (desktop)",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 64
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "label": "Padding top (mobile)",
+      "min": 0,
+      "max": 80,
+      "step": 4,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "label": "Padding bottom (mobile)",
+      "min": 0,
+      "max": 80,
+      "step": 4,
+      "unit": "px",
+      "default": 40
+    }
+  ],
+  "presets": [
+    {
+      "name": "Contact CTA"
+    }
+  ]
+}
+{% endschema %}

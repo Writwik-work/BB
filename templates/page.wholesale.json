@@ -1,0 +1,11 @@
+{
+  "sections": {
+    "nx_bb_header": { "type": "nx-bb-header", "settings": {} },
+    "main_wholesale_middle": {
+      "type": "nx-bb-wholesale-middle",
+      "settings": {}
+    },
+    "nx_footer": { "type": "nx-bb-footer", "settings": {} }
+  },
+  "order": ["nx_bb_header", "main_wholesale_middle", "nx_footer"]
+}

@@ -1,0 +1,38 @@
+{
+  "sections": {
+    "nx_bb_header": {
+      "type": "nx-bb-header",
+      "settings": {}
+    },
+    "nx_bb_blog_grid": {
+      "type": "nx-bb-blog-grid",
+      "settings": {
+        "blog": "learn",
+        "show_date": true,
+        "show_excerpt": false,
+        "read_more_label": "Read full article",
+
+        "filter_all_label": "All",
+        "filter_all_url": "",
+        "filter_1_label": "Butchering & Meat Prep",
+        "filter_1_url": "",
+        "filter_2_label": "Cooking & Grilling",
+        "filter_2_url": "",
+
+        "padding_top_desktop": 64,
+        "padding_bottom_desktop": 80,
+        "padding_top_mobile": 40,
+        "padding_bottom_mobile": 56
+      }
+    },
+    "nx_footer": {
+      "type": "nx-bb-footer",
+      "settings": {}
+    }
+  },
+  "order": [
+    "nx_bb_header",
+    "nx_bb_blog_grid",
+    "nx_footer"
+  ]
+}

@@ -1,0 +1,63 @@
+{{ 'nx-bb-snack.css' | asset_url | stylesheet_tag }}
+
+<section class="nx-bb-snack">
+  <div class="container">
+    <div class="nx-bb-snack__grid">
+
+      <!-- CARD 1 – SEASONING BUNDLE -->
+      <a href="/collections/seasoning-bundle" class="nx-bb-snack__card">
+        <div class="nx-bb-snack__image-wrap">
+          <img
+            src="{{ 'snack/seasoning.png' | asset_url }}"
+            alt="Seasoning bundle"
+            class="nx-bb-snack__image"
+            loading="lazy"
+          >
+
+          <div class="nx-bb-snack__top-tag">
+            ADD 6 SEASONINGS &amp; GET 10% OFF
+          </div>
+
+          <div class="nx-bb-snack__content">
+            <h3 class="nx-bb-snack__title">SEASONING BUNDLE</h3>
+            <span class="nx-bb-snack__button">BUILD YOUR BUNDLE</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- CARD 2 – SNACK BUNDLE -->
+      <a href="/collections/snack-bundle" class="nx-bb-snack__card">
+        <div class="nx-bb-snack__image-wrap">
+          <img
+            src="{{ 'snack/snack.png' | asset_url }}"
+            alt="Snack bundle"
+            class="nx-bb-snack__image"
+            loading="lazy"
+          >
+
+          <div class="nx-bb-snack__top-tag">
+            ADD 6 SNACKS &amp; GET 20% OFF
+          </div>
+
+          <div class="nx-bb-snack__content">
+            <h3 class="nx-bb-snack__title">SNACK BUNDLE</h3>
+            <span class="nx-bb-snack__button">BUILD YOUR BUNDLE</span>
+          </div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "NX – BB Snack",
+  "settings": [],
+  "presets": [
+    {
+      "name": "NX – BB Snack"
+    }
+  ]
+}
+{% endschema %}

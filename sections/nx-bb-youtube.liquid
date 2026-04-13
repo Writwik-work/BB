@@ -1,0 +1,77 @@
+{{ 'nx-bb-youtube.css' | asset_url | stylesheet_tag }}
+
+<section
+  id="section-{{ section.id }}"
+  class="nx-section nx-bb-youtube section-{{ section.id }}"
+>
+  <div class="container nx-bb-youtube__inner">
+    <!-- LEFT: IMAGE (hard-coded asset) -->
+    <div class="nx-bb-youtube__media">
+      <img
+        src="{{ 'youtube/play-btn.png' | asset_url }}"
+        alt="Watch Scott & Seth on YouTube"
+        loading="lazy"
+      >
+    </div>
+
+    <!-- RIGHT: TEXT + CTA -->
+    <div class="nx-bb-youtube__content">
+      {% if section.settings.heading != blank %}
+        <h2 class="nx-bb-youtube__heading">
+          {{ section.settings.heading }}
+        </h2>
+      {% endif %}
+
+      {% if section.settings.body != blank %}
+        <div class="nx-bb-youtube__text">
+          {{ section.settings.body }}
+        </div>
+      {% endif %}
+
+      {% if section.settings.cta_label != blank %}
+        <a
+          href="{{ section.settings.cta_link | default: '#' }}"
+          class="btn btn--primary nx-bb-youtube__btn"
+        >
+          {{ section.settings.cta_label }}
+        </a>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "NX – BB YouTube",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "WATCH SCOTT & SETH - BUTCHERING, GRILLING & EXPERT TIPS"
+    },
+    {
+      "type": "richtext",
+      "id": "body",
+      "label": "Body text",
+      "default": "<p>We have hundreds of videos and shorts covering everything from <strong>butchering to cooking</strong>—both commercially and at home. Learn how to <strong>cut, process, cure, and preserve meat</strong>, and master cooking on the <strong>grill, oven, smoker, or open fire.</strong></p>"
+    },
+    {
+      "type": "text",
+      "id": "cta_label",
+      "label": "Button label",
+      "default": "Visit YouTube Channel"
+    },
+    {
+      "type": "url",
+      "id": "cta_link",
+      "label": "Button link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "NX – BB YouTube"
+    }
+  ]
+}
+{% endschema %}

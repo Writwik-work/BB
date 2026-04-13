@@ -1,0 +1,88 @@
+<section id="section-{{ section.id }}" class="nx-footer">
+  {{ 'footer.css' | asset_url | stylesheet_tag }}
+  <div class="container">
+
+  <div class="nx-footer-inner">
+
+    <!-- COLUMN 1 -->
+    <div class="nx-footer-col nx-footer-col--wide">
+      <h4 class="nx-footer-heading">
+        {{ section.settings.col1_heading | default: "STAY CONNECTED" }}
+      </h4>
+
+      <p class="nx-footer-text">
+        {{ section.settings.col1_text | default: "Get exclusive deals, new products, expert tips, and mouthwatering recipes from Scott & Seth." }}
+      </p>
+
+      <form class="nx-footer-form" method="post" action="#">
+        <input type="email" placeholder="Email">
+        <button type="submit">→</button>
+      </form>
+
+      <div class="nx-footer-socials">
+        <a href="#"><img src="{{ 'footer/facebook.png' | asset_url }}" alt="Facebook"></a>
+        <a href="#"><img src="{{ 'footer/instagram.png' | asset_url }}" alt="Instagram"></a>
+        <a href="#"><img src="{{ 'footer/tiktok.png' | asset_url }}" alt="TikTok"></a>
+        <a href="#"><img src="{{ 'footer/twitter.png' | asset_url }}" alt="Twitter"></a>
+        <a href="#"><img src="{{ 'footer/youtube.png' | asset_url }}" alt="YouTube"></a>
+      </div>
+    </div>
+
+    <!-- COLUMN 2 -->
+    <div class="nx-footer-col">
+      <h4 class="nx-footer-heading">{{ section.settings.col2_heading | default: "LEARN" }}</h4>
+      <ul class="nx-footer-links">
+        <li><a href="#">DIY Instructions & Recipes</a></li>
+        <li><a href="#">Cooking & Grilling</a></li>
+        <li><a href="#">Butchering & Meat Prep</a></li>
+        <li><a href="#">YouTube Channel</a></li>
+      </ul>
+    </div>
+
+    <!-- COLUMN 3 -->
+    <div class="nx-footer-col">
+      <h4 class="nx-footer-heading">{{ section.settings.col3_heading | default: "BUSINESS & RETAIL" }}</h4>
+      <ul class="nx-footer-links">
+        <li><a href="#">Wholesale Program</a></li>
+        <li><a href="#">Product Partners</a></li>
+        <li><a href="#">Retail Store Locator</a></li>
+      </ul>
+    </div>
+
+    <!-- COLUMN 4 -->
+    <div class="nx-footer-col">
+      <h4 class="nx-footer-heading">{{ section.settings.col4_heading | default: "CUSTOMER SUPPORT" }}</h4>
+      <ul class="nx-footer-links">
+        <li><a href="#">FAQs</a></li>
+        <li><a href="#">Refund Policy</a></li>
+        <li><a href="#">Shipping Policy</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Accessibility</a></li>
+        <li><a href="#">Terms of Service</a></li>
+        <li><a href="#">Contact Us</a></li>
+      </ul>
+    </div>
+
+  </div>
+
+  <!-- FOOTER BOTTOM -->
+  <div class="nx-footer-bottom">
+    <p>{{ section.settings.bottom_text | default: "All rights reserved" }}</p>
+  </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "NX Footer",
+  "settings": [
+    { "type": "text", "id": "col1_heading", "label": "Column 1 Heading", "default": "STAY CONNECTED" },
+    { "type": "textarea", "id": "col1_text", "label": "Column 1 Text", "default": "Get exclusive deals, new products, expert tips, and mouthwatering recipes from Scott & Seth." },
+    { "type": "text", "id": "col2_heading", "label": "Column 2 Heading", "default": "LEARN" },
+    { "type": "text", "id": "col3_heading", "label": "Column 3 Heading", "default": "BUSINESS & RETAIL" },
+    { "type": "text", "id": "col4_heading", "label": "Column 4 Heading", "default": "CUSTOMER SUPPORT" },
+    { "type": "text", "id": "bottom_text", "label": "Bottom text", "default": "All rights reserved" }
+  ],
+  "presets": [{ "name": "NX Footer" }]
+}
+{% endschema %}

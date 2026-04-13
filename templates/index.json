@@ -1,0 +1,287 @@
+{
+  "sections": {
+    "hero_section": { "type": "hero-section", "settings": {} },
+
+    "nx_bb_header": {
+      "type": "nx-bb-header",
+      "settings": {},
+      "blocks": {
+        "mega_shop": {
+          "type": "mega_item",
+          "settings": {
+            "menu_title": "SHOP",
+            "left_heading": "FEATURED",
+            "fallback_link_1_text": "Shop All",
+            "fallback_link_1_url": "/collections/all",
+            "fallback_link_2_text": "Best Sellers",
+            "fallback_link_2_url": "/collections/best-sellers",
+            "fallback_link_3_text": "New Releases",
+            "fallback_link_3_url": "/collections/new",
+            "fallback_link_4_text": "Limited Editions",
+            "fallback_link_4_url": "/collections/limited-editions",
+            "fallback_link_5_text": "Gift Cards",
+            "fallback_link_5_url": "/products/gift-card",
+            "bottom_bold_text": "Outlet",
+            "bottom_bold_url": "/collections/outlet",
+            "card_1_button_text": "SHOP NOW",
+            "card_1_title": "Shop Featured Collection",
+            "card_1_link": "/collections/all",
+            "card_2_button_text": "READ FULL ARTICLE",
+            "card_2_title": "Latest From The Butchers",
+            "card_2_link": "/blogs/news"
+          }
+        },
+
+        "mega_seasonings": {
+          "type": "mega_item",
+          "settings": {
+            "menu_title": "SEASONINGS & SAUCES",
+            "left_heading": "FEATURED",
+            "fallback_link_1_text": "All Seasonings & Sauces",
+            "fallback_link_1_url": "/collections/seasonings-sauces",
+            "fallback_link_2_text": "Best Sellers",
+            "fallback_link_2_url": "/collections/best-sellers",
+            "fallback_link_3_text": "Bundles & Kits",
+            "fallback_link_3_url": "/collections/bundles-kits",
+            "fallback_link_4_text": "Limited Editions",
+            "fallback_link_4_url": "/collections/limited-editions",
+            "fallback_link_5_text": "Recipes & Pairings",
+            "fallback_link_5_url": "/blogs/recipes",
+            "bottom_bold_text": "Outlet",
+            "bottom_bold_url": "/collections/outlet",
+            "card_1_button_text": "SHOP NOW",
+            "card_1_title": "11 PACK OF SEASONING SHAKERS",
+            "card_1_link": "/collections/seasonings-sauces",
+            "card_2_button_text": "READ FULL ARTICLE",
+            "card_2_title": "THE ULTIMATE STEAK RUB: OUR BEST STEAK SEASONING",
+            "card_2_link": "/blogs/news"
+          }
+        },
+
+        "mega_diy": {
+          "type": "mega_item",
+          "settings": {
+            "menu_title": "DIY PROCESSING",
+            "left_heading": "FEATURED",
+            "fallback_link_1_text": "Shop All",
+            "fallback_link_1_url": "/collections/diy-processing",
+            "fallback_link_2_text": "Best Sellers",
+            "fallback_link_2_url": "/collections/best-sellers",
+            "fallback_link_3_text": "Grinders",
+            "fallback_link_3_url": "/collections/grinders",
+            "fallback_link_4_text": "Slicers",
+            "fallback_link_4_url": "/collections/slicers",
+            "fallback_link_5_text": "Starter Kits",
+            "fallback_link_5_url": "/collections/kits",
+            "bottom_bold_text": "Outlet",
+            "bottom_bold_url": "/collections/outlet",
+            "card_1_button_text": "SHOP NOW",
+            "card_1_title": "DIY Processing Essentials",
+            "card_1_link": "/collections/diy-processing",
+            "card_2_button_text": "READ FULL ARTICLE",
+            "card_2_title": "How To Process Like A Pro",
+            "card_2_link": "/blogs/news"
+          }
+        },
+
+        "mega_snacks": {
+          "type": "mega_item",
+          "settings": {
+            "menu_title": "SNACKS",
+            "left_heading": "FEATURED",
+            "fallback_link_1_text": "Shop All Snacks",
+            "fallback_link_1_url": "/collections/snacks",
+            "fallback_link_2_text": "Best Sellers",
+            "fallback_link_2_url": "/collections/best-sellers",
+            "fallback_link_3_text": "Jerky",
+            "fallback_link_3_url": "/collections/jerky",
+            "fallback_link_4_text": "Sticks",
+            "fallback_link_4_url": "/collections/sticks",
+            "fallback_link_5_text": "Limited Editions",
+            "fallback_link_5_url": "/collections/limited-editions",
+            "bottom_bold_text": "Outlet",
+            "bottom_bold_url": "/collections/outlet",
+            "card_1_button_text": "SHOP NOW",
+            "card_1_title": "Snack Best Sellers",
+            "card_1_link": "/collections/snacks",
+            "card_2_button_text": "READ FULL ARTICLE",
+            "card_2_title": "Top Snack Picks",
+            "card_2_link": "/blogs/news"
+          }
+        },
+
+        "mega_cutlery": {
+          "type": "mega_item",
+          "settings": {
+            "menu_title": "CUTLERY",
+            "left_heading": "FEATURED",
+            "fallback_link_1_text": "Shop All Cutlery",
+            "fallback_link_1_url": "/collections/cutlery",
+            "fallback_link_2_text": "Best Sellers",
+            "fallback_link_2_url": "/collections/best-sellers",
+            "fallback_link_3_text": "Knife Sets",
+            "fallback_link_3_url": "/collections/knife-sets",
+            "fallback_link_4_text": "Sharpeners",
+            "fallback_link_4_url": "/collections/sharpeners",
+            "fallback_link_5_text": "Accessories",
+            "fallback_link_5_url": "/collections/cutlery-accessories",
+            "bottom_bold_text": "Outlet",
+            "bottom_bold_url": "/collections/outlet",
+            "card_1_button_text": "SHOP NOW",
+            "card_1_title": "Featured Knife Set",
+            "card_1_link": "/collections/cutlery",
+            "card_2_button_text": "READ FULL ARTICLE",
+            "card_2_title": "Knife Care & Sharpening Tips",
+            "card_2_link": "/blogs/news"
+          }
+        },
+
+        "mega_grilling": {
+          "type": "mega_item",
+          "settings": {
+            "menu_title": "GRILLING & ACCESSORIES",
+            "left_heading": "FEATURED",
+            "fallback_link_1_text": "Shop All",
+            "fallback_link_1_url": "/collections/grilling-accessories",
+            "fallback_link_2_text": "Best Sellers",
+            "fallback_link_2_url": "/collections/best-sellers",
+            "fallback_link_3_text": "Tools",
+            "fallback_link_3_url": "/collections/grilling-tools",
+            "fallback_link_4_text": "Thermometers",
+            "fallback_link_4_url": "/collections/thermometers",
+            "fallback_link_5_text": "Bundles",
+            "fallback_link_5_url": "/collections/bundles-kits",
+            "bottom_bold_text": "Outlet",
+            "bottom_bold_url": "/collections/outlet",
+            "card_1_button_text": "SHOP NOW",
+            "card_1_title": "Grilling Essentials",
+            "card_1_link": "/collections/grilling-accessories",
+            "card_2_button_text": "READ FULL ARTICLE",
+            "card_2_title": "Grilling Like A Pro",
+            "card_2_link": "/blogs/news"
+          }
+        },
+
+        "mega_apparel": {
+          "type": "mega_item",
+          "settings": {
+            "menu_title": "APPAREL",
+            "left_heading": "FEATURED",
+            "fallback_link_1_text": "Shop All Apparel",
+            "fallback_link_1_url": "/collections/apparel",
+            "fallback_link_2_text": "Best Sellers",
+            "fallback_link_2_url": "/collections/best-sellers",
+            "fallback_link_3_text": "Hats",
+            "fallback_link_3_url": "/collections/hats",
+            "fallback_link_4_text": "Shirts",
+            "fallback_link_4_url": "/collections/shirts",
+            "fallback_link_5_text": "Limited Editions",
+            "fallback_link_5_url": "/collections/limited-editions",
+            "bottom_bold_text": "Outlet",
+            "bottom_bold_url": "/collections/outlet",
+            "card_1_button_text": "SHOP NOW",
+            "card_1_title": "Featured Apparel Drop",
+            "card_1_link": "/collections/apparel",
+            "card_2_button_text": "READ FULL ARTICLE",
+            "card_2_title": "Behind The Brand",
+            "card_2_link": "/blogs/news"
+          }
+        },
+
+        "mega_meatshop": {
+          "type": "mega_item",
+          "settings": {
+            "menu_title": "MEAT SHOP",
+            "left_heading": "FEATURED",
+            "fallback_link_1_text": "Shop All",
+            "fallback_link_1_url": "/collections/meat-shop",
+            "fallback_link_2_text": "Best Sellers",
+            "fallback_link_2_url": "/collections/best-sellers",
+            "fallback_link_3_text": "Bundles",
+            "fallback_link_3_url": "/collections/bundles-kits",
+            "fallback_link_4_text": "Limited Editions",
+            "fallback_link_4_url": "/collections/limited-editions",
+            "fallback_link_5_text": "Gift Cards",
+            "fallback_link_5_url": "/products/gift-card",
+            "bottom_bold_text": "Outlet",
+            "bottom_bold_url": "/collections/outlet",
+            "card_1_button_text": "SHOP NOW",
+            "card_1_title": "Featured Meat Bundle",
+            "card_1_link": "/collections/meat-shop",
+            "card_2_button_text": "READ FULL ARTICLE",
+            "card_2_title": "Cooking Guides & Tips",
+            "card_2_link": "/blogs/news"
+          }
+        },
+
+        "mega_learn": {
+          "type": "mega_item",
+          "settings": {
+            "menu_title": "LEARN",
+            "left_heading": "FEATURED",
+            "fallback_link_1_text": "Shop All",
+            "fallback_link_1_url": "/blogs/news",
+            "fallback_link_2_text": "New Releases",
+            "fallback_link_2_url": "/blogs/news",
+            "fallback_link_3_text": "Best Sellers",
+            "fallback_link_3_url": "/collections/best-sellers",
+            "fallback_link_4_text": "Limited Editions",
+            "fallback_link_4_url": "/collections/limited-editions",
+            "fallback_link_5_text": "Gift Cards",
+            "fallback_link_5_url": "/products/gift-card",
+            "bottom_bold_text": "Outlet",
+            "bottom_bold_url": "/collections/outlet",
+            "card_1_button_text": "READ FULL ARTICLE",
+            "card_1_title": "8 GRILLING TOOLS YOU NEED FOR OUTDOOR COOKING",
+            "card_1_link": "/blogs/news",
+            "card_2_button_text": "READ FULL ARTICLE",
+            "card_2_title": "A BUTCHER'S GUIDE TO PREPARING AND COOKING AN ENTIRE BEEF TENDERLOIN",
+            "card_2_link": "/blogs/news"
+          }
+        }
+      },
+      "block_order": [
+        "mega_shop",
+        "mega_seasonings",
+        "mega_diy",
+        "mega_snacks",
+        "mega_cutlery",
+        "mega_grilling",
+        "mega_apparel",
+        "mega_meatshop",
+        "mega_learn"
+      ]
+    },
+
+    "nx_bb_chopping_board": { "type": "nx-bb-chopping-board", "settings": {} },
+    "nx_category_grid": { "type": "nx-category-grid", "settings": {} },
+    "nx_best_sellers": { "type": "nx-best-sellers", "settings": {} },
+    "nx_bb_trust": { "type": "nx-bb-trust", "settings": {} },
+    "nx_bb_snack": { "type": "nx-bb-snack", "settings": {} },
+    "nx_bb_certified": { "type": "nx-bb-certified", "settings": {} },
+    "nx_bb_youtube": { "type": "nx-bb-youtube", "settings": {} },
+    "nx_bb_reels": { "type": "nx-bb-reels", "settings": {} },
+    "nx_bb_bbq": { "type": "nx-bb-bbq", "settings": {} },
+    "nx_bb_article": { "type": "nx-bb-article", "settings": {} },
+    "nx_bb_review": { "type": "nx-bb-review", "settings": {} },
+    "nx_bb_knifes": { "type": "nx-bb-knifes", "settings": {} },
+    "nx_footer": { "type": "nx-bb-footer", "settings": {} }
+  },
+  "order": [
+    "nx_bb_header",
+    "hero_section",
+    "nx_best_sellers",
+    "nx_category_grid",
+    "nx_bb_trust",
+    "nx_bb_snack",
+    "nx_bb_knifes",
+    "nx_bb_chopping_board",
+    "nx_bb_bbq",
+    "nx_bb_review",
+    "nx_bb_article",
+    "nx_bb_youtube",
+    "nx_bb_reels",
+    "nx_bb_certified",
+    "nx_footer"
+  ]
+}

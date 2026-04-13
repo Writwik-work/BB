@@ -1,0 +1,92 @@
+{{ 'nx-bb-certified.css' | asset_url | stylesheet_tag }}
+
+<section
+  id="section-{{ section.id }}"
+  class="nx-section nx-bb-certified section-{{ section.id }}"
+>
+  <div class="container">
+    <!-- Top row: rating + Judge.me badge -->
+    <div class="nx-bb-certified__top">
+      <div class="nx-bb-certified__top-left">
+        <span class="nx-bb-certified__score">4.9</span>
+
+        {%- comment -%} Stars image {%- endcomment -%}
+        <img
+          src="{{ 'collection/Stars.png' | asset_url }}"
+          alt="4.9 star rating"
+          class="nx-bb-certified__stars"
+          loading="lazy"
+        >
+
+        <span class="nx-bb-certified__summary">
+          | 4.9 out of 5 stars based on
+          <strong>6584 reviews    | </strong>
+        </span>
+      </div>
+
+      <div class="nx-bb-certified__top-right">
+        <span class="nx-bb-certified__verified-text">Verified by</span>
+
+        {%- comment -%} Judge.me badge image {%- endcomment -%}
+        <img
+          src="{{ 'collection/judgeme.png' | asset_url }}"
+          alt="Judge.me"
+          class="nx-bb-certified__provider-logo"
+          loading="lazy"
+        >
+      </div>
+    </div>
+
+    <!-- Bottom row: award badges (all images, hard-coded) -->
+    <div class="nx-bb-certified__badges">
+      <img
+        src="{{ 'collection/diamond.png' | asset_url }}"
+        alt="6584 verified reviews"
+        class="nx-bb-certified__badge"
+        loading="lazy"
+      >
+      <img
+        src="{{ 'collection/diamond 2.png' | asset_url }}"
+        alt="Monthly record 250 verified reviews"
+        class="nx-bb-certified__badge"
+        loading="lazy"
+      >
+      <img
+        src="{{ 'collection/gold.png' | asset_url }}"
+        alt="Gold transparency"
+        class="nx-bb-certified__badge"
+        loading="lazy"
+      >
+      <img
+        src="{{ 'collection/bronze.png' | asset_url }}"
+        alt="Bronze authenticity"
+        class="nx-bb-certified__badge"
+        loading="lazy"
+      >
+      <img
+        src="{{ 'collection/1-percent.png' | asset_url }}"
+        alt="Top 1% stores"
+        class="nx-bb-certified__badge"
+        loading="lazy"
+      >
+      <img
+        src="{{ 'collection/1-percent-2.png' | asset_url }}"
+        alt="Top 1% trending"
+        class="nx-bb-certified__badge"
+        loading="lazy"
+      >
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "NX – BB Certified Strip",
+  "settings": [],
+  "presets": [
+    {
+      "name": "NX – BB Certified Strip"
+    }
+  ]
+}
+{% endschema %}

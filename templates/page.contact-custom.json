@@ -1,0 +1,25 @@
+{
+  "sections": {
+    "nx_bb_header": {
+      "type": "nx-bb-header",
+      "settings": {}
+    },
+    "main_contact_middle": {
+      "type": "nx-bb-contact-middle",
+      "settings": {
+        "heading": "GET IN TOUCH",
+        "subtext": "<p>If you have a question about your order or anything related to www.beardedbutchers.com, please submit the contact form below.<br>We typically respond within 1-2 business days.</p>",
+        "button_text": "SUBMIT",
+        "button_bg": "#7b3b2f",
+        "button_text_color": "#ffffff",
+        "padding_top": 48,
+        "padding_bottom": 48
+      }
+    },
+    "nx_footer": {
+      "type": "nx-bb-footer",
+      "settings": {}
+    }
+  },
+  "order": ["nx_bb_header", "main_contact_middle", "nx_footer"]
+}

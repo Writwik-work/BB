@@ -1,0 +1,65 @@
+{
+  "sections": {
+    "nx_main": {
+      "type": "nx-product-main",
+      "settings": {
+        "show_breadcrumbs": true,
+        "show_vendor": true,
+        "show_rating": true,
+        "show_trust_icons": true
+      },
+      "blocks": {
+        "b1": {
+          "type": "accordion",
+          "settings": { "title": "Description", "content_source": "description" }
+        },
+        "b2": {
+          "type": "accordion",
+          "settings": { "title": "Gluten Free", "content_source": "metafield", "metafield_key": "custom.gluten_free" }
+        },
+        "b3": {
+          "type": "accordion",
+          "settings": { "title": "Ingredients", "content_source": "metafield", "metafield_key": "custom.ingredients" }
+        },
+        "b4": {
+          "type": "accordion",
+          "settings": { "title": "Watch & Learn", "content_source": "metafield", "metafield_key": "custom.watch_and_learn" }
+        }
+      },
+      "block_order": ["b1", "b2", "b3", "b4"]
+    },
+
+    "nx_bundle": {
+      "type": "nx-product-bundle-strip",
+      "settings": {
+        "heading": "Mix, match & save – get 10% off when you buy 3+!",
+        "button_label": "Build your bundle",
+        "button_link": "/collections/all"
+      }
+    },
+
+    "nx_reviews": {
+      "type": "apps",
+      "blocks": {
+        "app_reviews": {
+          "type": "shopify://apps/*/blocks/*"
+        }
+      },
+      "block_order": ["app_reviews"]
+    },
+
+    "nx_related": {
+      "type": "nx-product-related",
+      "settings": {
+        "heading": "Popular picks for meat lovers",
+        "collection": "",
+        "products_to_show": 12
+      }
+    },
+    "nx_footer": {
+      "type": "nx-bb-footer",
+      "settings": {}
+    }
+  },
+  "order": ["nx_main", "nx_bundle", "nx_reviews", "nx_related","nx_footer"]
+}

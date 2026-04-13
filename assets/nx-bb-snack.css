@@ -1,0 +1,128 @@
+.nx-bb-snack {
+  padding: 64px 0;
+  background-color: #fff
+}
+.nx-bb-snack .container{
+  width: 100%;
+  max-width: 100%;
+}
+.nx-bb-snack__grid {
+  display: flex;
+  width: 100%;
+  gap: 0
+}
+.nx-bb-snack__card {
+  flex: 0 0 50%;
+  display: block;
+  text-decoration: none;
+  color: inherit
+}
+.nx-bb-snack__image-wrap {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden
+}
+.nx-bb-snack__image {
+  display: block;
+  max-width: 100%;
+  width: 100%;
+  height: 480px;
+  object-fit: cover
+}
+.nx-bb-snack__top-tag {
+  position: absolute;
+  top: 40px;
+  left: 40px;
+  padding: 6px 14px;
+  border-radius: 2px;
+  background-color: #be6720;
+  color: #fff;
+  font-family: Barlow Condensed;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 140%;
+  text-align: center;
+  text-transform: uppercase
+}
+.nx-bb-snack__content {
+  position: absolute;
+  left: 24px;
+  bottom: 24px
+}
+.nx-bb-snack__title {
+  margin: 0 0 16px;
+  font-family: Barlow Condensed;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 140%;
+  text-transform: uppercase;
+  color: #fff
+}
+.nx-bb-snack__button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 20px;
+  border-radius: 4px;
+  border: 2px solid #fff;
+  font-family: Bebas Neue;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 140%;
+  text-transform: uppercase;
+  color: #fff
+}
+.nx-bb-snack__card:hover .nx-bb-snack__image {
+  transform: scale(1.03);
+  transition: transform .35s ease
+}
+.nx-bb-snack__card:hover .nx-bb-snack__button {
+  background-color: #fff;
+  color: #111;
+  transition: background-color .2s ease,color .2s ease
+}
+@media (max-width:900px) {
+  .nx-bb-snack__grid {
+    flex-direction: column
+  }
+  .nx-bb-snack__card {
+    flex: 0 0 auto;
+    width: 100%
+  }
+  .nx-bb-snack__image-wrap {
+    position: relative;
+    height: 0;
+    padding-bottom: 66.66%;
+    overflow: hidden
+  }
+  .nx-bb-snack__image-wrap img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover
+  }
+}
+@media (max-width:600px) {
+  .nx-bb-snack {
+    padding: 40px 0
+  }
+  .nx-bb-snack__top-tag {
+    top: 16px;
+    left: 16px;
+    font-size: 10px;
+    padding: 5px 10px
+  }
+  .nx-bb-snack__content {
+    left: 16px;
+    bottom: 18px
+  }
+  .nx-bb-snack__title {
+    font-size: 20px
+  }
+  .nx-bb-snack__button {
+    padding: 8px 18px;
+    font-size: 11px
+  }
+}

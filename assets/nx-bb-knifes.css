@@ -1,0 +1,268 @@
+.nx-bb-knifes {
+  padding: 40px 70px;
+  background: #fff;
+}
+
+.nx-bb-knifes__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.nx-bb-knifes__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.nx-bb-knifes__heading {
+  font-size: 24px;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.nx-bb-knifes__shop-all {
+  font-size: 20px;
+  font-family: Bebas Neue;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-bottom: 1px solid currentColor;
+}
+
+/* MAIN LAYOUT */
+.nx-bb-knifes__content {
+  display: flex;
+  gap: 24px;
+}
+
+.nx-bb-knifes__hero {
+  max-width: 417px;
+}
+
+.nx-bb-knifes__hero img {
+  width: 100%;
+  height: 609px;
+  object-fit: cover;
+  display: block;
+}
+
+.nx-bb-knifes__products {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.nx-bb-knifes__nav {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid #000;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.nx-bb-knifes__nav--prev {
+  margin-right: 8px;
+}
+
+.nx-bb-knifes__nav--next {
+  margin-left: 8px;
+}
+
+.nx-bb-knifes__scroller-wrapper {
+  overflow: hidden;
+  height: 609px;
+  flex: 1;
+}
+
+.nx-bb-knifes__scroller {
+  display: flex;
+  gap: 24px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 8px;
+}
+
+.nx-bb-knifes__scroller::-webkit-scrollbar {
+  height: 6px;
+}
+
+.nx-bb-knifes__scroller::-webkit-scrollbar-thumb {
+  background: #ddd;
+  border-radius: 3px;
+}
+
+.nx-bb-knifes__card {
+  background: #f5f5f5;
+  scroll-snap-align: start;
+  flex: 0 0 calc(50% - 12px);
+  display: flex;
+  flex-direction: column;
+  max-width: 417px;
+  border: 2px solid transparent;
+}
+
+.nx-bb-knifes__card--active {
+  border-color: #7a3ff2;
+}
+
+.nx-bb-knifes__card-media {
+  position: relative;
+  background: #20242c;
+  max-width: 100%;
+}
+
+.nx-bb-knifes__card-media img {
+  width: 100%;
+  height: 417px;
+  display: block;
+}
+
+.nx-bb-knifes__image-dots {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 4px;
+}
+
+.nx-bb-knifes__image-dots span {
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: #c3c3c3;
+}
+
+.nx-bb-knifes__image-dots span.is-active {
+  background: #fff;
+}
+
+.nx-bb-knifes__card-body {
+  padding: 12px 12px 16px;
+  background: #fff;
+}
+
+.nx-bb-knifes__brand {
+  margin: 0 0 4px;
+  font-size: 14px;
+  text-transform: uppercase;
+}
+
+.nx-bb-knifes__title {
+  margin: 0 0 8px;
+  font-size: 20px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.nx-bb-knifes__rating-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.nx-bb-knifes__stars {
+  font-size: 18px;
+  color: #c8c8c8;
+}
+
+.nx-bb-knifes__stars span.is-active {
+  color: #e4573d;
+}
+
+.nx-bb-knifes__reviews {
+  font-size: 14px;
+}
+
+.nx-bb-knifes__price-row {
+  font-size: 14px;
+  display: flex;
+  gap: 6px;
+}
+
+.nx-bb-knifes__price {
+  font-weight: 700;
+}
+
+.nx-bb-knifes__compare {
+  text-decoration: line-through;
+  color: #777;
+}
+
+/* =========================
+   RESPONSIVE
+   ========================= */
+
+/* BELOW 1024px: use flex-wrap, hero on top, products below */
+@media (max-width: 1024px) {
+  .nx-bb-knifes {
+    padding: 32px 24px;
+  }
+
+  .nx-bb-knifes__content {
+    flex-wrap: wrap;
+  }
+
+  .nx-bb-knifes__hero {
+    max-width: 100%;
+    flex: 1 1 100%;
+  }
+
+  .nx-bb-knifes__hero img {
+    width: 100%;
+    height: auto;
+    max-height: 420px;
+  }
+
+  .nx-bb-knifes__products {
+    flex: 1 1 100%;
+    margin-top: 24px;
+  }
+
+  .nx-bb-knifes__scroller-wrapper {
+    height: auto;
+  }
+
+  .nx-bb-knifes__card-media img {
+    height: auto;
+    max-height: 380px;
+  }
+
+  /* show only ~1.5 cards on tablet */
+  .nx-bb-knifes__card {
+    flex: 0 0 60%;
+    max-width: 60%;
+  }
+}
+
+/* Around tablet / big mobile */
+@media (max-width: 768px) {
+  .nx-bb-knifes__top {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .nx-bb-knifes__card {
+    flex: 0 0 75%;
+    max-width: 75%;
+  }
+}
+
+/* Small mobile */
+@media (max-width: 640px) {
+  .nx-bb-knifes {
+    padding: 32px 16px;
+  }
+
+  .nx-bb-knifes__card {
+    flex: 0 0 90%;
+    max-width: 90%;
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "sections": {
+    "nx_bb_header": {
+      "type": "nx-bb-header",
+      "settings": {}
+    },
+    "main_faq": {
+      "type": "nx-bb-faq",
+      "settings": {
+        "heading": "FAQs",
+        "subheading": "Find quick answers to common questions.",
+        "contact_text": "Still Have Questions?",
+        "contact_link_text": "Contact Us",
+        "contact_link": "/pages/contact",
+        "content_width": 720,
+        "divider_color": "#e9e9e9",
+        "text_color": "#111111",
+        "bg_color": "#ffffff",
+        "icon_color": "#111111"
+      },
+      "blocks": {
+        "faq_1": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What can I use these seasonings on?",
+            "answer": "<p>You can use them on beef, pork, chicken, fish, vegetables, and more.</p>"
+          }
+        },
+        "faq_2": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What is the shelf life on your seasonings?",
+            "answer": "<p>Most seasonings are best used within 12–24 months when stored in a cool, dry place.</p>"
+          }
+        },
+        "faq_3": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Do you offer veteran or military discounts?",
+            "answer": "<p>Yes, we offer discounts for veterans and active duty. Please contact support for details.</p>"
+          }
+        },
+        "faq_4": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Do you ship internationally?",
+            "answer": "<p>International shipping availability depends on destination. Check checkout for options.</p>"
+          }
+        },
+        "faq_5": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Do you ship meat?",
+            "answer": "<p>We ship select meat items with cold packaging where available. See Meat Shop for details.</p>"
+          }
+        }
+      },
+      "block_order": ["faq_1", "faq_2", "faq_3", "faq_4", "faq_5"]
+    },
+    "nx_footer": {
+      "type": "nx-bb-footer",
+      "settings": {}
+    }
+  },
+  "order": ["nx_bb_header", "main_faq", "nx_footer"]
+}

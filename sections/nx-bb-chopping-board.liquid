@@ -1,0 +1,54 @@
+{{ 'nx-bb-chopping-board.css' | asset_url | stylesheet_tag }}
+
+<section id="section-{{ section.id }}" class="nx-bb-chopping-board">
+
+  <div class="nx-bb-chopping-board__video-wrapper">
+    <video
+      class="nx-bb-chopping-board__video"
+      autoplay
+      loop
+      muted
+      playsinline
+    >
+      <source src="{{ 'chopping-board/board.mp4' | asset_url }}" type="video/mp4">
+    </video>
+  </div>
+
+  <div class="nx-bb-chopping-board__content">
+    <div class="hero-section__buttons">
+      {% if section.settings.cta_label != blank %}
+        <a
+          href="{{ section.settings.cta_link | default: '#' }}"
+          class="hero-section__btn hero-section__btn--primary"
+        >
+          {{ section.settings.cta_label }}
+        </a>
+      {% endif %}
+    </div>
+  </div>
+
+</section>
+
+{% schema %}
+{
+  "name": "NX – BB Chopping Board",
+  "settings": [
+    {
+      "type": "text",
+      "id": "cta_label",
+      "label": "Button label",
+      "default": "SHOP SEASONINGS & SAUCES"
+    },
+    {
+      "type": "url",
+      "id": "cta_link",
+      "label": "Button link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "NX – BB Chopping Board"
+    }
+  ]
+}
+{% endschema %}

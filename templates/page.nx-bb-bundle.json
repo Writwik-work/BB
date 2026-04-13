@@ -1,0 +1,85 @@
+{
+  "sections": {
+    "nx_bb_header": {
+      "type": "nx-bb-header",
+      "settings": {}
+    },
+    "nx_bb_shop_hero": {
+      "type": "nx-bb-shop-hero",
+      "settings": {
+        "hero_image": null,
+        "hero_kicker": "HOME / SHOP",
+        "hero_heading": "MIX & MATCH YOUR FAVORITES",
+        "hero_subcopy": ""
+      }
+    },
+    "nx_bb_bundle_builder": {
+      "type": "nx-bb-bundle-builder",
+      "settings": {
+        "heading": "",
+        "subheading": "",
+        "sidebar_title": "BUNDLE CONTENTS",
+        "max_items": 3,
+        "discount_percent": 0,
+        "cta_label": "ADD TO CART",
+        "helper_text": "Select your items to build your bundle.",
+        "padding_top_desktop": 32,
+        "padding_bottom_desktop": 40,
+        "padding_top_mobile": 20,
+        "padding_bottom_mobile": 28
+      },
+      "blocks": {
+        "product_1": { "type": "product", "settings": { "product": "" } },
+        "product_2": { "type": "product", "settings": { "product": "" } },
+        "product_3": { "type": "product", "settings": { "product": "" } },
+        "product_4": { "type": "product", "settings": { "product": "" } },
+        "product_5": { "type": "product", "settings": { "product": "" } },
+        "product_6": { "type": "product", "settings": { "product": "" } },
+        "product_7": { "type": "product", "settings": { "product": "" } },
+        "product_8": { "type": "product", "settings": { "product": "" } },
+        "product_9": { "type": "product", "settings": { "product": "" } }
+      },
+      "block_order": [
+        "product_1",
+        "product_2",
+        "product_3",
+        "product_4",
+        "product_5",
+        "product_6",
+        "product_7",
+        "product_8",
+        "product_9"
+      ]
+    },
+    "nx_bb_guides_cta": {
+      "type": "nx-bb-guides-cta",
+      "settings": {
+        "background_image": null,
+        "heading": "MASTER THE ART OF SEASONING",
+        "button_label": "LEARN MORE",
+        "button_link": ""
+      }
+    },
+    "nx_best_sellers": {
+      "type": "nx-best-sellers",
+      "settings": {}
+    },
+    "nx_bb_trust": {
+      "type": "nx-bb-trust",
+      "settings": {}
+    },
+    "nx_footer": {
+      "type": "nx-bb-footer",
+      "settings": {}
+    }
+  },
+  "order": [
+    "nx_bb_header",
+    "nx_bb_shop_hero",
+    "nx_bb_bundle_builder",
+    "nx_bb_guides_cta",
+    "nx_best_sellers",
+    "nx_bb_trust",
+    "nx_footer"
+  ]
+}

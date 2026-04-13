@@ -1,0 +1,94 @@
+.nx-bb-article {
+  background: #fff;
+  padding: 40px 70px;
+}
+
+.nx-bb-article__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.nx-bb-article__heading {
+  margin: 0;
+  font-family: "Barlow Condensed", sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  text-transform: uppercase;
+}
+
+.nx-bb-article__view-all {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  text-transform: uppercase;
+  border-bottom: 2px solid #1c1c1c;
+  padding-bottom: 2px;
+}
+
+.nx-bb-article__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+}
+
+.nx-bb-article__card {}
+
+.nx-bb-article__image-wrapper {
+  width: 100%;
+  overflow: hidden;
+}
+
+.nx-bb-article__image {
+  width: 100%;
+  max-width: 307px;
+  height: 260px;
+  display: block;
+  transition: transform .35s ease;
+}
+
+.nx-bb-article__image-wrapper:hover .nx-bb-article__image {
+  transform: scale(1.03);
+}
+
+.nx-bb-article__date {
+  margin: 12px 0 4px;
+  font-size: 14px;
+  color: #777;
+  font-family: "Work Sans", sans-serif;
+}
+
+.nx-bb-article__title {
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  text-transform: uppercase;
+  line-height: 1.4;
+  margin-bottom: 12px;
+  color: #1c1c1c;
+}
+
+.nx-bb-article__link {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 20px;
+  text-transform: uppercase;
+  border-bottom: 2px solid #1c1c1c;
+  padding-bottom: 2px;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .nx-bb-article {
+    padding: 40px 30px;
+  }
+  .nx-bb-article__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .nx-bb-article__grid {
+    grid-template-columns: 1fr;
+  }
+}

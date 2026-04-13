@@ -1,0 +1,103 @@
+<section id="section-{{ section.id }}" class="nx-bb-seasonings-row section-{{ section.id }}-padding">
+  {{ 'nx-bb-seasonings-row.css' | asset_url | stylesheet_tag }}
+  {% comment %} {{ 'nx-bb-seasonings-row.js' | asset_url | script_tag }} {% endcomment %}
+
+  <div class="page-width">
+    <div class="nx-bb-seasonings-row__head">
+      {% if section.settings.heading != blank %}
+        <h2 class="nx-bb-seasonings-row__heading">{{ section.settings.heading }}</h2>
+      {% endif %}
+      {% if section.settings.subcopy != blank %}
+        <div class="nx-bb-seasonings-row__subcopy">{{ section.settings.subcopy }}</div>
+      {% endif %}
+    </div>
+
+    <div class="nx-bb-seasonings-row__grid" role="list">
+      {% for block in section.blocks %}
+        <a class="nx-bb-seasonings-row__card" href="{{ block.settings.link | default: '#' }}" role="listitem" {{ block.shopify_attributes }}>
+          <div class="nx-bb-seasonings-row__media">
+            {% if block.settings.image != blank %}
+              <img
+                src="{{ block.settings.image | image_url: width: 900 }}"
+                alt="{{ block.settings.title | escape }}"
+                width="900"
+                height="900"
+                loading="lazy"
+              >
+            {% endif %}
+          </div>
+
+          <div class="nx-bb-seasonings-row__meta">
+            {% if block.settings.title != blank %}
+              <div class="nx-bb-seasonings-row__title">{{ block.settings.title }}</div>
+            {% endif %}
+            {% if block.settings.price != blank %}
+              <div class="nx-bb-seasonings-row__price">{{ block.settings.price }}</div>
+            {% endif %}
+          </div>
+        </a>
+      {% endfor %}
+    </div>
+
+    {% if section.settings.button_label != blank %}
+      <div class="nx-bb-seasonings-row__cta">
+        <a class="nx-bb-seasonings-row__btn" href="{{ section.settings.button_link | default: '#' }}">
+          {{ section.settings.button_label }}
+        </a>
+      </div>
+    {% endif %}
+  </div>
+
+  <style>
+    #section-{{ section.id }}.nx-bb-seasonings-row {
+      background: {{ section.settings.bg_color }};
+    }
+
+    #section-{{ section.id }}.section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top_mobile }}px;
+      padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+    }
+
+    @media screen and (min-width: 990px) {
+      #section-{{ section.id }}.section-{{ section.id }}-padding {
+        padding-top: {{ section.settings.padding_top_desktop }}px;
+        padding-bottom: {{ section.settings.padding_bottom_desktop }}px;
+      }
+    }
+  </style>
+
+  {% schema %}
+  {
+    "name": "BB Seasonings Row",
+    "settings": [
+      { "type": "text", "id": "heading", "label": "Heading", "default": "SHOP OUR BEST SELLING SEASONINGS" },
+      { "type": "text", "id": "subcopy", "label": "Subcopy", "default": "Customer favorites that deliver big flavor every time." },
+      { "type": "color", "id": "bg_color", "label": "Background", "default": "#0b0b0b" },
+
+      { "type": "text", "id": "button_label", "label": "Button label", "default": "SHOP ALL SEASONINGS" },
+      { "type": "url", "id": "button_link", "label": "Button link" },
+
+      { "type": "range", "id": "padding_top_desktop", "label": "Padding top (desktop)", "min": 0, "max": 160, "step": 4, "default": 64 },
+      { "type": "range", "id": "padding_bottom_desktop", "label": "Padding bottom (desktop)", "min": 0, "max": 160, "step": 4, "default": 64 },
+      { "type": "range", "id": "padding_top_mobile", "label": "Padding top (mobile)", "min": 0, "max": 120, "step": 4, "default": 40 },
+      { "type": "range", "id": "padding_bottom_mobile", "label": "Padding bottom (mobile)", "min": 0, "max": 120, "step": 4, "default": 40 }
+    ],
+    "blocks": [
+      {
+        "type": "item",
+        "name": "Item",
+        "settings": [
+          { "type": "image_picker", "id": "image", "label": "Image" },
+          { "type": "text", "id": "title", "label": "Title", "default": "BUTCHER BLEND" },
+          { "type": "text", "id": "price", "label": "Price", "default": "$12.99" },
+          { "type": "url", "id": "link", "label": "Link" }
+        ]
+      }
+    ],
+    "max_blocks": 6,
+    "presets": [
+      { "name": "BB Seasonings Row" }
+    ]
+  }
+  {% endschema %}
+</section>

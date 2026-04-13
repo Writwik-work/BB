@@ -1,0 +1,319 @@
+{{ 'nx-bb-cart-main.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'nx-bb-cart-main.js' | asset_url }}" defer></script>
+
+<section
+  id="section-{{ section.id }}"
+  class="nx-bb-cart section-{{ section.id }}-padding"
+  style="
+    --pt-desktop: {{ section.settings.padding_top_desktop }}px;
+    --pb-desktop: {{ section.settings.padding_bottom_desktop }}px;
+    --pt-mobile: {{ section.settings.padding_top_mobile }}px;
+    --pb-mobile: {{ section.settings.padding_bottom_mobile }}px;
+  "
+>
+  <div class="page-width">
+    {% if cart.item_count > 0 %}
+
+      {%- assign free_goal = section.settings.free_shipping_threshold | times: 100 -%}
+      {%- assign cart_total = cart.total_price -%}
+      {%- assign remaining = free_goal | minus: cart_total -%}
+
+      {%- form 'cart', cart, class: 'nx-bb-cart__form', data-nx-cart-form: '' -%}
+
+        <div class="nx-bb-cart__topbar">
+          <p class="nx-bb-cart__items-count">
+            Cart ({{ cart.item_count }})
+          </p>
+
+          {% if section.settings.show_free_shipping and free_goal > 0 %}
+            <div class="nx-bb-cart__freeShip" data-nx-free-container>
+              {% if remaining > 0 %}
+                <p class="nx-bb-cart__freeShip-text" data-nx-free-text>
+                  You are
+                  <strong>{{ remaining | money }}</strong>
+                  away from free shipping.
+                </p>
+              {% else %}
+                <p class="nx-bb-cart__freeShip-text" data-nx-free-text>
+                  You’ve unlocked <strong>free shipping</strong> on this order!
+                </p>
+              {% endif %}
+
+              <div class="nx-bb-cart__freeShip-bar">
+                {%- assign progress = cart_total | times: 100 | divided_by: free_goal -%}
+                {%- if progress > 100 -%}{%- assign progress = 100 -%}{%- endif -%}
+                <div
+                  class="nx-bb-cart__freeShip-progress"
+                  data-nx-free-progress
+                  style="width: {{ progress }}%;"
+                ></div>
+              </div>
+            </div>
+          {% endif %}
+        </div>
+
+        <div class="nx-bb-cart__inner">
+          <!-- LEFT: ITEMS -->
+          <div class="nx-bb-cart__items">
+            {% for item in cart.items %}
+              <article class="nx-bb-cart__item" data-nx-cart-item>
+                <div class="nx-bb-cart__item-media">
+                  <a href="{{ item.url }}" class="nx-bb-cart__item-imageLink">
+                    {{ item.image
+                      | image_url: width: 260
+                      | image_tag:
+                        loading: 'lazy',
+                        alt: item.image.alt | default: item.product.title
+                    }}
+                  </a>
+                </div>
+
+                <div class="nx-bb-cart__item-main">
+                  <div class="nx-bb-cart__item-header">
+                    <div>
+                      <p class="nx-bb-cart__item-brand">
+                        {{ item.vendor }}
+                      </p>
+                      <a href="{{ item.url }}" class="nx-bb-cart__item-title">
+                        {{ item.product.title }}
+                      </a>
+
+                      {% if item.variant.title != 'Default Title' %}
+                        <p class="nx-bb-cart__item-variant">
+                          {{ item.variant.title }}
+                        </p>
+                      {% endif %}
+
+                      {% if item.properties %}
+                        <ul class="nx-bb-cart__item-properties">
+                          {% for property in item.properties %}
+                            {% assign prop_name = property.first %}
+                            {% assign prop_value = property.last %}
+                            {% unless prop_value == blank %}
+                              <li>
+                                <span>{{ prop_name }}:</span>
+                                <span>{{ prop_value }}</span>
+                              </li>
+                            {% endunless %}
+                          {% endfor %}
+                        </ul>
+                      {% endif %}
+                    </div>
+
+                    <div class="nx-bb-cart__item-priceCol">
+                      {% if item.original_price > item.final_price %}
+                        <span class="nx-bb-cart__item-price nx-bb-cart__item-price--sale">
+                          {{ item.final_line_price | money }}
+                        </span>
+                        <span class="nx-bb-cart__item-compare">
+                          {{ item.original_line_price | money }}
+                        </span>
+                      {% else %}
+                        <span class="nx-bb-cart__item-price">
+                          {{ item.final_line_price | money }}
+                        </span>
+                      {% endif %}
+                    </div>
+                  </div>
+
+                  <div class="nx-bb-cart__item-footer">
+                    <div class="nx-bb-cart__qtyWrap">
+                      <label class="nx-bb-cart__qtyLabel" for="Quantity-{{ section.id }}-{{ forloop.index }}">
+                        Qty
+                      </label>
+                      <input
+                        class="nx-bb-cart__qtyInput"
+                        id="Quantity-{{ section.id }}-{{ forloop.index }}"
+                        type="number"
+                        min="0"
+                        name="updates[{{ item.key }}]"
+                        value="{{ item.quantity }}"
+                        inputmode="numeric"
+                      >
+                    </div>
+
+                    <button
+                      class="nx-bb-cart__remove"
+                      type="submit"
+                      name="updates[{{ item.key }}]"
+                      value="0"
+                    >
+                      Remove
+                    </button>
+                  </div>
+                </div>
+              </article>
+            {% endfor %}
+          </div>
+
+          <!-- RIGHT: SUMMARY -->
+          <aside class="nx-bb-cart__summary">
+            <div class="nx-bb-cart__summary-box">
+              <div class="nx-bb-cart__summary-row">
+                <span>Subtotal</span>
+                <span>{{ cart.total_price | money }}</span>
+              </div>
+
+              {% if section.settings.show_tax_note %}
+                <p class="nx-bb-cart__summary-note">
+                  Taxes and shipping calculated at checkout.
+                </p>
+              {% endif %}
+
+              <button
+                class="nx-bb-cart__checkoutBtn"
+                type="submit"
+                name="checkout"
+              >
+                {{ section.settings.checkout_label }}
+              </button>
+
+              {% if section.settings.show_express_buttons %}
+                <div class="nx-bb-cart__express">
+                  {{ content_for_additional_checkout_buttons }}
+                </div>
+              {% endif %}
+            </div>
+
+            {% if section.settings.show_trust_row %}
+              <div class="nx-bb-cart__trustRow">
+                {% if section.settings.trust_text_1 != blank %}
+                  <div class="nx-bb-cart__trustItem">
+                    <span class="nx-bb-cart__trustIcon">✓</span>
+                    <span>{{ section.settings.trust_text_1 }}</span>
+                  </div>
+                {% endif %}
+                {% if section.settings.trust_text_2 != blank %}
+                  <div class="nx-bb-cart__trustItem">
+                    <span class="nx-bb-cart__trustIcon">✓</span>
+                    <span>{{ section.settings.trust_text_2 }}</span>
+                  </div>
+                {% endif %}
+                {% if section.settings.trust_text_3 != blank %}
+                  <div class="nx-bb-cart__trustItem">
+                    <span class="nx-bb-cart__trustIcon">✓</span>
+                    <span>{{ section.settings.trust_text_3 }}</span>
+                  </div>
+                {% endif %}
+              </div>
+            {% endif %}
+          </aside>
+        </div>
+
+      {%- endform -%}
+
+    {% else %}
+      <div class="nx-bb-cart__empty">
+        <p>Your cart is currently empty.</p>
+        <a href="{{ routes.all_products_collection_url }}" class="nx-bb-cart__empty-btn">
+          Continue shopping
+        </a>
+      </div>
+    {% endif %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "NX-BB Cart main",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_free_shipping",
+      "label": "Show free shipping progress",
+      "default": true
+    },
+    {
+      "type": "number",
+      "id": "free_shipping_threshold",
+      "label": "Free shipping threshold (store currency)",
+      "default": 79
+    },
+    {
+      "type": "checkbox",
+      "id": "show_tax_note",
+      "label": "Show taxes/shipping note",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_express_buttons",
+      "label": "Show express checkout buttons",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_trust_row",
+      "label": "Show trust badges row",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "checkout_label",
+      "label": "Checkout button label",
+      "default": "PROCEED TO SECURE CHECKOUT"
+    },
+    {
+      "type": "text",
+      "id": "trust_text_1",
+      "label": "Trust text 1",
+      "default": "Expert-approved quality"
+    },
+    {
+      "type": "text",
+      "id": "trust_text_2",
+      "label": "Trust text 2",
+      "default": "Fast shipping"
+    },
+    {
+      "type": "text",
+      "id": "trust_text_3",
+      "label": "Trust text 3",
+      "default": "Satisfaction guarantee"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_desktop",
+      "label": "Padding top (desktop)",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_desktop",
+      "label": "Padding bottom (desktop)",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "default": 64
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "label": "Padding top (mobile)",
+      "min": 0,
+      "max": 80,
+      "step": 4,
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "label": "Padding bottom (mobile)",
+      "min": 0,
+      "max": 80,
+      "step": 4,
+      "default": 40
+    }
+  ],
+  "presets": [
+    {
+      "name": "NX-BB Cart main"
+    }
+  ]
+}
+{% endschema %}

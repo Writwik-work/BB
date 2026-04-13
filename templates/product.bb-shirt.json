@@ -1,0 +1,92 @@
+{
+  "sections": {
+    "nx_bb_header": {
+      "type": "nx-bb-header",
+      "settings": {}
+    },
+
+    "nx_bb_product_bb_shirt": {
+      "type": "nx-bb-product-jalapeno",
+      "settings": {
+        "show_vendor": true,
+        "subheading": "MADE FOR THE GRILL, WORN EVERYWHERE.",
+        "show_reviews_placeholder": true,
+        "reviews_placeholder_text": "★★★★★ 200+ reviews",
+
+        "variant_label": "Choose size / color",
+        "add_to_cart_label": "ADD TO CART",
+
+        "trust_badges": "<p>Soft, durable fabric &amp; fast shipping from Ohio.</p>",
+
+        "description_source": "product",
+        "description_heading": "DESCRIPTION",
+        "custom_description": "<p>Use this field if you want a custom description instead of the product description.</p>",
+
+        "included_heading": "DETAILS",
+        "included_text": "<p>List fabric, fit, and print details for this shirt.</p>",
+
+        "notes_heading": "CARE INSTRUCTIONS",
+        "notes_text": "<p>Machine wash cold, tumble dry low. Do not iron decoration.</p>",
+
+        "watch_heading": "WATCH & LEARN",
+        "watch_text": "<p>Show off the shirt in action around the grill or shop.</p>",
+        "watch_video_url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+        "watch_link_label": "Watch on YouTube",
+
+        "show_share": true,
+        "share_label": "Share:",
+
+        "padding_top_desktop": 40,
+        "padding_bottom_desktop": 40,
+        "padding_top_mobile": 32,
+        "padding_bottom_mobile": 32
+      }
+    },
+
+    "nx_bb_reviews": {
+      "type": "nx-bb-reviews",
+      "settings": {
+        "heading": "Customer Reviews",
+        "rating_line": "5.0 out of 5.0",
+        "rating_subline": "Based on 28 reviews",
+        "bar_5": 20,
+        "bar_4": 8,
+        "bar_3": 0,
+        "bar_2": 0,
+        "bar_1": 0,
+        "verified_badge_text": "Verified by Judge.me",
+        "total_reviews_label": "28 reviews",
+        "sort_label": "Most Recent",
+        "show_more_label": "SHOW MORE",
+        "padding_top_desktop": 40,
+        "padding_bottom_desktop": 40,
+        "padding_top_mobile": 32,
+        "padding_bottom_mobile": 32
+      }
+    },
+
+    "nx_best_sellers": {
+      "type": "nx-best-sellers",
+      "settings": {}
+    },
+
+    "nx_bb_trust": {
+      "type": "nx-bb-trust",
+      "settings": {}
+    },
+
+    "nx_footer": {
+      "type": "nx-bb-footer",
+      "settings": {}
+    }
+  },
+
+  "order": [
+    "nx_bb_header",
+    "nx_bb_product_bb_shirt",
+    "nx_bb_reviews",
+    "nx_best_sellers",
+    "nx_bb_trust",
+    "nx_footer"
+  ]
+}

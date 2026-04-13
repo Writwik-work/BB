@@ -1,0 +1,90 @@
+{{ 'nx-bb-reels.css' | asset_url | stylesheet_tag }}
+
+<section
+  id="section-{{ section.id }}"
+  class="nx-section nx-bb-reels section-{{ section.id }}"
+>
+  <div class="container">
+
+    <div class="nx-bb-reels__grid">
+
+      <!-- Reel 1 -->
+      <div class="nx-bb-reel">
+        <div class="nx-bb-reel__img-wrapper">
+          <img src="{{ 'reels/1.png' | asset_url }}" alt="Reel 1" class="nx-bb-reel__img">
+        </div>
+        <p class="nx-bb-reel__caption">
+          THE ‘OLE 96ER!!! WOULD YOU GRILL IT??
+        </p>
+      </div>
+
+      <!-- Reel 2 -->
+      <div class="nx-bb-reel">
+        <div class="nx-bb-reel__img-wrapper">
+          <img src="{{ 'reels/2.png' | asset_url }}" alt="Reel 2" class="nx-bb-reel__img">
+        </div>
+        <p class="nx-bb-reel__caption">
+          POV: CUTTING TAJIMA WAGYU RIBEYES!
+        </p>
+      </div>
+
+      <!-- Reel 3 -->
+      <div class="nx-bb-reel">
+        <div class="nx-bb-reel__img-wrapper">
+          <img src="{{ 'reels/3.png' | asset_url }}" alt="Reel 3" class="nx-bb-reel__img">
+        </div>
+        <p class="nx-bb-reel__caption">
+          CAJUN BUTTER STEAK BITES! FIND THE FULL RECIPE ON OUR BUT…
+        </p>
+      </div>
+
+      <!-- Reel 4 -->
+      <div class="nx-bb-reel">
+        <div class="nx-bb-reel__img-wrapper">
+          <img src="{{ 'reels/4.png' | asset_url }}" alt="Reel 4" class="nx-bb-reel__img">
+        </div>
+        <p class="nx-bb-reel__caption">
+          CELEBRATE ST. PADDY’S DAY WITH OUR IRISH THEMED BEEF/PORK…
+        </p>
+      </div>
+
+      <!-- Reel 5 -->
+      <div class="nx-bb-reel">
+        <div class="nx-bb-reel__img-wrapper">
+          <img src="{{ 'reels/5.png' | asset_url }}" alt="Reel 5" class="nx-bb-reel__img">
+        </div>
+        <p class="nx-bb-reel__caption">
+          THE MKC X BB BONING AND BREAKING BUTCHER KNIVES ARE D…
+        </p>
+      </div>
+
+      <!-- Reel 6 -->
+      <div class="nx-bb-reel">
+        <div class="nx-bb-reel__img-wrapper">
+          <img src="{{ 'reels/6.png' | asset_url }}" alt="Reel 6" class="nx-bb-reel__img">
+        </div>
+        <p class="nx-bb-reel__caption">
+          CHECK OUT JR KNIVES READY FOR PROCESSING DAY!
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "NX – BB Reels",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "CHECK OUT OUR LATEST REELS"
+    }
+  ],
+  "presets": [
+    { "name": "NX – BB Reels" }
+  ]
+}
+{% endschema %}

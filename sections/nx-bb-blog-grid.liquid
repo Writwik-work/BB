@@ -1,0 +1,249 @@
+{{ 'nx-bb-blog-grid.css' | asset_url | stylesheet_tag }}
+
+<section
+  id="section-{{ section.id }}"
+  class="nx-bb-blog-grid section-{{ section.id }}-padding"
+  style="
+    --pt-desktop: {{ section.settings.padding_top_desktop }}px;
+    --pb-desktop: {{ section.settings.padding_bottom_desktop }}px;
+    --pt-mobile: {{ section.settings.padding_top_mobile }}px;
+    --pb-mobile: {{ section.settings.padding_bottom_mobile }}px;
+  "
+>
+  <div class="nx-bb-blog-grid__inner">
+    {%- assign chosen_blog = section.settings.blog -%}
+
+    {% if chosen_blog != blank and blogs[chosen_blog] != nil %}
+      {%- assign blog = blogs[chosen_blog] -%}
+
+      {%- comment -%} FILTER TABS ROW {%- endcomment -%}
+      <div class="nx-bb-blog-grid__filters">
+        {% if section.settings.filter_all_label != blank %}
+          <a
+            href="{{ section.settings.filter_all_url | default: blog.url }}"
+            class="nx-bb-blog-grid__filter-link nx-bb-blog-grid__filter-link--active"
+          >
+            {{ section.settings.filter_all_label }}
+          </a>
+        {% endif %}
+
+        {% if section.settings.filter_1_label != blank %}
+          <a
+            href="{{ section.settings.filter_1_url | default: blog.url }}"
+            class="nx-bb-blog-grid__filter-link"
+          >
+            {{ section.settings.filter_1_label }}
+          </a>
+        {% endif %}
+
+        {% if section.settings.filter_2_label != blank %}
+          <a
+            href="{{ section.settings.filter_2_url | default: blog.url }}"
+            class="nx-bb-blog-grid__filter-link"
+          >
+            {{ section.settings.filter_2_label }}
+          </a>
+        {% endif %}
+      </div>
+
+      {%- comment -%} FEATURED TOP ROW (2 BIG CARDS) {%- endcomment -%}
+      {% if blog.articles_count > 0 %}
+        <div class="nx-bb-blog-grid__featured-row">
+          {% for article in blog.articles limit: 2 %}
+            <article class="nx-bb-blog-grid__card nx-bb-blog-grid__card--featured">
+              <a href="{{ article.url }}" class="nx-bb-blog-grid__image-link">
+                {% if article.image %}
+                  {{ article.image
+                    | image_url: width: 1200
+                    | image_tag:
+                      loading: 'lazy',
+                      alt: article.image.alt | default: article.title | escape
+                  }}
+                {% endif %}
+              </a>
+
+              <div class="nx-bb-blog-grid__content">
+                {% if section.settings.show_date and article.published_at %}
+                  <div class="nx-bb-blog-grid__meta">
+                    {{ article.published_at | date: '%b %d, %Y' }}
+                  </div>
+                {% endif %}
+
+                <h2 class="nx-bb-blog-grid__title">
+                  <a href="{{ article.url }}">{{ article.title }}</a>
+                </h2>
+
+                {% if section.settings.show_excerpt %}
+                  <div class="nx-bb-blog-grid__excerpt">
+                    {{ article.excerpt_or_content | strip_html | truncate: 150 }}
+                  </div>
+                {% endif %}
+
+                <a href="{{ article.url }}" class="nx-bb-blog-grid__read-link">
+                  {{ section.settings.read_more_label }}
+                </a>
+              </div>
+            </article>
+          {% endfor %}
+        </div>
+      {% endif %}
+
+      {%- comment -%} LOWER GRID (SMALLER CARDS, 3 PER ROW DESKTOP) {%- endcomment -%}
+      {% if blog.articles_count > 2 %}
+        <div class="nx-bb-blog-grid__grid">
+          {% for article in blog.articles offset: 2 %}
+            <article class="nx-bb-blog-grid__card nx-bb-blog-grid__card--standard">
+              <a href="{{ article.url }}" class="nx-bb-blog-grid__image-link">
+                {% if article.image %}
+                  {{ article.image
+                    | image_url: width: 800
+                    | image_tag:
+                      loading: 'lazy',
+                      alt: article.image.alt | default: article.title | escape
+                  }}
+                {% endif %}
+              </a>
+
+              <div class="nx-bb-blog-grid__content">
+                {% if section.settings.show_date and article.published_at %}
+                  <div class="nx-bb-blog-grid__meta">
+                    {{ article.published_at | date: '%b %d, %Y' }}
+                  </div>
+                {% endif %}
+
+                <h3 class="nx-bb-blog-grid__title nx-bb-blog-grid__title--small">
+                  <a href="{{ article.url }}">{{ article.title }}</a>
+                </h3>
+
+                <a href="{{ article.url }}" class="nx-bb-blog-grid__read-link">
+                  {{ section.settings.read_more_label }}
+                </a>
+              </div>
+            </article>
+          {% endfor %}
+        </div>
+      {% endif %}
+    {% else %}
+      <p class="nx-bb-blog-grid__empty">
+        Select a blog in the section settings to display articles.
+      </p>
+    {% endif %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "NX BB - Blog grid",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "blog",
+      "id": "blog",
+      "label": "Blog",
+    },
+    {
+      "type": "checkbox",
+      "id": "show_date",
+      "label": "Show publish date",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_excerpt",
+      "label": "Show excerpt for featured articles",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "read_more_label",
+      "label": "Read more label",
+      "default": "Read full article"
+    },
+
+    {
+      "type": "header",
+      "content": "Filter tabs"
+    },
+    {
+      "type": "text",
+      "id": "filter_all_label",
+      "label": "All label",
+      "default": "All"
+    },
+    {
+      "type": "url",
+      "id": "filter_all_url",
+      "label": "All link (optional)"
+    },
+    {
+      "type": "text",
+      "id": "filter_1_label",
+      "label": "Filter 1 label",
+      "default": "Butchering & Meat Prep"
+    },
+    {
+      "type": "url",
+      "id": "filter_1_url",
+      "label": "Filter 1 link (optional)"
+    },
+    {
+      "type": "text",
+      "id": "filter_2_label",
+      "label": "Filter 2 label",
+      "default": "Cooking & Grilling"
+    },
+    {
+      "type": "url",
+      "id": "filter_2_url",
+      "label": "Filter 2 link (optional)"
+    },
+
+    {
+      "type": "range",
+      "id": "padding_top_desktop",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding top (desktop)",
+      "default": 64
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_desktop",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding bottom (desktop)",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "min": 0,
+      "max": 80,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding top (mobile)",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "min": 0,
+      "max": 80,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding bottom (mobile)",
+      "default": 56
+    }
+  ],
+  "presets": [
+    {
+      "name": "NX BB - Blog grid"
+    }
+  ]
+}
+{% endschema %}

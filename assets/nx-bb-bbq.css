@@ -1,0 +1,115 @@
+.nx-bb-bbq {
+  background: #fff;
+  padding: 48px 70px 64px
+}
+.nx-bb-bbq__header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px
+}
+.nx-bb-bbq__heading {
+  margin: 0;
+  font-family: "Barlow Condensed",sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  text-transform: uppercase
+}
+.nx-bb-bbq__shop-all {
+  font-family: "Bebas Neue",sans-serif;
+  font-size: 20px;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-bottom: 1px solid #000;
+  padding-bottom: 2px
+}
+.nx-bb-bbq__grid {
+  display: grid;
+  grid-template-columns: repeat(3,minmax(0,1fr));
+  gap: 32px
+}
+.nx-bb-bbq__card {
+  display: flex;
+  flex-direction: column
+}
+.nx-bb-bbq__image-wrapper {
+  position: relative;
+  width: 100%;
+  padding-top: 100%;
+  overflow: hidden
+}
+.nx-bb-bbq__image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .3s ease
+}
+.nx-bb-bbq__image-wrapper:hover .nx-bb-bbq__image {
+  transform: scale(1.03)
+}
+.nx-bb-bbq__meta {
+  margin-top: 16px;
+  font-family: "Barlow Condensed",sans-serif
+}
+.nx-bb-bbq__vendor {
+  margin: 0 0 4px;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  color: #1c1c1c
+}
+.nx-bb-bbq__title {
+  margin: 0 0 8px;
+  font-size: 20px;
+  font-weight: 700;
+  text-transform: uppercase
+}
+.nx-bb-bbq__rating-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 6px
+}
+.nx-bb-bbq__stars {
+  color: #9e3727;
+  font-size: 20px;
+  letter-spacing: 1px
+}
+.nx-bb-bbq__reviews {
+  font-size: 14px;
+  color: #1c1c1c
+}
+.nx-bb-bbq__price-row {
+  display: flex;
+  align-items: baseline;
+  gap: 8px
+}
+.nx-bb-bbq__price {
+   font-family: Work, sans-serif; 
+  font-size: 14px;
+  font-weight: 400
+}
+.nx-bb-bbq__compare {
+  font-size: 14px;
+  font-family: Work, sans-serif;
+  color: #777;
+  text-decoration: line-through
+}
+@media (max-width:1024px) {
+  .nx-bb-bbq {
+    padding: 40px 32px 48px
+  }
+  .nx-bb-bbq__grid {
+    gap: 24px
+  }
+}
+@media (max-width:780px) {
+  .nx-bb-bbq {
+    padding: 32px 24px 40px
+  }
+  .nx-bb-bbq__grid {
+    grid-template-columns: 1fr
+  }
+}

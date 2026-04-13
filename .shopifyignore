@@ -1,0 +1,25 @@
+# Node / build / tooling (if you ever add these)
+node_modules
+dist
+build
+tmp
+.temp
+*.map
+
+# Big / raw media – DO NOT send to Shopify
+*.mp4
+*.mov
+*.avi
+*.mkv
+*.wav
+*.psd
+*.ai
+*.fig
+*.sketch
+assets/*.mp4
+assets/*.mov
+
+
+# OS clutter
+.DS_Store
+Thumbs.db

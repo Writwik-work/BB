@@ -1,0 +1,75 @@
+{{ 'nx-bb-shop-hero.css' | asset_url | stylesheet_tag }}
+
+<section id="section-{{ section.id }}" class="nx-bb-shop-hero">
+  <div class="nx-bb-shop-hero__inner">
+    <div class="nx-bb-shop-hero__media">
+      {% if section.settings.hero_image != blank %}
+        <img
+          src="{{ section.settings.hero_image | image_url: width: 2000 }}"
+          alt="{{ section.settings.hero_image.alt | default: section.settings.hero_heading | escape }}"
+          width="{{ section.settings.hero_image.width }}"
+          height="{{ section.settings.hero_image.width | divided_by: section.settings.hero_image.aspect_ratio | round }}"
+          loading="lazy"
+        >
+      {% else %}
+        {%- comment -%} fallback to old asset if not selected {%- endcomment -%}
+        <img
+          src="{{ 'shop-hero/nx-bb-shop-hero.jpg' | asset_url }}"
+          alt="{{ section.settings.hero_heading | escape }}"
+          loading="lazy"
+        >
+      {% endif %}
+    </div>
+
+    <div class="nx-bb-shop-hero__content">
+      {% if section.settings.hero_heading != blank %}
+        <h1 class="nx-bb-shop-hero__heading">
+          {{ section.settings.hero_heading }}
+        </h1>
+      {% endif %}
+
+      {% if section.settings.hero_subcopy != blank %}
+        <p class="nx-bb-shop-hero__subcopy">
+          {{ section.settings.hero_subcopy }}
+        </p>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "NX – BB Shop hero",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "hero_image",
+      "label": "Hero image"
+    },
+    {
+      "type": "text",
+      "id": "hero_kicker",
+      "label": "Kicker",
+      "default": "HOME / SHOP"
+    },
+    {
+      "type": "text",
+      "id": "hero_heading",
+      "label": "Heading",
+      "default": "SHOP ALL"
+    },
+    {
+      "type": "textarea",
+      "id": "hero_subcopy",
+      "label": "Subcopy",
+      "default": "From premium seasonings to expert tools, explore everything you need to butcher, grill, and cook like a pro."
+    }
+  ],
+  "presets": [
+    {
+      "name": "NX – BB Shop hero",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}
